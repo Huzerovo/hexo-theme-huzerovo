@@ -1,0 +1,12 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
+    <title> <%= config.title %> </title>
+
+    <%- css(["css/main.css"]) %>
+
+    <% if (theme.mathjax && page.mathjax) { %>
+        <%- partial("partial/mathjax") %>
+    <% } %>
+
+</head>

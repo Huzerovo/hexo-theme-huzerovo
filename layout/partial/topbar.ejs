@@ -1,0 +1,24 @@
+<div id="topbar">
+    <div class="topbar-content">
+        <ul class="topbar-menu">
+            <% var i; var active; %>
+            <% for (var i in theme.menu) { %>
+                <% if (active === i) { %> 
+                <li class="topbar-menu-item">
+                    <%- link_to(theme.menu[i], _p(i), {class: "active"}) %>
+                </li>
+                <% } else { %>
+                <li class="topbar-menu-item">
+                    <%- link_to(theme.menu[i], _p(i)) %>
+                </li>
+                <% } %>
+            <% } %>
+        </ul>
+        <% if (is_post()) { %>
+        <div class="article-top-bar">
+            <a class="go-back" href="javascript:history.back()"><%= '< ' + _p("go_back") %></a>
+            <a class="go-to-top" href="#top-title"><%= _p("go_to_top") %></a>
+        </div>
+        <% } %>
+    </div>
+</div>

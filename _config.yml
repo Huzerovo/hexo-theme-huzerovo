@@ -1,0 +1,10 @@
+menu:
+  home: /
+  archive: /archives
+  category: /categories
+  tag: /tags
+  about: /about
+
+toc: true
+
+mathjax: true

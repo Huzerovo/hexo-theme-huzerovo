@@ -1,0 +1,21 @@
+<%- partial("partial/topbar", {active: "home"}) %>
+
+<main>
+    <div class="left-sidebar">
+        <%- partial("partial/categories-list") %>
+    </div>
+
+    <div class="main-content">
+        <%- partial("partial/pager") %>
+        
+        <article id="article-list">
+            <%- partial("partial/article-list") %>
+        </article>
+
+        <%- partial("partial/pager") %>
+    </div>
+
+    <div class="right-sidebar">
+        <%- partial("partial/tags-list") %>
+    </div>
+</main>

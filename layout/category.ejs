@@ -1,0 +1,22 @@
+<%- partial("partial/topbar", {active: "category"}) %>
+<main>
+    <div class="left-sidebar">
+        <%- partial("partial/categories-list") %>
+    </div>
+    
+    <div class="main-content">
+        <h1 class="page-title"><%- _p("category") %>: <%= page.category %></h1>
+
+        <%- partial("partial/pager") %>
+            
+        <article id="article-list">
+            <%- partial("partial/article-list") %>
+        </article>
+        
+        <%- partial("partial/pager") %>
+    </div>
+    
+    <div class="right-sidebar">
+        <%- partial("partial/tags-list") %>
+    </div>
+</main>

@@ -1,0 +1,11 @@
+<div class="pager">
+    <div class="page-list">
+        <% if (page.current === 1) { %>
+            <span class="extend prev"><</span>
+        <% } %>
+        <%- paginator({prev_text: '<', next_text: '>'}) %>
+        <% if (page.current === page.total) { %>
+            <span class="extend next">></span>
+        <% } %>
+    </div>
+</div>
