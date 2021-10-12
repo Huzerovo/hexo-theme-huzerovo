@@ -7,8 +7,7 @@
     <%- body %>
 </body>
 
-<% if (is_post()) { %>
-    <%- css(["css/article.css"]) %>
+<% if (is_post() || page.highlight) { %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>

@@ -1,7 +1,7 @@
 <%- partial("partial/topbar", {active: "archive"}) %>
 <main>
 
-    <div class = "main-content">
+    <div class = "main-container">
         <h1 class="page-title"><%= _p("archives") %></h1>
         <% var posts = site.posts.sort("date", "desc"); %>
         <% var p; var i = 0; var year = 0; %>

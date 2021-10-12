@@ -5,8 +5,11 @@
     <title> <%= config.title %> </title>
 
     <%- css(["css/main.css"]) %>
+    <%- css(["css/article.css"]) %>
+    <%- css(["css/media.css"]) %>
+    <%- css(["css/light.css"]) %>
 
-    <% if (theme.mathjax && page.mathjax) { %>
+    <% if (theme.mathjax && (page.mathjax || is_home() || is_tag() || is_category())) { %>
         <%- partial("partial/mathjax") %>
     <% } %>
 
