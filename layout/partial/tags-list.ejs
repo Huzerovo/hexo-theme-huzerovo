@@ -1,4 +1,5 @@
-<p style="text-align: center; font-weight: bold;"><%= _p("tags") %></p>
+<p class="info-title"><%= _p("tags") %></p>
 <% if (enable_count === undefined) {var enable_count = false}; %>
 <% if (tags === undefined) {var tags = site.tags}; %>
-<%- list_tags(tags, {show_count: enable_count, class: "site-tags"}) %>
+<% if (myclass === undefined) {var myclass = "site-tags"}; %>
+<%- list_tags(tags, {show_count: enable_count, class: myclass}) %>

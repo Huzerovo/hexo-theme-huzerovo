@@ -1,4 +1,5 @@
-<p style="text-align: center; font-weight: bold;"><%= _p("categories") %></p>
+<p class="info-title"><%= _p("categories") %></p>
 <% if (enable_count === undefined) {var enable_count = false}; %>
 <% if (categories === undefined) {var categories = site.categories}; %>
-<%- list_categories(categories, {show_count: enable_count, class: "site-categories"}) %>
+<% if (myclass === undefined) {var myclass = "site-categories"} %>
+<%- list_categories(categories, {show_count: enable_count, class: myclass}) %>

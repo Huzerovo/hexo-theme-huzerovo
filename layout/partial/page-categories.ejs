@@ -1,10 +1,8 @@
 <%- partial("topbar", {active: "category" }) %>
 
 <main>
-    <div class="left-sidebar"></div>
     <div class="main-content">
         <h1 class = "page-title"><%= _p("categories") %></h1>
         <%- list_categories(site.categories,{show_count: false, class: "page-category"}) %>
     </div>
-    <div class="right-sidebar"></div>
 </main>

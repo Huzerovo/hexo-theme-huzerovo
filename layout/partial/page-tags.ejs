@@ -1,11 +1,9 @@
 <%- partial("topbar", {active: "tag" }) %>
 <main>
-    <div class="left-sidebar"></div>
     <div class="main-content">
         <h1 class = "page-title"><%= _p("tagcloud") %></h1>
         <div class="page-tagcloud">
             <%- tagcloud({min_font: 16, max_font: 36, amount: 100, color: true, start_color: 'gray', end_color: 'black'}) %>
         </div>
     </div>
-    <div class="right-sidebar"></div>
 </main>
