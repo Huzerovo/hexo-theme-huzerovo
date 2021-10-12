@@ -55,7 +55,7 @@ mathjax: true
 需要在文章 Front-matter[^front-matter] 区域添加 `toc: true` 以在文章内启用  
 
 #### 公式渲染
-`mathjax` 全局选项，控制是否渲染 Tex/Latex 代码
+`mathjax` 全局选项，控制是否渲染 Tex/Latex 代码  
 需要在文章 Front-matter 区域添加 `mathjax: true` 以在文章内启用  
 
 [^front-matter]: Front-matter 是文件最上方以 --- 分隔的区域
