@@ -1,0 +1,16 @@
+<aside id="side-nav" class="hidden">
+    <ul class="side-menu">
+    <% var i; var active; %>
+    <% for (var i in theme.menu) { %>
+        <% if (i === active) { %> 
+        <li class="side-menu-item">
+            <%- link_to(theme.menu[i], _p(i), {class: "active"}) %>
+        </li>
+        <% } else { %>
+        <li class="side-menu-item">
+            <%- link_to(theme.menu[i], _p(i)) %>
+        </li>
+        <% } %>
+    <% } %>
+    </ul>
+</aside>

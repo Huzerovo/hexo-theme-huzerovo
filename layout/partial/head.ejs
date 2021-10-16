@@ -7,10 +7,22 @@
     <%- css(["css/main.css"]) %>
     <%- css(["css/article.css"]) %>
     <%- css(["css/media.css"]) %>
-    <%- css(["css/light.css"]) %>
-
+    <%- js(["js/huzerovo.js"]) %>
+    <%- css([url_for(theme.style.light.site)]) %>
+    <%- css([url_for(theme.style.dark.site)]) %>
+    <% if (theme.highlightjs) { %>
+    <link id="code-style" rel="stylesheet" href="<%= url_for(theme.style.light.code) %>">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>hljs.highlightAll(); </script>
+    <% } %>
     <% if (theme.mathjax && (page.mathjax || is_home() || is_tag() || is_category())) { %>
-        <%- partial("partial/mathjax") %>
+    <%- partial("partial/mathjax") %>
     <% } %>
 
-</head>
+    <script>
+        let codeStyle = {};
+        codeStyle.dark = "<%= url_for(theme.style.dark.code) %>";
+        codeStyle.light = "<%= url_for(theme.style.light.code) %>";
+        window.onload = setTheme();
+    </script>
+</head>    

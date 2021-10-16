@@ -4,13 +4,4 @@
     <%- partial("partial/page-tags") %>
 <% } else if (page.title === "about") { %>
     <%- partial("partial/page-about") %>
-<% } else { %>
-    <%- partial("partial/topbar") %>
-    <main>
-        <div id = "left-sidebar"></div>
-        <article id = "main-container">
-            <%- page.content %>
-        </article>
-        <div id = "right-sidebar"></div>
-    </main>
 <% } %>

@@ -1,3 +1,4 @@
+menu: Menu
 home: Home
 archive: Archive
 archives: Archives
@@ -9,6 +10,8 @@ tagcloud: Tag Cloud
 about: About Me
 search: Search
 toc: Content
-
+switch_theme: Switch Theme
 go_back: Go back
 go_to_top: Go to top
+publish: Publish
+last_update: Last Update

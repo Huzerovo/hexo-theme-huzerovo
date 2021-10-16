@@ -1,14 +1,19 @@
 <%- partial("partial/topbar") %>
+<%- partial("partial/side-menu") %>
 <main>
     <div class="left-sidebar">
         <% if (theme.toc && page.toc) { %>
-            <p class="info-title"><%= _p("toc") %></p>
+            <p class="sidebar-list-title"><%= _p("toc") %></p>
             <%- toc(page.content, {list_number: false}) %>
         <% } %>
     </div>
 
     <article class="main-container">
         <h1 style="text-align: center;" id="top-title"><%= page.title %></h1>
+        <div class="article-date-info">
+            <p> <%= _p("publish") %>: <%= page.date.format("YYYY-MM-DD") %></p>
+            <p><%= _p("last_update") %>: <%= page.updated.format("YYYY-MM-DD") %></p>
+        </div>
         <div class="inline-list">
         <% if (page.tags.length > 0) { %>
             <p class="inline-list-title"><%= _p("categories") %></p>

@@ -6,5 +6,13 @@ menu:
   about: /about
 
 toc: true
-
 mathjax: true
+highlightjs: true
+
+style:
+  light:
+    site: "css/light.css"
+    code: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github.min.css"
+  dark:
+    site: "css/dark.css"
+    code: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github-dark.min.css"
