@@ -24,5 +24,6 @@
         codeStyle.dark = "<%= url_for(theme.style.dark.code) %>";
         codeStyle.light = "<%= url_for(theme.style.light.code) %>";
         window.onload = setTheme();
+		window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchToMode);
     </script>
 </head>    
