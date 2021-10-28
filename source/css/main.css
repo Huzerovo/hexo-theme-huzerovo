@@ -324,7 +324,12 @@ main {
     padding: 6px;
 }
 
+.contains-task-list {
+	list-style: none;
+}
+
 /* 网站页尾 */
 footer {
     text-align: center;
 }
+
