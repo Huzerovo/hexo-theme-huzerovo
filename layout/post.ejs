@@ -1,13 +1,15 @@
 <%- partial("partial/topbar") %>
 <%- partial("partial/side-menu") %>
 <main>
-    <div class="left-sidebar">
-        <% if (theme.toc && page.toc) { %>
-            <p class="sidebar-list-title"><%= _p("toc") %></p>
-            <%- toc(page.content, {list_number: false}) %>
+     <div class="left-sidebar">
+        <% if (page.tags.length > 0) { %>
+            <%- partial("partial/tags-list", {tags: page.tags, myclass: "post-tags"}) %>
+        <% } %>
+        <% if (page.categories.length > 0) { %>
+            <%- partial("partial/categories-list", {categories: page.categories, myclass: "post-categories"}) %>
         <% } %>
     </div>
-
+    <div class="center-container">
     <article class="main-container">
         <h1 style="text-align: center;" id="top-title"><%= page.title %></h1>
         <div class="article-date-info">
@@ -26,13 +28,13 @@
         </div>
         <%- page.content %>
     </article>
-
+    </div>
     <div class="right-sidebar">
-        <% if (page.tags.length > 0) { %>
-            <%- partial("partial/tags-list", {tags: page.tags, myclass: "post-tags"}) %>
-        <% } %>
-        <% if (page.categories.length > 0) { %>
-            <%- partial("partial/categories-list", {categories: page.categories, myclass: "post-categories"}) %>
+        <% if (theme.toc && page.toc) { %>
+            <p class="sidebar-list-title"><%= _p("toc") %></p>
+            <%- toc(page.content, {list_number: false}) %>
         <% } %>
     </div>
+
+
 </main>

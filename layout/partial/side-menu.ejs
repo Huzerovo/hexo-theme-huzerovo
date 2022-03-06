@@ -13,4 +13,9 @@
         <% } %>
     <% } %>
     </ul>
+
+    <% if (theme.toc && page.toc) { %>
+        <p class="sidebar-list-title"><%= _p("toc") %></p>
+        <%- toc(page.content, {list_number: false}) %>
+    <% } %>
 </aside>

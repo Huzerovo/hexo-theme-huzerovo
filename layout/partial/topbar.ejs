@@ -16,9 +16,11 @@
         </ul>
         <div class="topbar-nav-bar">
             <a class="side-menu-button" href="javascript: changeMenu()"><%= _p("menu") %></a>
+            <% if(is_home() || is_post() || is_tag() || is_category()) { %>
+            <a class="switch-sidebar" href="javascript: switchSidebar()"><%= _p("switch_sidebar") %></a>
+            <% } %>
             <a class="switch-theme-button" href="javascript: switchTheme()"><%= _p("switch_theme") %></a>
             <a class="go-to-top" href="javascript: scrollTo(top)"><%= _p("go_to_top") %></a>
-            <a class="go-back" href="javascript: history.back()"><%= _p("go_back") %></a>
         </div>
     </div>
 </nav>

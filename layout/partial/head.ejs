@@ -5,17 +5,20 @@
     <title> <%= config.title %> </title>
 
     <%- css(["css/main.css"]) %>
-	<%- css(["css/animation.css"]) %>
+    <%- css(["css/animation.css"]) %>
     <%- css(["css/article.css"]) %>
     <%- css(["css/media.css"]) %>
     <%- js(["js/huzerovo.js"]) %>
+    <%- js(["js/jquery-3.6.0.min.js"]) %>
     <%- css([url_for(theme.style.light.site)]) %>
     <%- css([url_for(theme.style.dark.site)]) %>
+
     <% if (theme.highlightjs) { %>
     <link id="code-style" rel="stylesheet" href="<%= url_for(theme.style.light.code) %>">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="<%= url_for(theme.style.hljs) %>"></script>
     <script>hljs.highlightAll(); </script>
     <% } %>
+
     <% if (theme.mathjax && (page.mathjax || is_home() || is_tag() || is_category())) { %>
     <%- partial("partial/mathjax") %>
     <% } %>
@@ -24,7 +27,7 @@
         let codeStyle = {};
         codeStyle.dark = "<%= url_for(theme.style.dark.code) %>";
         codeStyle.light = "<%= url_for(theme.style.light.code) %>";
-        window.onload = setTheme();
-		window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchToMode);
+        window.onload = initTheme();
+        window.matchMedia("(prefers-color-scheme: light)").addEventListener('change', followTheme);
     </script>
 </head>    
