@@ -1,7 +1,11 @@
+<%# 这个文章用于展示一些自定义的页面 %>
 <% if (page.title==="categories") { %>
-    <%- partial("partial/page-categories") %>
+    <%# 这个页面展示了所有的分类 %>
+    <%- partial("partial/page/categories") %>
 <% } else if (page.title === "tags") { %>
-    <%- partial("partial/page-tags") %>
+    <%# 这个页面展示了所有的标签 %>
+    <%- partial("partial/page/tags") %>
 <% } else if (page.title === "about") { %>
-    <%- partial("partial/page-about") %>
+    <%# 这个页面展示了个人介绍 %>
+    <%- partial("partial/page/about") %>
 <% } %>

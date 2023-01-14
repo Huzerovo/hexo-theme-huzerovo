@@ -1,5 +1,6 @@
-<%- partial("topbar", {active: "tag"}) %>
-<%- partial("partial/side-menu", {active: "tag"}) %>
+<%# 这个页面以标签云的方式展示了所有的标签 %>
+<%- partial("../topbar", {active: "tag"}) %>
+<%- partial("../side-menu", {active: "tag"}) %>
 <main>
     <div class="center-container">
         <h1 class = "page-title"><%= _p("tagcloud") %></h1>

@@ -1,0 +1,12 @@
+<%# Gitalk评论 %>
+<div>
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        <% let conf = JSON.stringify(theme.gitalk); %>
+        let gitalk = new Gitalk(<%- conf %>);
+        gitalk.render("gitalk-container");
+    </script>
+</div>
+
