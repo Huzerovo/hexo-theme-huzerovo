@@ -9,7 +9,8 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
     <script>
         let c = <%- conf_json %>;
-        c.id = md5("<%= page.title %>");
+        c.title = "Article: " + "<%= page.title %>"
+        c.id = md5("<%= path %>");
         let gitalk = new Gitalk(c);
         gitalk.render("gitalk-container");
     </script>
