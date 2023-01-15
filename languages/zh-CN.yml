@@ -11,7 +11,10 @@ about: 关于我
 search: 搜索
 toc: 目录
 switch_theme: 切换主题
-switch-sidebar: 切换侧边栏
+switch_sidebar: 切换侧边栏
 go_to_top: 回到顶部
 publish: 发布
 last_update: 上次更新
+
+post:
+  disabled_comment: 已禁用评论=w=

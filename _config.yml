@@ -10,6 +10,7 @@ mathjax: true
 highlightjs: true
 
 gitalk:
+  enable: true
   clientID: '8430fc1311285afb9029'
   clientSecret: '6d9f1ff1d6db0df95fd537a3f3b2c686d35d641a'
   repo: 'HuzerovoGitalk'

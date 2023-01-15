@@ -1,17 +1,1 @@
-menu: 菜单
-home: 首页
-archive: 归档
-archives: 归档
-category: 分类
-categories: 分类
-tag: 标签
-tags: 标签
-tagcloud: 标签云
-about: 关于我
-search: 搜索
-toc: 目录
-switch_theme: 切换主题
-switch_sidebar: 切换侧边栏
-go_to_top: 回到顶部
-publish: 发布
-last_update: 上次更新
+./zh-CN.yml

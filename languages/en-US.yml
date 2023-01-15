@@ -15,3 +15,6 @@ switch-sidebar: Switch sidebar
 go_to_top: Go to top
 publish: Publish
 last_update: Last Update
+
+post:
+  disabled_comment: Comments are disabled

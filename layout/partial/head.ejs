@@ -5,6 +5,7 @@
     <title> <%= config.title %> </title>
 
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
     <% if (theme.highlightjs) { %>
     <link id="code-style" rel="stylesheet" href="<%= url_for(theme.style.light.code) %>">
@@ -16,7 +17,6 @@
     <%- css(["css/animation.css"]) %>
     <%- css(["css/article.css"]) %>
     <%- css(["css/media.css"]) %>
-    <%- js(["js/jquery-3.6.0.min.js"]) %>
     <%- css([url_for(theme.style.light.site)]) %>
     <%- css([url_for(theme.style.dark.site)]) %>
     <%- js(["js/huzerovo.js"]) %>
