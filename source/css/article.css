@@ -6,6 +6,7 @@
  */
 
 article.main-container {
+    font-family: sans;
     line-height: 1.5;
     padding: 0 1em;
 }
