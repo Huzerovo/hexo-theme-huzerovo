@@ -1,23 +1,27 @@
-<%# 这个页面显示具有相同标签的所有文章 %>
+<%# 标签 %>
+
+<%# 描述：这个页面显示具有相同标签的所有文章 %>
+<%# 这个文件不接收参数 %>
+
 <%- partial("partial/topbar", {active: "tag"}) %>
 <%- partial("partial/side-menu", {active: "tag"}) %>
 <main>
-<div class="left-sidebar">
-    <%- partial("partial/categories-list") %>
-</div>
-
-<div class="center-container">
-    <h1 class="page-title"><%- _p("tag") %>: <%= page.tag %></h1>
-    <%- partial("partial/pager") %>
-        
-    <article id="article-list">
-        <%- partial("partial/article-list") %>
-    </article>
-
-    <%- partial("partial/pager") %>
-</div>
-
-<div class="right-sidebar">
-    <%- partial("partial/tags-list") %>
-</div>
+    <div class="left-sidebar">
+        <%- partial("partial/list-categories") %>
+    </div>
+    
+    <div class="center-container">
+        <h1 class="page-title">
+            <%- _p("tag") %>: <%= page.tag %>
+        </h1>
+        <%- partial("partial/pager") %>
+        <article id="article-list">
+            <%- partial("partial/list-articles") %>
+        </article>
+        <%- partial("partial/pager") %>
+    </div>
+    
+    <div class="right-sidebar">
+        <%- partial("partial/list-tags") %>
+    </div>
 </main>

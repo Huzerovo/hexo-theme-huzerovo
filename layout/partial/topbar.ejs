@@ -1,26 +1,39 @@
+<%# 顶栏 %>
+
+<%# 描述：网站顶栏 %>
+<%# 传入参数：active %>
+<%# 类型：string %>
+<%# 意义：当前页面名称，表示高亮正在活跃的页面 %>
+
 <nav id="topbar">
     <div class="topbar-container">
+        <%# 左侧的页面导航 %>
         <ul class="topbar-menu">
-        <% var i; var active; %>
-        <% for (var i in theme.menu) { %>
-            <% if (active === i) { %> 
+        <% for (let i in theme.menu) { %>
             <li class="topbar-menu-item">
+            <%# 在具体的一篇文章里不会传入active，表明无需高亮，需要判断一下 %>
+            <% if (typeof active !== 'undefined' && i === active) { %> 
                 <%- link_to(theme.menu[i], _p(i), {class: "active"}) %>
-            </li>
             <% } else { %>
-            <li class="topbar-menu-item">
                 <%- link_to(theme.menu[i], _p(i)) %>
-            </li>
             <% } %>
+            </li>
         <% } %>
         </ul>
-        <div class="topbar-nav-bar">
-            <a class="side-menu-button" href="javascript: changeMenu()"><%= _p("menu") %></a>
-            <% if(is_home() || is_post() || is_tag() || is_category()) { %>
-            <a class="switch-sidebar" href="javascript: switchSidebar()"><%= _p("switch_sidebar") %></a>
-            <% } %>
-            <a class="switch-theme-button" href="javascript: switchTheme()"><%= _p("switch_theme") %></a>
-            <a class="go-to-top" href="javascript: scrollTo(top)"><%= _p("go_to_top") %></a>
+
+        <%# 右侧的一些图标按钮 %>
+        <div class="topbar-icon-buttons">
+            <button id="btn-side-menu" class="icon-button btn-side-menu">
+                <%= _p("menu") %>
+            </button>
+            <button id="btn-switch-theme" class="icon-button btn-switch-theme">
+                <%# src在页面加载完成后通过js设置 %>
+                <img id="icon-theme" alt="theme" src="" />
+            </button>
+            <button id="btn-search" class="icon-button btn-search" class="icon-button">
+                <%# src在页面加载完成后通过js设置 %>
+                <img id="icon-search" alt="search" src="" />
+            </button>
         </div>
     </div>
 </nav>

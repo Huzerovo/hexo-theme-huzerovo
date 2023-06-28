@@ -1,5 +1,12 @@
-<p class="sidebar-list-title"><%= _p("tags") %></p>
+<%# 标签列表 %>
+
+<%# 描述：在侧边展示网站拥有的所有标签 %>
+
+<p class="sidebar-list-title">
+    <%= _p("tags") %>
+</p>
 <% if (enable_count === undefined) {var enable_count = false}; %>
 <% if (tags === undefined) {var tags = site.tags}; %>
 <% if (myclass === undefined) {var myclass = "site-tags"}; %>
 <%- list_tags(tags, {show_count: enable_count, class: myclass}) %>
+

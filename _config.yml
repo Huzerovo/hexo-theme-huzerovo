@@ -22,8 +22,8 @@ gitalk:
 style:
   hljs: "js/highlight.min.js"
   light:
-    site: "css/light.css"
+    site: "css/light/light.css"
     code: "css/github.min.css"
   dark:
-    site: "css/dark.css"
+    site: "css/dark/dark.css"
     code: "css/github-dark.min.css"

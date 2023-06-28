@@ -1,11 +1,13 @@
-<%# 这个文章用于展示一些自定义的页面 %>
-<% if (page.title==="categories") { %>
-    <%# 这个页面展示了所有的分类 %>
-    <%- partial("partial/page/categories") %>
+<%# 页面 %>
+
+<%# 描述这个文件用于展示一些自定义的页面 %>
+<%# 这个文件不接收参数 %>
+
+<% if (page.title === "categories") { %>
+    <%- partial("page/categories"); %>
 <% } else if (page.title === "tags") { %>
-    <%# 这个页面展示了所有的标签 %>
-    <%- partial("partial/page/tags") %>
+    <%- partial("page/tags"); %>
 <% } else if (page.title === "about") { %>
-    <%# 这个页面展示了个人介绍 %>
-    <%- partial("partial/page/about") %>
+    <%- partial("page/about"); %>
+<% } else { %>
 <% } %>

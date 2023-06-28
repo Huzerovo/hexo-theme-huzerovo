@@ -1,24 +1,28 @@
-<%# 这个文章展示了具有相同分类的所有文章 %>
+<%# 分类 %>
+
+<%# 描述：这个页面展示了具有相同分类的所有文章 %>
+<%# 这个文件不接收参数 %>
+
 <%- partial("partial/topbar", {active: "category"}) %>
 <%- partial("partial/side-menu", {active: "category"}) %>
 <main>
     <div class="left-sidebar">
-        <%- partial("partial/categories-list") %>
+        <%- partial("partial/list-categories") %>
     </div>
     
     <div class="center-container">
-        <h1 class="page-title"><%- _p("category") %>: <%= page.category %></h1>
-
+        <h1 class="page-title">
+            <%- _p("category") %>: <%= page.category %>
+        </h1>
         <%- partial("partial/pager") %>
-            
+        <%# 在这个页面中，列表会被自动解析到具有同样分类的文章列表 %>
         <article id="article-list">
-            <%- partial("partial/article-list") %>
+            <%- partial("partial/list-articles") %>
         </article>
-        
         <%- partial("partial/pager") %>
     </div>
     
     <div class="right-sidebar">
-        <%- partial("partial/tags-list") %>
+        <%- partial("partial/list-tags") %>
     </div>
 </main>

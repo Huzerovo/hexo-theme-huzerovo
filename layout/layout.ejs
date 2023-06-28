@@ -2,18 +2,58 @@
 <!DOCTYPE html>
 <html  id="root" lang="<%= config.language %> ">
 
-<%- partial("partial/head") %>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title> <%= config.title %> </title>
+
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <% if (theme.highlightjs) { %>
+    <link id="code-style" rel="stylesheet" href="<%= url_for(theme.style.light.code) %>">
+    <script src="<%= url_for(theme.style.hljs) %>"></script>
+    <script>hljs.highlightAll(); </script>
+    <% } %>
+
+    <%- css([url_for(theme.style.light.site)]) %>
+    <%- css([url_for(theme.style.dark.site)]) %>
+    <%- css(["css/animation.css"]) %>
+    <%- css(["css/article.css"]) %>
+    <%- css(["css/main.css"]) %>
+    <%- css(["css/media.css"]) %>
+    <%- css(["css/sidebar.css"]) %>
+    <%- css(["css/topbar.css"]) %>
+    <%- js(["js/huzerovo.js"]) %>
+
+    <% if (theme.mathjax && (page.mathjax || is_home() || is_tag() || is_category())) { %>
+        <%- partial("partial/mathjax") %>
+    <% } %>
+
+    <script>
+        let codeStyle = {};
+        codeStyle.dark = "<%= url_for(theme.style.dark.code) %>";
+        codeStyle.light = "<%= url_for(theme.style.light.code) %>";
+        window.load = myLoading();
+        window.matchMedia("(prefers-color-scheme: light)").addEventListener('change', followTheme);
+    </script>
+</head>
 
 <body>
     <%- body %>
+    <button id="goto-top" type="button" title="<%= _p("go_to_top") %>">
+        <%= _p('go_to_top') %>
+    </button>
     <footer>
         <p> Copyright <%= date(Date.now(), 'YYYY') %> @<%= config.author %></p>
         <p>
-            Powered by <a class="footer-link" href="https://hexo.io">Hexo</a>. Theme by HuLingOAO.
+            Powered by <a class="footer-link" href="https://hexo.io">Hexo</a>. Theme by 狐zerOAO.
         </p>
         <br>
     </footer>
 </body>
-
-
+<script>
+    myFinished();
+</script>
 </html>

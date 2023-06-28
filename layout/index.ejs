@@ -1,23 +1,27 @@
-<%# 这个是首页 %>
+<%# 首页 %>
+
+<%# 描述：默认进入首页 %>
+<%# 这个文件不接收参数 %>
+
 <%- partial("partial/topbar", {active: "home"}) %>
 <%- partial("partial/side-menu", {active: "home"}) %>
 <main>
     <div class="left-sidebar">
-        <%- partial("partial/categories-list") %>
+        <%- partial("partial/list-categories") %>
     </div>
 
     <div class="center-container">
-        <h1 class="page-title"><%= _p("home") %></h1>
+        <h1 class="page-title">
+            <%= _p("home") %>
+        </h1>
         <%- partial("partial/pager") %>
-        
         <article id="article-list">
-            <%- partial("partial/article-list") %>
+            <%- partial("partial/list-articles") %>
         </article>
-
         <%- partial("partial/pager") %>
     </div>
 
     <div class="right-sidebar">
-        <%- partial("partial/tags-list") %>
+        <%- partial("partial/list-tags") %>
     </div>
 </main>
