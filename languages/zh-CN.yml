@@ -12,6 +12,7 @@ search: 搜索
 toc: 目录
 switch_theme: 切换主题
 switch_sidebar: 切换侧边栏
+input-keywords: 请输入关键字，使用"/regex/"进行正则搜索...
 go_to_top: 回到顶部
 publish: 发布
 last_update: 上次更新

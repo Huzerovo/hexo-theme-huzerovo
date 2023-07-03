@@ -26,6 +26,7 @@
     <%- css(["css/sidebar.css"]) %>
     <%- css(["css/topbar.css"]) %>
     <%- js(["js/huzerovo.js"]) %>
+    <%- js(["js/search.js"]) %>
 
     <% if (theme.mathjax && (page.mathjax || is_home() || is_tag() || is_category())) { %>
         <%- partial("partial/mathjax") %>
@@ -54,6 +55,38 @@
     </footer>
 </body>
 <script>
-    myFinished();
+$('#goto-top').hide();
+// 页面载入后设置icon
+setTheme(getStorage('currentTheme'));
+$(document).ready(function() {
+    // 监听事件
+    $('#btn-switch-theme').click(switchTheme);
+    $('#btn-side-menu').click(function() {
+        let e = $('#side-nav');
+        let hide = 'side-menu-hidden'
+        let show = 'side-menu-show'
+        if (e.hasClass(hide)) {
+            e.removeClass(hide);
+            e.addClass(show);
+        } else {
+            e.removeClass(show);
+            e.addClass(hide);
+        }
+    });
+    $('#search').on('input', function() {
+        searchArticle("<%= url_for(config.search.path) %>");
+    });
+    $('#goto-top').click(function() {
+        $('#root').scrollTop(0);
+    });
+
+    $(window).scroll(function() {
+        if ($('#root').scrollTop() > 300) {
+            $('#goto-top').show();
+        } else {
+            $('#goto-top').hide();
+        }
+    });
+});
 </script>
 </html>

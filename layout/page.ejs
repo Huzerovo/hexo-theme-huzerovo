@@ -9,5 +9,8 @@
     <%- partial("page/tags"); %>
 <% } else if (page.title === "about") { %>
     <%- partial("page/about"); %>
+<% } else if (page.title === "search") { %>
+    <%- partial("page/search"); %>
 <% } else { %>
+    <%- partial("page/default"); %>
 <% } %>
