@@ -75,3 +75,8 @@ article pre>code {
     position: sticky;
     top: 38px;
 }
+
+#gitalk-container {
+    border-radius: 16px;
+    padding: 0px 16px;
+}

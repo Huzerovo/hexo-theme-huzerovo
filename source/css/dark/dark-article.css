@@ -39,3 +39,7 @@
 .dark article pre>code:not([class~="hljs"]) {
     background-color: black;
 }
+
+.dark #gitalk-container {
+    background-color: rgb(50, 50, 50);
+}

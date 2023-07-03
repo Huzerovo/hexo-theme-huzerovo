@@ -2,11 +2,19 @@
 <div class="pager">
     <div class="page-list">
         <% if (page.current === 1) { %>
-            <span class="extend prev"><</span>
+            <span class="extend prev">
+                <i class="bi bi-arrow-left-short"></i>
+            </span>
         <% } %>
-        <%- paginator({prev_text: '<', next_text: '>'}) %>
+        <%- paginator({
+            prev_text: '<i class="bi bi-arrow-left-short"></i>', 
+            next_text: '<i class="bi bi-arrow-right-short"></i>',
+            escape: false
+        }) %>
         <% if (page.current === page.total) { %>
-            <span class="extend next">></span>
+            <span class="extend next">
+                <i class="bi bi-arrow-right-short"></i>
+            </span>
         <% } %>
     </div>
 </div>

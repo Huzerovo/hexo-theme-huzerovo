@@ -73,11 +73,11 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .right-sidebar {
+    .left-sidebar {
         width: 30%;
     }
 
-    .left-sidebar {
+    .right-sidebar {
         display: none;
     }
 }
@@ -87,7 +87,7 @@
         display: block;
     }
 
-    .right-sidebar {
+    .left-sidebar {
         display: none;
     }
 }
