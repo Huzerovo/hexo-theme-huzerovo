@@ -11,7 +11,7 @@
 }
 
 #side-nav .toc {
-    padding-left: 2em;
+    padding-left: 32px;
 }
 
 .side-menu {
@@ -44,7 +44,6 @@
 .left-sidebar,
 .right-sidebar {
     width: 20%;
-    height: 100%;
 }
 
 /* 侧边栏标签与分类样式 */

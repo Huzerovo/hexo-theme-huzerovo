@@ -15,6 +15,7 @@
     border-left-color: rgb(150, 150, 150);
     border-top-color: rgb(50, 50, 50);
     background-color: dimgray;
+    color: lightgray;
 }
 
 .dark article table thead {
