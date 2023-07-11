@@ -4,38 +4,45 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="google" content="notranslate" />
+    <meta name="author" content="<%= config.author %>" />
+    <meta name="description" content="<%= config.description %>" />
+    <meta name="generator" content="<%= config.description %>" />
+    <meta name="keywords" content="<%= config.keywords %>" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="dark">
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title> <%= config.title %> </title>
 
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <title> <%= config.title + ' - ' + config.subtitle + ' | ' +config.description %> </title>
 
-    <% if (theme.highlightjs) { %>
-    <link id="code-style" rel="stylesheet" href="<%= url_for(theme.style.light.code) %>">
-    <script src="<%= url_for(theme.style.hljs) %>"></script>
-    <script>hljs.highlightAll(); </script>
+    <%# Bootstrap icons %>
+    <%- css(url_for(theme.bootstrap)) %>
+    <%# jQuery %>
+    <%- js(url_for(theme.jquery)) %>
+    <%# highlight.js仅在网站未启用Hexo内置的高亮时使用 %>
+    <% if (theme.hljs.enable && !config.highlight.enable) { %>
+        <%- css({
+        href: url_for(theme.style.code.light), 
+        id: 'code-style'}) 
+        %>
+        <%- js(url_for(theme.hljs.js)) %>
+        <script>hljs.highlightAll();</script>
     <% } %>
-
-    <%- css([url_for(theme.style.light.site)]) %>
-    <%- css([url_for(theme.style.dark.site)]) %>
-    <%- css(["css/animation.css"]) %>
-    <%- css(["css/article.css"]) %>
-    <%- css(["css/main.css"]) %>
-    <%- css(["css/sidebar.css"]) %>
-    <%- css(["css/topbar.css"]) %>
-    <%- js(["js/huzerovo.js"]) %>
-    <%- js(["js/search.js"]) %>
-
-    <% if (theme.mathjax && (page.mathjax || is_home() || is_tag() || is_category())) { %>
+    <%# 网站布局框架 %>
+    <%- css('css/huzerovo.css') %>
+    <%# 网站主题 %>
+    <%- css(url_for(theme.style.site.light)) %>
+    <%- css(url_for(theme.style.site.dark)) %>
+    <%# 一些辅助功能 %>
+    <%- js(['js/huzerovo.js', 'js/search.js']) %>
+    <%# Mathjax %>
+    <% if (theme.mathjax && page.mathjax) { %>
         <%- partial("partial/mathjax") %>
     <% } %>
-
     <script>
+        // 设置主题
         let codeStyle = {};
-        codeStyle.dark = "<%= url_for(theme.style.dark.code) %>";
-        codeStyle.light = "<%= url_for(theme.style.light.code) %>";
+        codeStyle.light = "<%= url_for(theme.style.code.light) %>";
+        codeStyle.dark = "<%= url_for(theme.style.code.dark) %>";
         window.load = myLoading();
         window.matchMedia("(prefers-color-scheme: light)").addEventListener('change', followTheme);
     </script>
@@ -43,17 +50,20 @@
 
 <body>
     <%- body %>
-    <button id="goto-top" type="button" title="<%= _p("go_to_top") %>">
-        <%= _p('go_to_top') %>
+    <%# 返回顶部按钮 %>
+    <button id="goto-top" type="button" title="<%= _p("goto_top") %>">
+        <%= _p('goto_top') %>
     </button>
     <footer>
         <p> Copyright <%= date(Date.now(), 'YYYY') %> @<%= config.author %></p>
         <p>
-            Powered by <a class="footer-link" href="https://hexo.io">Hexo</a>. Theme by 狐zerOAO.
+            Powered by <a href="https://hexo.io">Hexo</a>. 
+            Theme by <a href="https://github.com/HuzerOVO/hexo-theme-huzerovo">狐zerOAO</a>.
         </p>
         <br>
     </footer>
 </body>
+
 <script>
 $('#goto-top').hide();
 // 页面载入后设置icon

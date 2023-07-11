@@ -1,0 +1,108 @@
+/*
+ * 文章内容样式
+ */
+
+/* 文章内容 */
+article.article-container {
+    font-family: sans;
+    line-height: 1.5;
+    padding: 0 16px;
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-indent: 32px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    blockquote {
+        border-left-width: 3px;
+        border-left-style: solid;
+        border-top-width: 3px;
+        border-top-style: solid;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        padding-inline-start: 40px;
+        padding-inline-end: 40px;
+        padding-block-start: 6px;
+        padding-block-end: 6px;
+    }
+
+    table {
+        width: 90%;
+        margin: 0 auto;
+        border: 1px solid;
+        border-collapse: collapse;
+
+        td {
+            border: 1px solid;
+            padding: 0 6px;
+        }
+
+        th {
+            border: 1px solid;
+            padding: 0 9px;
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    code {
+        font-size: large;
+        padding: 0px 8px;
+        border-radius: 6px;
+        margin: 0 3px;
+    }
+
+    pre {
+        code {
+            display: block;
+            overflow-x: auto;
+            padding: 16px;
+        }
+    }
+}
+
+/* 文章标签 */
+.article-meta-info {
+    .category-list,
+    .tag-list {
+        margin: 0px;
+
+        li {
+            margin: 0 8px;
+            display: inline-block;
+        }
+    }
+
+    a { 
+        text-decoration: none;
+    }
+
+}
+
+/* 日期信息 */
+.article-date-info {
+    margin: 8px auto;
+    span {
+        font-size: small;
+        font-style: italic;
+        display: block;
+    }
+}
+
+/* 评论 */
+.article-comment {
+    text-align: center;
+    border-radius: 16px;
+    padding: 0px 16px;
+    padding-bottom: 8px;
+    margin: 16px 0px;
+}

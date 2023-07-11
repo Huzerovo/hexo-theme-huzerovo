@@ -1,0 +1,36 @@
+/*
+ * 网站整体样式框架，不包括颜色设置
+ */
+html {
+    scroll-behavior: smooth;
+
+    * {
+        transition: 300ms;
+    }
+}
+
+body {
+    margin: 0;
+
+    @import 'topbar.less';
+    
+    @import 'main.less';
+
+    #goto-top {
+        position: fixed;
+        right: 8%;
+        bottom: 8%;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    /* 网站页尾 */
+    footer {
+        text-align: center;
+    }
+
+    @import 'pager';
+    @import 'toc';
+}

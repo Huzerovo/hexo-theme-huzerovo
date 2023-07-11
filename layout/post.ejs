@@ -4,43 +4,37 @@
 <%# 这个文件不接收参数 %>
 
 <%- partial("partial/topbar") %>
-<%- partial("partial/side-menu") %>
+<div id="article-toc">
+<% if (theme.toc && page.toc) { %>
+    <p class="sidebar-list-title"><%= _p("toc") %></p>
+    <%- toc(page.content, {list_number: false}) %>
+<% } %>
+</div>
 <main>
-     <div class="left-sidebar article-toc">
-        <% if (theme.toc && page.toc) { %>
-            <p class="sidebar-list-title"><%= _p("toc") %></p>
-            <%- toc(page.content, {list_number: false}) %>
-        <% } %>
-    </div>
-    <div class="center-container">
-        <article class="main-container">
-            <h1 style="text-align: center;" id="top-title"><%= page.title %></h1>
-            <div class="article-date-info">
-                <p><%= _p("publish") %>: <%= page.date.format("YYYY-MM-DD") %></p>
-                <p><%= _p("last_update") %>: <%= page.updated.format("YYYY-MM-DD") %></p>
-            </div>
-            <div class="inline-list">
-            
-            <% if (page.tags.length > 0) { %>
-                <p class="inline-list-title"><%= _p("categories") %></p>
-                <%- list_categories(page.categories, {show_count: false, class: "inline-list-post-categories"}) %>
-            <% } %>    
-            
-            <% if (page.categories.length > 0) { %>
-                <p class="inline-list-title"><%= _p("tags") %></p>
-                <%- list_tags(page.tags, {show_count: false, class: "inline-list-post-tags"}) %>
-            <% } %>
-            </div>
+    <div class="container">
+        <%# 文章主要内容 %>
+        <article class="article-container">
+            <h1><%= page.title %></h1>
             <%- page.content %>
         </article>
-        <%- partial('partial/gitalk') %>
-    </div>
-    <div class="right-sidebar">
-        <% if (page.tags.length > 0) { %>
-            <%- partial("partial/list-tags", {tags: page.tags, myclass: "post-tags"}) %>
-        <% } %>
-        <% if (page.categories.length > 0) { %>
-            <%- partial("partial/list-categories", {categories: page.categories, myclass: "post-categories"}) %>
-        <% } %>
+        <%# 文章的标签与分类 %>
+        <div class="article-meta-info">
+            <% if (page.tags.length > 0) { %>
+                <span><%= _p("categories") %></span>
+                <%- list_categories(page.categories, {show_count: false}) %>
+            <% } %>    
+            <% if (page.categories.length > 0) { %>
+                <span><%= _p("tags") %></span>
+                <%- list_tags(page.tags, {show_count: false}) %>
+            <% } %>
+        </div>
+        <%# 文章的发布/更新日期 %>
+        <div class="article-date-info">
+            <span><%= _p("publish") %>: <%= page.date.format("YYYY-MM-DD") %></span>
+            <span><%= _p("last_update") %>: <%= page.updated.format("YYYY-MM-DD") %></span>
+        </div>
+        <div class="article-comment">
+            <%- partial('partial/gitalk') %>
+        </div>
     </div>
 </main>

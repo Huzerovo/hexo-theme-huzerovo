@@ -1,6 +1,0 @@
-<%# 分类列表 %>
-<p class="sidebar-list-title"><%= _p("categories") %></p>
-<% if (enable_count === undefined) {var enable_count = false}; %>
-<% if (categories === undefined) {var categories = site.categories}; %>
-<% if (myclass === undefined) {var myclass = "site-categories"} %>
-<%- list_categories(categories, {show_count: enable_count, class: myclass}) %>

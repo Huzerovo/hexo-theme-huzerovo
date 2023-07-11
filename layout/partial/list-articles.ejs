@@ -3,15 +3,19 @@
 <%# 描述：这个文件负责展示页面所拥有的所有文章，如：具有同样标签的文章 %>
 <%# 这个文件不接收参数%>
 
+<article class="articles-list">
 <% let posts = page.posts.sort("data", "desc") %>
 <% for (let i = 0; i < posts.length; i++) { %>
     <% let p = posts.data[i] %>
-    <article class="article-list-item">
+    <article class="articles-list-item">
         <a href="<%- url_for(p.path) %>">
-            <h3><%= p.title || "Untitled" %></h3>
-            <p>
-                <%- truncate(strip_html(p.content), {length: 80, omission: "..." }) %>
+            <p class="item-title">
+                <%= p.title || "Untitled" %>
+            </p>
+            <p class="item-content">
+                <%- truncate(strip_html(p.content), {length: 160, omission: "..." }) %>
             </p>
         </a>
     </article>
 <% } %>
+</article>

@@ -3,14 +3,9 @@
 <%# 描述这个文件用于展示一些自定义的页面 %>
 <%# 这个文件不接收参数 %>
 
-<% if (page.title === "categories") { %>
-    <%- partial("page/categories"); %>
-<% } else if (page.title === "tags") { %>
-    <%- partial("page/tags"); %>
-<% } else if (page.title === "about") { %>
-    <%- partial("page/about"); %>
-<% } else if (page.title === "search") { %>
-    <%- partial("page/search"); %>
+<% if (page.title) { %>
+    <%- partial("partial/topbar", {active: page.title}) %>
+    <%- partial("page/" + page.title); %>
 <% } else { %>
     <%- partial("page/default"); %>
 <% } %>

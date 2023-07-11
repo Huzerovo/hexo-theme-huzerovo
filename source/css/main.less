@@ -1,0 +1,66 @@
+/* 主体区域 */
+main {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    padding: 0 16px;
+    margin: 0 auto;
+
+    /* 中间显示区域 */
+    .container {
+        width: 60%;
+
+        /* 页面标题 */
+        .page-title {
+            text-align: center;
+        }
+
+        /* 通用的文章列表 */
+        @import 'page/base.less';
+    
+        /* 归档页的样式 */
+        @import 'page/archive.less';
+
+        /* 分类页面的样式 */
+        @import 'page/categories.less';
+
+        /* 标签云页面的样式 */
+        @import 'page/tagcloud.less';
+
+        /* 文章样式 */
+        @import 'page/post.less';
+
+        /* 搜索页面 */
+        @import 'page/search.less';
+    }
+}
+
+/* 80 * 16 px */
+@media screen and (max-width: 1280px) {
+    main {
+        width: 80%;
+
+        .container {
+            width: 80%;
+        }
+    }
+}
+
+/* 60 * 16 px */
+@media screen and (max-width: 960px) {
+    main {
+        width: 90%;
+    }
+}
+
+/* 40 * 16 px */
+@media screen and (max-width: 640px) {
+    main {
+        width: 100%;
+
+        .container {
+            width: 100%;
+        }
+    }
+}

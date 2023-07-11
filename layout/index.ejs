@@ -4,24 +4,13 @@
 <%# 这个文件不接收参数 %>
 
 <%- partial("partial/topbar", {active: "home"}) %>
-<%- partial("partial/side-menu", {active: "home"}) %>
 <main>
-    <div class="left-sidebar">
-        <%- partial("partial/list-categories") %>
-    </div>
-
-    <div class="center-container">
+    <div class="container">
         <h1 class="page-title">
             <%= _p("home") %>
         </h1>
         <%- partial("partial/pager") %>
-        <article class="article-list">
-            <%- partial("partial/list-articles") %>
-        </article>
+        <%- partial("partial/list-articles") %>
         <%- partial("partial/pager") %>
-    </div>
-
-    <div class="right-sidebar">
-        <%- partial("partial/list-tags") %>
     </div>
 </main>

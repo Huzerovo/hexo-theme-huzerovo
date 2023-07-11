@@ -1,20 +1,11 @@
 <%# 分页器 %>
 <div class="pager">
     <div class="page-list">
-        <% if (page.current === 1) { %>
-            <span class="extend prev">
-                <i class="bi bi-arrow-left-short"></i>
-            </span>
-        <% } %>
         <%- paginator({
             prev_text: '<i class="bi bi-arrow-left-short"></i>', 
             next_text: '<i class="bi bi-arrow-right-short"></i>',
-            escape: false
+            escape: false,
+            force_prev_next: true
         }) %>
-        <% if (page.current === page.total) { %>
-            <span class="extend next">
-                <i class="bi bi-arrow-right-short"></i>
-            </span>
-        <% } %>
     </div>
 </div>

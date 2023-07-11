@@ -3,16 +3,16 @@
 <%# 描述：用于搜索文章 %>
 <%# 这个文件不接收参数 %>
 
-<%- partial("../partial/topbar") %>
-<%- partial("../partial/side-menu") %>
 <main>
-    <div class="center-container">
-        <h1 class = "page-title"><%= _p("search") %></h1>
+    <div class="container">
+        <h1 class = "page-title">
+            <%= _p("search") %>
+        </h1>
         <div class="search-input">
             <input id="search" placeholder="<%= _p("input-keywords") %>"/>
         </div>
         <div id="search-result">
-            <article class="article-list"></article>
+            <article class="articles-list"></article>
         </div>
     </div>
 </main>

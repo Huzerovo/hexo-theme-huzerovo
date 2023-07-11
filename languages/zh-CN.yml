@@ -13,9 +13,8 @@ toc: 目录
 switch_theme: 切换主题
 switch_sidebar: 切换侧边栏
 input-keywords: 请输入关键字，使用"/regex/"进行正则搜索...
-go_to_top: 回到顶部
-publish: 发布
-last_update: 上次更新
+goto_top: 回到顶部
+publish: 发布日期
+last_update: 更新日期
 
-post:
-  disabled_comment: 已禁用评论=w=
+comment_disabled: 已禁用评论=w=
