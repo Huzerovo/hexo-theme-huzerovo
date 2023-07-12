@@ -1,15 +1,13 @@
 /*
- * 主题颜色 Light 样式
- *
- * Created by 狐zerOAO
+ * 亮色主题
  */
 
-body {
+.light body {
     background-color: whitesmoke;
     color: rgb(50, 50, 50);
 
     #goto-top {
-        background-color: black;
+        background-color: rgb(120, 120, 120);
         color: white;
         opacity: 50%;
     }
@@ -24,6 +22,11 @@ body {
         a {
             color: #9999ff;
         }
+
+        a:visited {
+            color: tomato;
+        }
+
         a:hover {
             color: #66ccff;
         }
@@ -32,6 +35,6 @@ body {
     /* 分页器 */
     @import 'light-pager.less';
 
-    /**/
+    /* 目录 */
     @import 'light-toc.less';
 }

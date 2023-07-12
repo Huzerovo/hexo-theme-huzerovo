@@ -27,7 +27,7 @@
                     <%= p.date.format("MM-DD") %>
                 </div>
                 <%# 文章链接 %>
-                <a href="<%- url_for(p.path) %>" class="page-archive-item-link">
+                <a href="<%- url_for(p.path) %>">
                     <%= p.title || "Untitled" %>
                 </a>
             </div>

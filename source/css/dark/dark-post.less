@@ -1,11 +1,11 @@
 /* 文章 */
 article.article-container {
     a {
-        color: #9999ff;
+        color: orchid;
     }
 
     a:visited {
-        color: orchid;
+        color: #9999ff;
     }
 
     a:hover {
@@ -13,34 +13,39 @@ article.article-container {
     }
 
     blockquote {
-        background-color: rgb(230, 230, 230);
+        border-left-color: rgb(150, 150, 150);
+        background-color: rgb(40, 40, 40);
         color: gray;
     }
 
     hr {
-        color: lightgray;
+        color: gray;
     }
 
     table {
         thead {
-            background-color: lightgray;
-            color: black;
+            background-color: rgb(80, 80, 80);
+            color: lightgray;
         }
 
         tbody {
-            background-color: white;
-            color: black;
+            background-color: dimgray;
+            color: lightgray;
         }
     }
 
+    img {
+        filter: brightness(0.8);
+    }
+
     code:not([class*="language"]) {
-        background-color: white;
-        color: peru;
+        background-color: rgb(50, 50, 50);
+        color: sandybrown;
     }
 
     pre {
         code:not([class~="hljs"]) {
-            background-color: whitesmoke;
+            background-color: black;
         }
     }
 }
@@ -50,11 +55,11 @@ article.article-container {
     color: gray;
 
     a {
-        color: #9999ff;
+        color: orchid;
     }
 
     a:visited {
-        color: orchid;
+        color: #9999ff;
     }
 
     a:hover {
@@ -69,6 +74,5 @@ article.article-container {
 
 /* 评论 */
 .article-comment {
-    background-color: white;
+    background-color: rgb(50, 50, 50);
 }
-

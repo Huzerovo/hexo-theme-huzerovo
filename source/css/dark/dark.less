@@ -1,20 +1,40 @@
 /*
- * 主题颜色 Dark 样式
- *
- * Created by 狐zerOAO
+ * 暗色主题
  */
 
-/* 文章 */
-@import 'dark-article';
-/* 列表 */
-@import 'dark-list';
-/* 基本样式 */
-@import 'dark-main';
-/* 分页器 */
-@import 'dark-pager';
-/* 侧边栏 */
-@import 'dark-sidebar';
-/* 标签云 */
-@import 'dark-tagcloud';
-/* 顶部栏 */
-@import 'dark-topbar';
+.dark body {
+    background-color: black;
+    color: rgb(200, 200, 200);
+
+    #goto-top {
+        background-color: rgb(80, 80, 80);
+        color: white;
+        opacity: 50%;
+    }
+
+    /* 顶部栏 */
+    @import 'dark-topbar';
+
+    /* 基本样式 */
+    @import 'dark-main';
+
+    footer {
+        a {
+            color: #9999ff;
+        }
+
+        a:visited {
+            color: gold;
+        }
+
+        a:hover {
+            color: #66ccff;
+        }
+    }
+
+    /* 分页器 */
+    @import 'dark-pager';
+
+    /* 目录 */
+    @import 'dark-toc.less';
+}

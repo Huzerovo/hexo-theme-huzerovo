@@ -27,11 +27,13 @@ function switchTheme() {
 function setTheme(theme) {
     let root = $('#root');
     if (theme === 'light') {
+        root.addClass('light');
         root.removeClass('dark');
         $('#code-style').attr('href', codeStyle.light);
         setLightThemeIcon();
     } else {
         root.addClass('dark');
+        root.removeClass('light');
         $('#code-style').attr('href', codeStyle.dark);
         setDarkThemeIcon();
     }
