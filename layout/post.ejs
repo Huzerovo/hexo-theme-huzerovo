@@ -4,14 +4,15 @@
 <%# 这个文件不接收参数 %>
 
 <%- partial("partial/topbar") %>
-<div id="article-toc">
-<% if (theme.toc && page.toc) { %>
-    <p class="sidebar-list-title"><%= _p("toc") %></p>
-    <%- toc(page.content, {list_number: false}) %>
-<% } %>
-</div>
 <main>
     <div class="container">
+        <%# 文章目录 %>
+        <div id="article-toc">
+        <% if (theme.toc && page.toc) { %>
+            <p class="sidebar-list-title"><%= _p("toc") %></p>
+            <%- toc(page.content, {list_number: false}) %>
+        <% } %>
+        </div>
         <%# 文章主要内容 %>
         <article class="article-container">
             <h1><%= page.title %></h1>
