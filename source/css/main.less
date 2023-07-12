@@ -3,14 +3,13 @@ main {
     box-sizing: border-box;
     display: flex;
     justify-content: space-evenly;
-    width: 80%;
+    width: 60%;
     padding: 0 16px;
     margin: 0 auto;
 
     /* 中间显示区域 */
     .container {
-        width: 60%;
-
+        width: 100%;
         /* 页面标题 */
         .page-title {
             text-align: center;
@@ -36,35 +35,16 @@ main {
     }
 }
 
-/* 80 * 16 px */
-@media screen and (max-width: 1280px) {
-    main {
-        width: 80%;
-
-        .container {
-            width: 80%;
-        }
-    }
-}
-
 /* 60 * 16 px */
 @media screen and (max-width: 960px) {
     main {
-        width: 90%;
-
-        .container {
-            width: 90%;
-        }
+        width: 80%;
     }
 }
 
 /* 40 * 16 px */
 @media screen and (max-width: 640px) {
     main {
-        width: 100%;
-
-        .container {
-            width: 100%;
-        }
+        width: 95%;
     }
 }
