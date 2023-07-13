@@ -15,7 +15,7 @@
     <script>
         let c = <%- conf_json %>;
         c.title = "Article: " + "<%= page.title %>";
-        c.id = md5("<%= path %>");
+        c.id = md5(c.title);
         c.number = <%= number %>;
         let gitalk = new Gitalk(c);
         gitalk.render("gitalk-container");
