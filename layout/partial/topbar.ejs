@@ -1,9 +1,9 @@
 <%# 顶栏 %>
 
 <%# 描述：网站顶栏 %>
-<%# 传入参数：active %>
+<%# 参数：active %>
 <%# 类型：string %>
-<%# 意义：当前页面名称，表示高亮正在活跃的页面 %>
+<%# 意义：正在活跃的页面名称 %>
 
 <header class="topbar">
     <div class="topbar-container">
@@ -14,9 +14,9 @@
                 <li>
                 <%# 在一些页面里不会传入active，表明无需高亮，需要判断一下 %>
                 <% if (typeof active !== 'undefined' && i === active) { %> 
-                    <%- link_to(theme.menu[i], _p(i), {id: "active-page"}) %>
+                    <%- link_to(theme.menu[i].link, theme.menu[i].title, {id: "active-page"}) %>
                 <% } else { %>
-                    <%- link_to(theme.menu[i], _p(i)) %>
+                    <%- link_to(theme.menu[i].link, theme.menu[i].title) %>
                 <% } %>
                 </li>
             <% } %>
@@ -25,12 +25,14 @@
 
         <%# 右侧的一些图标按钮 %>
         <div class="topbar-icon-buttons">
-            <button id="btn-switch-theme" class="icon-button">
+            <button id="btn-switch-theme" class="icon-button" title="<%- _p("switch_theme") %>">
                 <i class="bi bi-sun"></i>
             </button>
-            <a id="btn-search" class="icon-button" href="/search">
+            <% if (theme.search.enable) { %>
+            <a id="btn-search" class="icon-button" title="<%- _p("search") %>" href="<%= theme.search.link %>">
                 <i class="bi bi-search"></i>
             </a>
+            <% } %>
         </div>
     </div>
 </header>

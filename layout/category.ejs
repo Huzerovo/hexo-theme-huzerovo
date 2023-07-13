@@ -3,11 +3,11 @@
 <%# 描述：这个页面展示了具有相同分类的所有文章 %>
 <%# 这个文件不接收参数 %>
 
-<%- partial("partial/topbar", {active: "category"}) %>
+<%- partial("partial/topbar") %>
 <main>
     <div class="container">
         <h1 class="page-title">
-            <%- _p("category") %>: <%= page.category %>
+            <%- _p("categories") %>: <%= page.category %>
         </h1>
         <%- partial("partial/pager") %>
         <%- partial("partial/list-articles") %>

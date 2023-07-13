@@ -3,11 +3,11 @@
 <%# 描述：这个文件以时间线的方式展示所有文章 %>
 <%# 这个文件不接收参数 %>
 
-<%- partial("partial/topbar", {active: "archive"}) %>
+<%- partial("partial/topbar", {active: 'archive'}) %>
 <main>
     <div class="container">
         <h1 class="page-title">
-            <%= _p("archives") %>
+            <%= theme.menu['archive'].title %>
         </h1>
         <%# 获取所有文章，并按时间排序 %>
         <% let posts = site.posts.sort("date", "desc"); %>

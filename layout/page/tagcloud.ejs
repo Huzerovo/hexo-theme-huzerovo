@@ -3,13 +3,6 @@
 <%# 描述：这个页面以标签云的方式展示了所有的标签 %>
 <%# 这个文件不接收参数 %>
 
-<main>
-    <div class="container">
-        <h1 class = "page-title">
-            <%= _p("tagcloud") %>
-        </h1>
-        <div class="page-tagcloud">
-            <%- tagcloud({min_font: 16, max_font: 32, class: "tagcloud", level: 9}) %>
-        </div>
-    </div>
-</main>
+<div class="page-tagcloud">
+    <%- tagcloud({min_font: 16, max_font: 32, class: "tagcloud", level: 9}) %>
+</div>

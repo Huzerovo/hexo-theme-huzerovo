@@ -1,21 +1,10 @@
-menu: Menu
-home: Home
-archive: Archive
-archives: Archives
-category: Category
-categories: Categories
-tag: Tag
-tags: Tags
-tagcloud: Tag Cloud
-about: About Me
-search: Search
+goto_top: Go to top
 toc: Content
+categories: Categories
+tags: Tags
+publish_date: Publish
+update_date: Last Update
 switch_theme: Switch Theme
-switch-sidebar: Switch sidebar
+search: Search
 input-keywords: Please input keywords, use '/regex/' for regular expressions search...
-go_to_top: Go to top
-publish: Publish
-last_update: Last Update
-
-post:
-  disabled_comment: Comments are disabled
+comment_disabled: Comments are disabled

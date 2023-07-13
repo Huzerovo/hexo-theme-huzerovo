@@ -3,9 +3,16 @@
 <%# 描述这个文件用于展示一些自定义的页面 %>
 <%# 这个文件不接收参数 %>
 
-<% if (page.title) { %>
-    <%- partial("partial/topbar", {active: page.title}) %>
-    <%- partial("page/" + page.title); %>
-<% } else { %>
-    <%- partial("page/default"); %>
-<% } %>
+<%- partial("partial/topbar", {active: page.title}) %>
+<main>
+    <div class="container">
+        <h1 class = "page-title">
+            <%= theme.menu[page.title].title %>
+        </h1>
+        <% if (page.title) { %>
+            <%- partial("page/" + page.title); %>
+        <% } else { %>
+            <%- partial("page/default"); %>
+        <% } %>
+    </div>
+</main>

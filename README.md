@@ -13,14 +13,23 @@
 
 ## 配置说明
 
-### 页面配置
+### 页面配置选项
 
-1. 主页  
-   `home`：配置主页路径。
+`index`：此字段用于配置首页标题。
+
+`menu`：此字段用于配置顶栏中的导航选项。其中：
+- `title`用于配置导航显示的名称。
+- `link`用于配置导航链接。
+
+页面配置指南：
+
+1. 主页
+   `home`：配置首页路径。无需手动创建。
 
 2. 归档  
    `archive`：配置网站文章归档页面路径。
    与网站配置中`archive_dir`设置的文件夹相同。
+   无需手动创建。
 
 3. 文章分类  
    `category`：配置文章分类页面。
@@ -92,6 +101,22 @@
 
 ### 功能配置
 
+#### 搜索功能
+
+`search`字段用于配置搜索功能。
+- `enable`：是否启用搜索功能，启用搜索功能需要安装`hexo-generator-searchdb`。
+- `link`：搜素页面路径，需要手动创建。
+
+   ```shell
+   hexo new page search
+   ```
+
+   并编辑`source/search/index.md`，保证Front-matter区域存在字段：
+
+   ```yml
+   title: search
+   ```
+
 #### 文章目录
 
 `toc`：全局选项，控制是否显示目录。
@@ -133,8 +158,16 @@
 
 ### Gitalk配置
 
-在配置中的`css`，`js`以及`md5js`是Gitalk需要用到的外部资源，支持本地引用或者CDN链接。
-其余配置请参考：[Gitalk](https://github.com/gitalk/gitalk#usage)，并修改配置文件中对应的字段。
+`gitalk_source`用于配置Gitalk使用到的资源。
+- `css`：Gitalk样式。
+- `js`：Gitalk脚本。
+- `md5js`：主题使用文章标题的md5值作为文章的Gitalk id。
+
+如果在文章生成了评论后更改了标题，请在文章Front-matter区域添加`issue_id`字段，
+强制使用指定的issue作为评论区。`issue_id`为Github issue编号，
+如需要使用issue`Example issue #9`作为评论区，则应设定`issue_id: 9`。
+
+`gitalk`配置请参考：[Gitalk](https://github.com/gitalk/gitalk#usage)，并修改配置文件中对应的字段。
 
 ### 其他资源引用
 
@@ -154,9 +187,13 @@
 - [x] 搜索
 - [x] 评论
 
+### 在想怎么整
+
+- [ ] Icon外链
+- [ ] 订阅
+
 ### 在考虑要不要
 
 - [ ] 音乐播放器
-- [ ] 订阅
 
 [^front-matter]: Front-matter是文件最上方以"---"分隔的区域

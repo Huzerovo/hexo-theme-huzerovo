@@ -3,16 +3,9 @@
 <%# 描述：用于搜索文章 %>
 <%# 这个文件不接收参数 %>
 
-<main>
-    <div class="container">
-        <h1 class = "page-title">
-            <%= _p("search") %>
-        </h1>
-        <div class="search-input">
-            <input id="search" placeholder="<%= _p("input-keywords") %>"/>
-        </div>
-        <div id="search-result">
-            <article class="articles-list"></article>
-        </div>
-    </div>
-</main>
+<div class="search-input">
+    <input id="search" placeholder="<%= _p("input-keywords") %>"/>
+</div>
+<div id="search-result">
+    <article class="articles-list"></article>
+</div>
