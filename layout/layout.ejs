@@ -12,7 +12,11 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="dark">
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
+    <% if (is_post()) { %>
+    <title> <%= page.title + ' - ' + config.subtitle + ' | ' +config.description %> </title>
+    <% } else { %>
     <title> <%= config.title + ' - ' + config.subtitle + ' | ' +config.description %> </title>
+    <% } %>
 
     <%# Bootstrap icons %>
     <%- css(url_for(theme.bootstrap)) %>

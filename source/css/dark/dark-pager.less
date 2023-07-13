@@ -1,21 +1,17 @@
 /* 分页 */
-.space,
-.page-list .prev,
-.page-list .next,
-.page-number {
-    background-color: gray;
-    color: black;
-}
+.pager {
+    .page-list {
+        span,a {
+            color: gray;
+        }
 
-.page-list .prev:hover,
-.page-list .next:hover,
-.page-number:hover {
-    background-color: gray;
-    color: white;
-}
+        span:hover,
+        a:hover {
+            color: white;
+        }
 
-.page-number.current {
-    background-color: dimgray;
-    color: black;
+        .current {
+            color: white;
+        }
+    }
 }
-
