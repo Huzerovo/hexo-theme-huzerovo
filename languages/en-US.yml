@@ -6,5 +6,5 @@ publish_date: Publish
 update_date: Last Update
 switch_theme: Switch Theme
 search: Search
-input-keywords: Please input keywords, use '/regex/' for regular expressions search...
+input_keywords: Please input keywords, use '/regex/' for regular expressions search...
 comment_disabled: Comments are disabled
