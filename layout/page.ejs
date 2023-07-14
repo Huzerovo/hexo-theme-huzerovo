@@ -8,14 +8,20 @@
     <div class="container">
         <h1 class = "page-title">
             <% if (page.title == 'search') { %>
-            <%- _p('search') %>
+            <%- _p('search'); %>
             <% } else {%>
-            <%= theme.menu[page.title].title %>
+            <%= theme.menu[page.title].title; %>
             <% } %>
         </h1>
-        <% if (page.title) { %>
+        <% switch (page.title) {
+            case 'about':
+            case 'categories':
+            case 'search':
+            case 'tagcloud':
+        %>
             <%- partial("page/" + page.title); %>
-        <% } else { %>
+            <% break; %>
+        <%  default: %>
             <%- partial("page/default"); %>
         <% } %>
     </div>
