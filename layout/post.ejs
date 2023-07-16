@@ -22,11 +22,11 @@
         <div class="article-meta-info">
             <% if (page.tags.length > 0) { %>
                 <span><%= _p("categories") %></span>
-                <%- list_categories(page.categories, {show_count: false}) %>
+                <%- list_categories(page.categories, {class: "article-categories", show_count: false, style: "inline", separator: ''}) %>
             <% } %>    
             <% if (page.categories.length > 0) { %>
                 <span><%= _p("tags") %></span>
-                <%- list_tags(page.tags, {show_count: false}) %>
+                <%- list_tags(page.tags, {class: "article-tags", show_count: false, style: "inline", separator: ''}) %>
             <% } %>
         </div>
         <%# 文章的发布/更新日期 %>
