@@ -13,7 +13,14 @@
                 <%= p.title || "Untitled" %>
             </p>
             <p class="item-content">
-                <%- truncate(strip_html(p.content), {length: 160, omission: "..." }) %>
+                <%# 优先使用摘要，否则使用文章内容 %>
+                <% let content = "" %>
+                <% if (strip_html(p.excerpt) === '') { %>
+                    <%- truncate(strip_html(p.content), {length: 160, omission: "..." }); %>
+                <% } else { %>
+                    <%= truncate(strip_html(p.excerpt), {length: 160, omission: "..." }); %>
+                <% } %>
+                <%= content %>
             </p>
         </a>
     </article>
