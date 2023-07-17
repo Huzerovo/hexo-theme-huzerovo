@@ -4,25 +4,23 @@
 <%# 这个文件不接收参数 %>
 
 <%- partial("partial/topbar", {active: page.title}) %>
-<main>
-    <div class="container">
-        <h1 class = "page-title">
-            <% if (page.title == 'search') { %>
-            <%- _p('search'); %>
-            <% } else {%>
-            <%= theme.menu[page.title].title; %>
-            <% } %>
-        </h1>
-        <% switch (page.title) {
-            case 'about':
-            case 'categories':
-            case 'search':
-            case 'tagcloud':
-        %>
-            <%- partial("page/" + page.title); %>
-            <% break; %>
-        <%  default: %>
-            <%- partial("page/default"); %>
+<main class="container">
+    <h1 class = "page-title">
+        <% if (page.title == 'search') { %>
+        <%- _p('search'); %>
+        <% } else {%>
+        <%= theme.menu[page.title].title; %>
         <% } %>
-    </div>
+    </h1>
+    <% switch (page.title) {
+        case 'about':
+        case 'categories':
+        case 'search':
+        case 'tagcloud':
+    %>
+        <%- partial("page/" + page.title); %>
+        <% break; %>
+    <%  default: %>
+        <%- partial("page/default"); %>
+    <% } %>
 </main>

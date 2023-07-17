@@ -11,38 +11,36 @@
     }
 %>
 <%- partial("partial/topbar") %>
-<main>
-    <div class="container">
-        <%# 文章目录 %>
-        <div id="article-toc">
-        <% if (theme.toc && post.toc) { %>
-            <p class="sidebar-list-title"><%= _p("toc") %></p>
-            <%- toc(post.content, {list_number: false}) %>
+<main class="container">
+    <%# 文章目录 %>
+    <div id="article-toc">
+    <% if (theme.toc && post.toc) { %>
+        <p class="sidebar-list-title"><%= _p("toc") %></p>
+        <%- toc(post.content, {list_number: false}) %>
+    <% } %>
+    </div>
+    <%# 文章主要内容 %>
+    <article class="article-container">
+        <h1><%= post_title %></h1>
+        <%- post.content %>
+    </article>
+    <%# 文章的标签与分类 %>
+    <div class="article-meta-info">
+        <% if (post.categories.length > 0) { %>
+            <span><%= _p("categories") %></span>
+            <%- list_categories(post.categories, {class: "article-categories", show_count: false, style: "none", separator: ''}) %>
+        <% } %>    
+        <% if (post.tags.length > 0) { %>
+            <span><%= _p("tags") %></span>
+            <%- list_tags(post.tags, {class: "article-tags", show_count: false, style: "none", separator: ''}) %>
         <% } %>
-        </div>
-        <%# 文章主要内容 %>
-        <article class="article-container">
-            <h1><%= post_title %></h1>
-            <%- post.content %>
-        </article>
-        <%# 文章的标签与分类 %>
-        <div class="article-meta-info">
-            <% if (post.categories.length > 0) { %>
-                <span><%= _p("categories") %></span>
-                <%- list_categories(post.categories, {class: "article-categories", show_count: false, style: "none", separator: ''}) %>
-            <% } %>    
-            <% if (post.tags.length > 0) { %>
-                <span><%= _p("tags") %></span>
-                <%- list_tags(post.tags, {class: "article-tags", show_count: false, style: "none", separator: ''}) %>
-            <% } %>
-        </div>
-        <%# 文章的发布/更新日期 %>
-        <div class="article-date-info">
-            <span><%= _p("publish_date") %>: <%= post.date.format("YYYY-MM-DD") %></span>
-            <span><%= _p("update_date") %>: <%= post.updated.format("YYYY-MM-DD") %></span>
-        </div>
-        <div class="article-comment">
-            <%- partial('partial/gitalk') %>
-        </div>
+    </div>
+    <%# 文章的发布/更新日期 %>
+    <div class="article-date-info">
+        <span><%= _p("publish_date") %>: <%= post.date.format("YYYY-MM-DD") %></span>
+        <span><%= _p("update_date") %>: <%= post.updated.format("YYYY-MM-DD") %></span>
+    </div>
+    <div class="article-comment">
+        <%- partial('partial/gitalk') %>
     </div>
 </main>

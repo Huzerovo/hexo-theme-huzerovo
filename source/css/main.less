@@ -1,50 +1,46 @@
 /* 主体区域 */
-main {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-evenly;
+main.container {
     width: 60%;
-    padding: 0 16px;
     margin: 0 auto;
-
-    /* 中间显示区域 */
-    .container {
-        width: 100%;
-        /* 页面标题 */
-        .page-title {
-            text-align: center;
-        }
-
-        /* 默认使用的文章列表 */
-        @import 'page/articles-list.less';
-    
-        /* 归档页的样式 */
-        @import 'page/archive.less';
-
-        /* 分类页面的样式 */
-        @import 'page/categories.less';
-
-        /* 标签云页面的样式 */
-        @import 'page/tagcloud.less';
-
-        /* 文章样式 */
-        @import 'page/post.less';
-
-        /* 搜索页面 */
-        @import 'page/search.less';
+    /* 页面标题 */
+    .page-title {
+        text-align: center;
     }
+
+    transition: 300ms;
+    * {
+        transition: 300ms;
+    }
+
+    /* 默认使用的文章列表 */
+    @import 'page/articles-list.less';
+
+    /* 归档页的样式 */
+    @import 'page/archive.less';
+
+    /* 分类页面的样式 */
+    @import 'page/categories.less';
+
+    /* 标签云页面的样式 */
+    @import 'page/tagcloud.less';
+
+    /* 文章样式 */
+    @import 'page/post.less';
+
+    /* 搜索页面 */
+    @import 'page/search.less';
 }
 
 /* 60 * 16 px */
 @media screen and (max-width: 960px) {
-    main {
+    main.container {
         width: 80%;
     }
 }
 
 /* 40 * 16 px */
 @media screen and (max-width: 640px) {
-    main {
-        width: 95%;
+    main.container {
+        width: 100%;
     }
 }

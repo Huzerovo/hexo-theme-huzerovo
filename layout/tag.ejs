@@ -4,13 +4,11 @@
 <%# 这个文件不接收参数 %>
 
 <%- partial("partial/topbar") %>
-<main>
-    <div class="container">
-        <h1 class="page-title">
-            <%- _p("tags") %>: <%= page.tag %>
-        </h1>
-        <%- partial("partial/pager") %>
-        <%- partial("partial/list-articles") %>
-        <%- partial("partial/pager") %>
-    </div>
+<main class="container">
+    <h1 class="page-title">
+        <%- _p("tags") %>: <%= page.tag %>
+    </h1>
+    <%- partial("partial/pager") %>
+    <%- partial("partial/list-articles") %>
+    <%- partial("partial/pager") %>
 </main>

@@ -29,8 +29,16 @@
 
     <%# Bootstrap icons %>
     <%- css(url_for(theme.bootstrap)) %>
+
     <%# jQuery %>
     <%- js(url_for(theme.jquery)) %>
+
+    <%# fancybox%>
+    <% if (theme.fancybox.enable) { %>
+        <%- css(url_for(theme.fancybox.css)) %>
+        <%- js(url_for(theme.fancybox.js)) %>
+    <% } %>
+
     <%# highlight.js仅在网站未启用Hexo内置的高亮时使用 %>
     <% if (theme.hljs.enable && !config.highlight.enable) { %>
         <%- css({
@@ -40,19 +48,22 @@
         <%- js(url_for(theme.hljs.js)) %>
         <script>hljs.highlightAll();</script>
     <% } %>
+
     <%# 网站布局框架 %>
     <%- css('css/huzerovo.css') %>
+
     <%# 网站主题 %>
     <%- css(url_for(theme.style.site.light)) %>
     <%- css(url_for(theme.style.site.dark)) %>
+
     <%# 一些辅助功能 %>
     <%- js(['js/huzerovo.js', 'js/search.js']) %>
+
     <%# Mathjax %>
     <% if (theme.mathjax && page.mathjax) { %>
         <%- partial("partial/mathjax") %>
     <% } %>
     <script>
-        // 设置主题
         let codeStyle = {};
         codeStyle.light = "<%= url_for(theme.style.code.light) %>";
         codeStyle.dark = "<%= url_for(theme.style.code.dark) %>";
@@ -110,6 +121,8 @@ $(document).ready(function() {
             $('#goto-top').hide();
         }
     });
+
+    Fancybox.bind(".container img");
 });
 </script>
 </html>

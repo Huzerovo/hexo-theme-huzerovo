@@ -3,23 +3,20 @@
  */
 html {
     font-family: sans;
-    overflow: scroll;
     scroll-behavior: smooth;
     scroll-padding-top: 50px;
-
-    * {
-        transition: 300ms;
-    }
 }
 
 body {
     margin: 0;
+    transition: 300ms;
 
     @import 'topbar.less';
     
     @import 'main.less';
 
     #goto-top {
+        transition: 300ms;
         position: fixed;
         right: 8%;
         bottom: 8%;
@@ -32,6 +29,11 @@ body {
     /* 网站页尾 */
     footer {
         text-align: center;
+        transition: 300ms;
+
+        * {
+            transition: 300ms;
+        }
 
         a {
             transition: 0ms;

@@ -61,6 +61,12 @@ gitalk:
 # jQurey CDN
 jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js'
 
+# Fancybox
+fancybox:
+  enable: true
+  css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css'
+  js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js'
+
 # highlight.js 配置
 hljs:
   enable: true
