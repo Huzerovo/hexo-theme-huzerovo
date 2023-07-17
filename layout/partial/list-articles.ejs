@@ -19,7 +19,8 @@
         <% if (p.photos && p.photos.length) { %>
         <% let rand_idx = Math.floor(Math.random() * p.photos.length); %>
         <div class="item-gallery">
-            <img src="<%- url_for(p.photos[rand_idx]) %>">
+            <% let gallery_path = url_for(p.path) + p.photos[rand_idx] %>
+            <img src="<%= gallery_path %>">
         </div>
         <% } %>
 
