@@ -3,36 +3,43 @@
 <%# 描述：这个文件展示一篇完整的文章 %>
 <%# 这个文件不接收参数 %>
 
+<%
+    let post = page;
+    let post_title = _p('untitled');
+    if (post.title && post.title !== '') {
+        post_title = post.title;
+    }
+%>
 <%- partial("partial/topbar") %>
 <main>
     <div class="container">
         <%# 文章目录 %>
         <div id="article-toc">
-        <% if (theme.toc && page.toc) { %>
+        <% if (theme.toc && post.toc) { %>
             <p class="sidebar-list-title"><%= _p("toc") %></p>
-            <%- toc(page.content, {list_number: false}) %>
+            <%- toc(post.content, {list_number: false}) %>
         <% } %>
         </div>
         <%# 文章主要内容 %>
         <article class="article-container">
-            <h1><%= page.title %></h1>
-            <%- page.content %>
+            <h1><%= post_title %></h1>
+            <%- post.content %>
         </article>
         <%# 文章的标签与分类 %>
         <div class="article-meta-info">
-            <% if (page.tags.length > 0) { %>
+            <% if (post.categories.length > 0) { %>
                 <span><%= _p("categories") %></span>
-                <%- list_categories(page.categories, {class: "article-categories", show_count: false, style: "inline", separator: ''}) %>
+                <%- list_categories(post.categories, {class: "article-categories", show_count: false, style: "none", separator: ''}) %>
             <% } %>    
-            <% if (page.categories.length > 0) { %>
+            <% if (post.tags.length > 0) { %>
                 <span><%= _p("tags") %></span>
-                <%- list_tags(page.tags, {class: "article-tags", show_count: false, style: "inline", separator: ''}) %>
+                <%- list_tags(post.tags, {class: "article-tags", show_count: false, style: "none", separator: ''}) %>
             <% } %>
         </div>
         <%# 文章的发布/更新日期 %>
         <div class="article-date-info">
-            <span><%= _p("publish_date") %>: <%= page.date.format("YYYY-MM-DD") %></span>
-            <span><%= _p("update_date") %>: <%= page.updated.format("YYYY-MM-DD") %></span>
+            <span><%= _p("publish_date") %>: <%= post.date.format("YYYY-MM-DD") %></span>
+            <span><%= _p("update_date") %>: <%= post.updated.format("YYYY-MM-DD") %></span>
         </div>
         <div class="article-comment">
             <%- partial('partial/gitalk') %>

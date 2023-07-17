@@ -14,7 +14,21 @@
         <% let year = 0; %>
         <%# 遍历所有文章 %>
         <% for (let i = 0; i < site.posts.length; i++) { %>
-            <% let p = posts.data[i] %>
+            <%
+                let p = posts.data[i];
+                let post_link = '';
+                let post_title = '';
+                if (p.link && p.link !== '') {
+                    post_link = p.link;
+                } else {
+                    post_link = url_for(p.path);
+                }
+                if (p.title && p.title !== '') {
+                    post_title = p.title;
+                } else {
+                    post_title = _p('untitled');
+                }
+            %>
             <%# 第一次出现新的年份，进行显示%>
             <% if (p.date.year() !== year) { %>
                 <% year = p.date.year(); %>
@@ -27,8 +41,8 @@
                     <%= p.date.format("MM-DD") %>
                 </div>
                 <%# 文章链接 %>
-                <a href="<%- url_for(p.path) %>">
-                    <%= p.title || "Untitled" %>
+                <a href="<%= post_link %>">
+                    <%= post_title %>
                 </a>
             </div>
         <% } %>

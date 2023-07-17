@@ -12,10 +12,19 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="dark">
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
+    <%  
+        let tail_str = '';
+        if (config.subtitle !== '') {
+            tail_str = tail_str + ' - ' + config.subtitle;
+        }
+        if (config.description !== '') {
+            tail_str = tail_str + ' | ' + config.description;
+        }
+    %>
     <% if (is_post()) { %>
-    <title> <%= page.title + ' - ' + config.subtitle + ' | ' +config.description %> </title>
+    <title> <%= page.title + tail_str %> </title>
     <% } else { %>
-    <title> <%= config.title + ' - ' + config.subtitle + ' | ' +config.description %> </title>
+    <title> <%= config.title + tail_str %> </title>
     <% } %>
 
     <%# Bootstrap icons %>

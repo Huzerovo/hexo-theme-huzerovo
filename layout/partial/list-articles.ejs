@@ -8,17 +8,37 @@
 <% for (let i = 0; i < posts.length; i++) { %>
     <% let p = posts.data[i] %>
     <article class="articles-list-item">
-        <a href="<%- url_for(p.path) %>">
+        <%# 页面为相册 %>
+        <% if (p.photos && p.photos.length) { %>
+        <% let rand_idx = Math.floor(Math.random() * p.photos.length); %>
+        <div class="item-gallery">
+            <img src="<%- url_for(p.photos[rand_idx]) %>">
+        </div>
+        <% } %>
+
+        <%
+            let post_link = '';
+            if (p.link && p.link !== '') {
+                post_link = url_for(p.link);
+            } else {
+                post_link = url_for(p.path);
+            }
+        %>
+        <a href="<%= post_link %>">
+            <% if (p.title && p.title !== '') { %>
+            <%# 文章有标题才显示标题 %>
             <p class="item-title">
-                <%= p.title || "Untitled" %>
+                <%= p.title %>
             </p>
+            <% } %>
+            <%# 摘要或者截取一部分内容 %>
             <p class="item-content">
                 <%# 优先使用摘要，否则使用文章内容 %>
                 <% let content = "" %>
                 <% if (strip_html(p.excerpt) === '') { %>
                     <%- truncate(strip_html(p.content), {length: 160, omission: "..." }); %>
                 <% } else { %>
-                    <%= truncate(strip_html(p.excerpt), {length: 160, omission: "..." }); %>
+                    <%= strip_html(p.excerpt); %>
                 <% } %>
                 <%= content %>
             </p>

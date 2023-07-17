@@ -1,5 +1,5 @@
 <%# Gitalk评论 %>
-<% if (theme.gitalk.enable && page.gitalk && !(page.title === '')) { %>
+<% if (theme.gitalk.enable && page.gitalk && page.title && !(page.title === '')) { %>
     <% let conf_yml = theme.gitalk; %>
     <% delete conf_yml.enale; %>
     <% let conf_json = JSON.stringify(conf_yml); %>
