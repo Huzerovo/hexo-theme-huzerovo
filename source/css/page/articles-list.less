@@ -2,7 +2,7 @@
 .articles-list {
     .articles-list-item {
         display: block;
-        width: 90%;
+        width: 80%;
         margin: 16px auto;
         border-radius: 16px;
         overflow: hidden;
@@ -38,6 +38,14 @@
             p {
                 margin: 0px;
             }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .articles-list {
+        .articles-list-item {
+            width: 90%;
         }
     }
 }
