@@ -64,8 +64,8 @@ jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js'
 # Fancybox
 fancybox:
   enable: true
-  css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css'
-  js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js'
+  css: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.16/fancybox/fancybox.min.css'
+  js: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.16/fancybox/fancybox.umd.min.js'
 
 # highlight.js 配置
 hljs:

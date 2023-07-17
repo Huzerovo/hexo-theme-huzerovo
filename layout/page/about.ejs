@@ -3,4 +3,9 @@
 <%# 描述：展示个人介绍 %>
 <%# 这个文件不接收参数 %>
 
-<%- page.content %>
+<div class="article-container page-about">
+    <%- page.content %>
+    <div class="article-comment">
+        <%- partial('partial/gitalk') %>
+    </div>
+</div>

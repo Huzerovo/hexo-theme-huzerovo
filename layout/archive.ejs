@@ -8,6 +8,7 @@
     <h1 class="page-title">
         <%= theme.menu['archive'].title %>
     </h1>
+    <div class="page-archive">
     <%# 获取所有文章，并按时间排序 %>
     <% let posts = site.posts.sort("date", "desc"); %>
     <% let year = 0; %>
@@ -45,4 +46,5 @@
             </a>
         </div>
     <% } %>
+    </div>
 </main>
