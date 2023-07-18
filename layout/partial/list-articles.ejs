@@ -45,10 +45,20 @@
         </a>
         <%# 一些简短的装饰 %>
         <footer class="item-footer">
-            <p>
-            <i class="bi bi-calendar-check"></i>
-            <%- _p('update_date') %>:
-            <%= p.updated.format("YYYY-MM-DD") %></p>
+            <% if (p.todo) { %>
+            <p class="item-footer-todo">
+                <%- _p('todo') %>
+                <i class="bi bi-calendar-x"></i>
+                <%- _p('publish_date') %>:
+                <%= p.date.format("YYYY-MM-DD") %>
+            </p>
+            <% } else { %>
+            <p class="item-footer-finished">
+                <i class="bi bi-calendar-check"></i>
+                <%- _p('update_date') %>:
+                <%= p.updated.format("YYYY-MM-DD") %>
+            </p>
+            <% } %>
         </footer>
     </article>
 <% } %>
