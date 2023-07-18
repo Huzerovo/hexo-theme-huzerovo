@@ -66,18 +66,28 @@
         <%# 一些简短的装饰 %>
         <footer class="item-footer">
         <% if (p.todo) { %>
-            <p class="item-footer-todo">
-                <%- _p('todo') %>
+            <% let msg = ''; %>
+            <% if (p.todo_msg && p.todo_msg !== '') { %>
+                <% msg = p.todo_msg %>
+            <% } else {%>
+                <% msg = _p('todo_msg') %>
+            <% } %>
+            <div class="item-footer-todo">
+                <div class="item-footer-todo-msg">
+                    <%= msg %>
+                </div>
+                <div>
                 <i class="bi bi-calendar-x"></i>
                 <%- _p('publish_date') %>:
                 <%= p.date.format("YYYY-MM-DD") %>
-            </p>
+                </div>
+            </div>
         <% } else { %>
-            <p class="item-footer-finished">
+            <div class="item-footer-finished">
                 <i class="bi bi-calendar-check"></i>
                 <%- _p('update_date') %>:
                 <%= p.updated.format("YYYY-MM-DD") %>
-            </p>
+            </div>
         <% } %>
         <% if (p.pin) {%>
         <i class="item-footer-pin bi bi-pin-angle-fill"></i>
