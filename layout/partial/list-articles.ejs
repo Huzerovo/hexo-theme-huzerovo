@@ -20,6 +20,7 @@
 %>
 <% for (let i = 0; i < posts.length; i++) { %>
     <% 
+    //# 是否为外部文章
     let p = posts[i]
     let post_link = '';
     if (p.link && p.link !== '') {
@@ -30,72 +31,84 @@
     %>
     <article class="articles-list-item">
         <%# 页面为相册 %>
-        <% if (p.photos && p.photos.length) { %>
-            <% let photos = [] %>
-            <%# 把所有可能的图片路径提取出来 %>
-            <% for (pic of p.photos) { %>
-                <% let is_http_or_https = new RegExp(/^(http|https):\/\/[^\s]*/gm) %>
-                <% if (is_http_or_https.test(pic)) { %>
-                    <%# 外部链接的图片 %>
-                    <%  photos.push(pic); %>
-                <% } else { %>
-                    <%# 本地图片 %>
-                    <% if (p.gallery && p.gallery !== '') { %>
-                        <% photos.push(url_for(p.gallery) + url_for(pic)); %>
-                    <% } else { %>
-                        <% photos.push(url_for(p.path) + pic); %>
-                    <% } %>
-                <% } %>
-            <% } %>
-            <% let len = photos.length; %>
+        <%
+        if (p.photos && p.photos.length) {
+            //# 把所有可能的图片路径提取出来
+            let photos = [];
+            for (pic of p.photos) {
+                //# 检查是否是外部链接
+                let is_http_or_https = new RegExp(/^(http|https):\/\/[^\s]*/gm);
+                if (is_http_or_https.test(pic)) {
+                    photos.push(pic);
+                } else {
+                    //# 检查如何使用封面
+                    if (p.gallery && p.gallery !== '') { 
+                        if (p.gallery === '/') { 
+                            //# 对根目录的封面特殊处理
+                            photos.push(p.gallery + pic); 
+                        } else { 
+                            //# 使用封面文件夹
+                            photos.push(url_for(p.gallery) + url_for(pic)); 
+                        } 
+                    } else { 
+                        //# 使用文章相册
+                        photos.push(url_for(p.path) + pic); 
+                    } 
+                } 
+            } //# for END
+            let len = photos.length;
+        %>
         <div class="item-gallery">
             <script>
-                document.write("<img loading='lazy' src='" + 
+            document.write("<img loading='lazy' src='" + 
                     "<%- photos %>".split(',').at(Math.floor(Math.random() * <%= len %>))
-                +"'>");
+                    +"'>");
             </script>
         </div>
-        <% } %>
+        <% } //# if END %>
 
         <a href="<%= post_link %>">
-            <% if (p.title && p.title !== '') { %>
-            <%# 文章有标题才显示标题 %>
+        <%# 文章有标题才显示标题 %>
+        <% if (p.title && p.title !== '') { %>
             <p class="item-title">
                 <%= p.title %>
             </p>
-            <% } %>
-            <%# 摘要或者截取一部分内容 %>
+        <% } %>
+        <%
+        let content = "";
+        //# 摘要或者截取一部分内容，优先使用摘要，否则使用文章内容
+        if (strip_html(p.excerpt) === '') { 
+            content = truncate(strip_html(p.content), {length: 160, omission: "..." }); 
+        } else { 
+            content = strip_html(p.excerpt); 
+        }
+        %>
             <p class="item-content">
-                <%# 优先使用摘要，否则使用文章内容 %>
-                <% let content = "" %>
-                <% if (strip_html(p.excerpt) === '') { %>
-                    <%- truncate(strip_html(p.content), {length: 160, omission: "..." }); %>
-                <% } else { %>
-                    <%= strip_html(p.excerpt); %>
-                <% } %>
                 <%= content %>
             </p>
         </a>
         <%# 一些简短的装饰 %>
         <footer class="item-footer">
-        <% if (p.todo) { %>
-            <% let msg = ''; %>
-            <% if (p.todo_msg && p.todo_msg !== '') { %>
-                <% msg = p.todo_msg %>
-            <% } else {%>
-                <% msg = _p('todo_msg') %>
-            <% } %>
-            <div class="item-footer-todo">
-                <div class="item-footer-todo-msg">
-                    <i class="bi bi-info-circle"></i>
-                    <%= msg %>
-                </div>
-                <div>
-                <i class="bi bi-calendar-x"></i>
-                <%- _p('publish_date') %>:
-                <%= p.date.format("YYYY-MM-DD") %>
-                </div>
+        <%
+        if (p.todo) {
+            let msg = ''; 
+            if (p.todo_msg && p.todo_msg !== '') { 
+                msg = p.todo_msg 
+            } else {
+                msg = _p('todo_msg') 
+            }
+        %>
+        <div class="item-footer-todo">
+            <div class="item-footer-todo-msg">
+                <i class="bi bi-info-circle"></i>
+                <%= msg %>
             </div>
+            <div>
+                <i class="bi bi-calendar-x"></i>
+                <%- _p('update_date') %>:
+                <%= p.updated.format("YYYY-MM-DD") %>
+            </div>
+        </div>
         <% } else { %>
             <div class="item-footer-finished">
                 <i class="bi bi-calendar-check"></i>
@@ -104,9 +117,9 @@
             </div>
         <% } %>
         <% if (p.pin) {%>
-        <i class="item-footer-pin bi bi-pin-angle-fill"></i>
+            <i class="item-footer-pin bi bi-pin-angle-fill"></i>
         <% } %>
         </footer>
     </article>
-<% } %>
+<% } //# for END%>
 </article>
