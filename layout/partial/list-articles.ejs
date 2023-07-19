@@ -4,7 +4,6 @@
 <%# 这个文件不接收参数%>
 
 <article class="articles-list">
-
 <%# 实现pin功能 %>
 <%  let pin = [];
     let others = [];
@@ -32,22 +31,29 @@
     <article class="articles-list-item">
         <%# 页面为相册 %>
         <% if (p.photos && p.photos.length) { %>
-            <% let rand_idx = Math.floor(Math.random() * p.photos.length); %>
-            <%# 首先判断是否是外部链接的图片 %>
-            <% let gallery_path = url_for(p.photos[rand_idx]); %>
-            <% let is_http_or_https = new RegExp(/^(http|https):\/\/[^\s]*/gm); %>
-            <% if (is_http_or_https.test(gallery_path)) { %>
-                    <% gallery_path = url_for(p.photos[rand_idx]); %>
-            <% } else { %>
-                <%# 本地图片进行定位 %>
-                <% if (p.gallery && p.gallery !== '') { %>
-                    <% gallery_path = url_for(p.gallery) + url_for(p.photos[rand_idx]); %>
+            <% let photos = [] %>
+            <%# 把所有可能的图片路径提取出来 %>
+            <% for (pic of p.photos) { %>
+                <% let is_http_or_https = new RegExp(/^(http|https):\/\/[^\s]*/gm) %>
+                <% if (is_http_or_https.test(pic)) { %>
+                    <%# 外部链接的图片 %>
+                    <%  photos.push(pic); %>
                 <% } else { %>
-                    <% gallery_path = url_for(p.path) + p.photos[rand_idx]; %>
+                    <%# 本地图片 %>
+                    <% if (p.gallery && p.gallery !== '') { %>
+                        <% photos.push(url_for(p.gallery) + url_for(pic)); %>
+                    <% } else { %>
+                        <% photos.push(url_for(p.path) + pic); %>
+                    <% } %>
                 <% } %>
             <% } %>
+            <% let len = photos.length; %>
         <div class="item-gallery">
-            <img src="<%= gallery_path %>">
+            <script>
+                document.write("<img loading='lazy' src='" + 
+                    "<%- photos %>".split(',').at(Math.floor(Math.random() * <%= len %>))
+                +"'>");
+            </script>
         </div>
         <% } %>
 
@@ -81,6 +87,7 @@
             <% } %>
             <div class="item-footer-todo">
                 <div class="item-footer-todo-msg">
+                    <i class="bi bi-info-circle"></i>
                     <%= msg %>
                 </div>
                 <div>
