@@ -3,12 +3,37 @@
 <%# 描述：默认进入首页 %>
 <%# 这个文件不接收参数 %>
 
+<%
+let index = page;
+//# 把具有pin标记的放到最前面，实现pin功能
+let pin = [];
+let others = [];
+let posts = site.posts.sort('updated', 'desc');
+for (let i = 0; i < posts.length; i++) {
+    let item = posts.data[i];
+    if (item.pin) {
+        pin.push(posts.data[i]);
+    } else {
+        others.push(posts.data[i]);
+    }
+};
+posts = pin.concat(others);
+
+//# 提取出处于此页面的文章
+let per_page = config.per_page;
+let current = index.current;
+let totle = index.totle;
+let index_posts = posts.filter((e, i) => {
+        return ((i >= (current - 1) * per_page) && (i < current * per_page));
+    });
+%>
+
 <%- partial("partial/topbar", {active: "home"}) %>
 <main class="container">
     <h1 class="page-title">
         <%= theme.index %>
     </h1>
     <%- partial("partial/pager") %>
-    <%- partial("partial/list-articles") %>
+    <%- partial("partial/list-articles", {posts: index_posts}) %>
     <%- partial("partial/pager") %>
 </main>

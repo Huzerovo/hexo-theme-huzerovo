@@ -1,31 +1,13 @@
 <%# 文章列表 %>
 
 <%# 描述：这个文件负责展示页面所拥有的所有文章，如：具有同样标签的文章 %>
-<%# 这个文件不接收参数%>
+<%# 参数：posts %>
+<%# 类型：Array %>
+<%# 意义：需要显示的文章的数组 %>
 
+<% if (typeof posts !== 'undefined') { %>
 <article class="articles-list">
-<%# 重新排序实现最近更新的在前 %>
-<%
-let posts = site.posts.sort('updated', 'desc');
-let per_page = config.per_page;
-let current = page.current;
-%>
-
-<%# 实现pin功能 %>
-<%
-let pin = [];
-let others = [];
-for (let i = 0; i < posts.length; i++) {
-    let item = posts.data[i];
-    if (item.pin) {
-        pin.push(posts.data[i]);
-    } else {
-        others.push(posts.data[i]);
-    }
-};
-posts = pin.concat(others);
-%>
-<% for (let i = (current - 1) * per_page; i < Math.min(posts.length, current * per_page); i++) { %>
+<% for (let i = 0; i < posts.length; i++) { %>
     <% 
     //# 是否为外部文章
     let p = posts[i]
@@ -34,6 +16,14 @@ posts = pin.concat(others);
         post_link = url_for(p.link);
     } else {
         post_link = url_for(p.path);
+    }
+
+    //# 显示的日期信息，在首页显示更新日期，其他显示发布日期
+    let footer_meta_date = '';
+    if (is_home()) {
+        footer_meta_date = _p('update_date')+ ': ' + date(p.updated);
+    } else {
+        footer_meta_date = _p('publish_date')+ ': ' + date(p.date);
     }
     %>
     <article class="articles-list-item">
@@ -112,15 +102,13 @@ posts = pin.concat(others);
             </div>
             <div>
                 <i class="bi bi-calendar-x"></i>
-                <%- _p('update_date') %>:
-                <%= p.updated.format("YYYY-MM-DD") %>
+                <%= footer_meta_date %>
             </div>
         </div>
         <% } else { %>
             <div class="item-footer-finished">
                 <i class="bi bi-calendar-check"></i>
-                <%- _p('update_date') %>:
-                <%= p.updated.format("YYYY-MM-DD") %>
+                <%= footer_meta_date %>
             </div>
         <% } %>
         <% if (p.pin) {%>
@@ -130,3 +118,4 @@ posts = pin.concat(others);
     </article>
 <% } //# for END%>
 </article>
+<% } %>

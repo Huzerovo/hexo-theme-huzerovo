@@ -36,8 +36,8 @@
         </div>
         <%# 文章的发布/更新日期 %>
         <div class="article-date-info">
-            <span><%= _p("publish_date") %>: <%= post.date.format("YYYY-MM-DD") %></span>
-            <span><%= _p("update_date") %>: <%= post.updated.format("YYYY-MM-DD") %></span>
+            <span><%= _p("publish_date") %>: <%= date(post.date) %></span>
+            <span><%= _p("update_date") %>: <%= date(post.updated) %></span>
         </div>
         <div class="article-comment">
             <%- partial('partial/gitalk') %>
