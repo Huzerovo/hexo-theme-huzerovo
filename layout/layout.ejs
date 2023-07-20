@@ -59,9 +59,9 @@
     <%# 一些辅助功能 %>
     <%- js(['js/huzerovo.js', 'js/search.js']) %>
 
-    <%# Mathjax %>
-    <% if (theme.mathjax && page.mathjax) { %>
-        <%- partial("partial/mathjax") %>
+    <%# Katex，在文章、主页、分类以及标签页开启 %>
+    <% if (theme.katex.enable && (page.katex || is_home() || is_category() || is_tag())) { %>
+        <%- partial("partial/katex") %>
     <% } %>
     <script>
         let codeStyle = {};

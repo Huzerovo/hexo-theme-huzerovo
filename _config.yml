@@ -28,7 +28,12 @@ search:
 toc: true
 
 # 数学公式渲染
-mathjax: true
+katex:
+  enable: true
+  css: https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
+  js:
+    - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js 
+    - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js
 
 # 网站主题
 style:
