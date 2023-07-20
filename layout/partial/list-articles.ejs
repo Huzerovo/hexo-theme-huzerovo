@@ -4,21 +4,28 @@
 <%# 这个文件不接收参数%>
 
 <article class="articles-list">
-<%# 实现pin功能 %>
-<%  let pin = [];
-    let others = [];
-    let posts = page.posts.sort("updated", "desc");
-    for (let i = 0; i < posts.length; i++) {
-        let item = posts.data[i];
-        if (item.pin) {
-            pin.push(posts.data[i]);
-        } else {
-            others.push(posts.data[i]);
-        }
-    };
-    posts = pin.concat(others);
+<%# 重新排序实现最近更新的在前 %>
+<%
+let posts = site.posts.sort('updated', 'desc');
+let per_page = config.per_page;
+let current = page.current;
 %>
-<% for (let i = 0; i < posts.length; i++) { %>
+
+<%# 实现pin功能 %>
+<%
+let pin = [];
+let others = [];
+for (let i = 0; i < posts.length; i++) {
+    let item = posts.data[i];
+    if (item.pin) {
+        pin.push(posts.data[i]);
+    } else {
+        others.push(posts.data[i]);
+    }
+};
+posts = pin.concat(others);
+%>
+<% for (let i = (current - 1) * per_page; i < Math.min(posts.length, current * per_page); i++) { %>
     <% 
     //# 是否为外部文章
     let p = posts[i]
