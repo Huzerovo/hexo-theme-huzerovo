@@ -21,6 +21,19 @@
     }
 }
 
+#article-toc::-webkit-scrollbar-track {
+    background: gray;
+}
+#article-toc::-webkit-scrollbar-thumb {
+    background: rgb(200, 200, 200);
+}
+#article-toc::-webkit-scrollbar-thumb:hover {
+    background: lightgray;
+}
+#article-toc::-webkit-scrollbar-corner {
+    background: rgb(230, 230, 230);
+}
+
 .article-container {
     a {
         color: orchid;
@@ -66,6 +79,33 @@
     pre {
         code:not([class~="hljs"]) {
             background-color: black;
+        }
+        code::-webkit-scrollbar-track {
+            background: gray;
+        }
+        code::-webkit-scrollbar-thumb {
+            background: rgb(200, 200, 200);
+        }
+        code::-webkit-scrollbar-thumb:hover {
+            background: lightgray;
+        }
+        code::-webkit-scrollbar-corner {
+            background: rgb(230, 230, 230);
+        }
+    }
+    
+    .katex-display {
+        .katex::-webkit-scrollbar-track {
+            background: gray;
+        }
+        .katex::-webkit-scrollbar-thumb {
+            background: rgb(200, 200, 200);
+        }
+        .katex::-webkit-scrollbar-thumb:hover {
+            background: lightgray;
+        }
+        .katex::-webkit-scrollbar-corner {
+            background: rgb(230, 230, 230);
         }
     }
 }
