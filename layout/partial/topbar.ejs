@@ -25,9 +25,17 @@
 
         <%# 右侧的一些图标按钮 %>
         <div class="topbar-icon-buttons">
-            <button id="btn-switch-theme" class="icon-button" title="<%- _p("switch_theme") %>">
+            <% for (let app in theme.links) {%>
+                <% let link = theme.links[app] %>
+                <% if (link.class) { %>
+                <a class="icon-button" title="<%= link.title %>" href="<%= link.url %>">
+                    <i class="<%= link.class %>"></i>
+                </a>
+                <% } %>
+            <% } %>
+            <a id="btn-switch-theme" class="icon-button" title="<%- _p("switch_theme") %>">
                 <i class="bi bi-sun"></i>
-            </button>
+            </a>
             <% if (theme.search.enable) { %>
             <a id="btn-search" class="icon-button" title="<%- _p("search") %>" href="<%= theme.search.link %>">
                 <i class="bi bi-search"></i>
