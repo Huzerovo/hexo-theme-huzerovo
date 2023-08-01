@@ -7,6 +7,7 @@ todo_msg: 等待完成
 publish_date: 发布日期
 update_date: 更新日期
 switch_theme: 切换主题
+feed: 订阅
 search: 搜索
 input_keywords: 请输入关键字，使用'/regex/'进行正则搜索...
 comment_disabled: 已禁用评论=w=

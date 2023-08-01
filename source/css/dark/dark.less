@@ -1,6 +1,15 @@
-/*
- * 暗色主题
- */
+html.dark::-webkit-scrollbar-track {
+    background: black;
+}
+html.dark::-webkit-scrollbar-thumb {
+    background: rgb(100, 100, 100);
+}
+html.dark::-webkit-scrollbar-thumb:hover {
+    background: gray;
+}
+html.dark::-webkit-scrollbar-corner {
+    background: rgb(30, 30, 30);
+}
 
 .dark body {
     background-color: black;
@@ -12,10 +21,7 @@
         opacity: 50%;
     }
 
-    /* 顶部栏 */
     @import 'dark-topbar';
-
-    /* 基本样式 */
     @import 'dark-main';
 
     footer {
@@ -32,6 +38,5 @@
         }
     }
 
-    /* 分页器 */
     @import 'dark-pager';
 }

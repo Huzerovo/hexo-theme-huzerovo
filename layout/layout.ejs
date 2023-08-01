@@ -6,11 +6,17 @@
     <meta charset="UTF-8" />
     <meta name="author" content="<%= config.author %>" />
     <meta name="description" content="<%= config.description %>" />
-    <meta name="generator" content="<%= config.description %>" />
+    <meta name="generator" content="Hexo" />
     <meta name="keywords" content="<%= config.keywords %>" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="dark">
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+    <% if (theme.rss && theme.rss.enable) { %>
+        <%- feed_tag(theme.rss.path) %>
+    <% } else if (config.feed && config.feed.enable) { %>
+        <%- feed_tag() %>
+    <% } %>
 
     <%  
         let tail_str = '';
@@ -82,7 +88,16 @@
         <%= _p('goto_top') %>
     </button>
     <footer>
-        <p> Copyright <%= date(Date.now(), 'YYYY') %> @<%= config.author %></p>
+        <p> Copyright <%= date(Date.now(), 'YYYY') %> 
+        <% if (theme.email) { %>
+        <a href="mailto:<%= theme.email %>">
+        <i class='bi bi-envelope-fill'></i>
+        @<%= config.author %>
+        </a>
+        <% } else { %>
+        @<%= config.author %>
+        <% } %>
+        </p>
         <p>
             Powered by <a href="https://hexo.io">Hexo</a>. 
             Theme by <a href="https://github.com/HuzerOVO/hexo-theme-huzerovo">狐zerOAO</a>.

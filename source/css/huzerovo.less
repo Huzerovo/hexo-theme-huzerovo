@@ -5,11 +5,17 @@ html {
     font-family: sans;
     scroll-behavior: smooth;
     scroll-padding-top: 50px;
-    scrollbar-width: none;
 }
 
 html::-webkit-scrollbar {
-    display: none;
+    width: 8px;
+    height: 8px;
+}
+html::-webkit-scrollbar-track {
+    border-radius: 8px;
+}
+html::-webkit-scrollbar-thumb{
+    border-radius: 8px;
 }
 
 body {
@@ -17,7 +23,6 @@ body {
     transition: 300ms;
 
     @import 'topbar.less';
-    
     @import 'main.less';
 
     #goto-top {
@@ -31,7 +36,6 @@ body {
         cursor: pointer;
     }
     
-    /* 网站页尾 */
     footer {
         text-align: center;
         transition: 300ms;

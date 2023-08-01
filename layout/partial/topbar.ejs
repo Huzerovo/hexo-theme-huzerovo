@@ -5,6 +5,16 @@
 <%# 类型：string %>
 <%# 意义：正在活跃的页面名称 %>
 
+<%# 获取订阅 %>
+<%
+let feed_path = '';
+if (theme.rss && theme.rss.enable) {
+    feed_path = url_for(theme.rss.path);
+} else if (config.feed && config.feed.enable) {
+    feed_path = url_for(config.feed.path);
+}
+%>
+
 <header class="topbar">
     <div class="topbar-container">
         <%# 左侧的页面导航 %>
@@ -32,6 +42,11 @@
                     <i class="<%= link.class %>"></i>
                 </a>
                 <% } %>
+            <% } %>
+            <% if (feed_path !== '') { %>
+            <a class="icon-button" title="<%- _p('feed') %>" href="<%= feed_path %>" download="">
+                <i class="bi bi-rss-fill"></i>
+            </a>
             <% } %>
             <a id="btn-switch-theme" class="icon-button" title="<%- _p("switch_theme") %>">
                 <i class="bi bi-sun"></i>

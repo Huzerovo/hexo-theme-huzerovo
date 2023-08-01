@@ -1,6 +1,15 @@
-/*
- * 亮色主题
- */
+html.light::-webkit-scrollbar-track {
+    background: whitesmoke;
+}
+html.light::-webkit-scrollbar-thumb {
+    background: gray;
+}
+html.light::-webkit-scrollbar-thumb:hover {
+    background: dimgray;
+}
+html.light::-webkit-scrollbar-corner {
+    background: lightgray;
+}
 
 .light body {
     background-color: whitesmoke;
@@ -12,10 +21,7 @@
         opacity: 50%;
     }
 
-    /* 顶部栏 */
     @import 'light-topbar.less';
-
-    /* 基本样式 */
     @import 'light-main.less';
 
     footer {
@@ -32,6 +38,5 @@
         }
     }
 
-    /* 分页器 */
     @import 'light-pager.less';
 }

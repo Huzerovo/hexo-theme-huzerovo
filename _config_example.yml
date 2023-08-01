@@ -19,6 +19,9 @@ menu:
     title: 关于我
     link: /about
 
+# 邮箱
+email: 'example@example.com'
+
 # 网站搜索功能
 search:
   enable: true
@@ -94,3 +97,8 @@ links:
 #   title: 'BiliBili'
 #   class: 'fa-brands fa-bilibili'
 #   url: 'https://www.bilibili.com'
+
+# 订阅
+rss:
+  enable: true
+  path: atom.xml
