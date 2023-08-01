@@ -39,18 +39,22 @@
                     photos.push(pic);
                 } else {
                     //# 检查如何使用封面
-                    if (p.gallery && p.gallery !== '') { 
-                        if (p.gallery === '/') { 
-                            //# 对根目录的封面特殊处理
-                            photos.push(p.gallery + pic); 
+                    if (pic[0] !== '/') {
+                        if (p.gallery && p.gallery !== '') { 
+                            if (p.gallery === '/') { 
+                                //# 对根目录的封面特殊处理
+                                photos.push(p.gallery + pic); 
+                            } else { 
+                                //# 使用封面文件夹
+                                photos.push(url_for(p.gallery) + url_for(pic)); 
+                            } 
                         } else { 
-                            //# 使用封面文件夹
-                            photos.push(url_for(p.gallery) + url_for(pic)); 
+                            //# 使用文章相册
+                            photos.push(url_for(p.path) + pic); 
                         } 
-                    } else { 
-                        //# 使用文章相册
-                        photos.push(url_for(p.path) + pic); 
-                    } 
+                    } else {
+                        photos.push(url_for(pic));
+                    }
                 } 
             } //# for END
             let len = photos.length;
