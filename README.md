@@ -1,4 +1,4 @@
-# 没有名字的主题
+# Huzerovo主题
 
 ## 介绍
 
@@ -9,7 +9,7 @@
 - 代码高亮
 - 深色模式
 - 响应式设计
-- 可自定义主题配色
+- 本地搜索
 
 ## 配置说明
 
@@ -23,7 +23,7 @@
 
 页面配置指南：
 
-1. 主页
+1. 主页  
    `home`：配置首页路径。无需手动创建。
 
 2. 归档  
@@ -45,7 +45,7 @@
    title: categories
    ```
 
-4. 标签云
+4. 标签云  
    `tagcloud`：配置标签云页面路径。
    需要手动启用，启用方法：
 
@@ -99,9 +99,7 @@
       dark: "css/github-dark.min.css"
   ```
 
-### 功能配置
-
-#### 搜索功能
+### 搜索功能
 
 `search`字段用于配置搜索功能。
 - `enable`：是否启用搜索功能，启用搜索功能需要安装`hexo-generator-searchdb`。
@@ -132,17 +130,17 @@
 
 5. 若文章同时包含多个关键字，则使用首次匹配到的关键字。
 
-#### 文章目录
+### 文章目录
 
 `toc`：全局选项，控制是否显示目录。
 需要在文章Front-matter区域添加`toc: true`以在文章内启用。
 
-#### 公式渲染
+### 公式渲染
 
 `mathjax`：全局选项，控制是否渲染Tex/Latex代码。
 需要在文章Front-matter区域添加`mathjax: true`以在文章内启用。
 
-#### 代码高亮
+### 代码高亮
 
 `highlightjs`：是否启用代码高亮，使用[highlight.js](https://highlightjs.org)
 
@@ -184,31 +182,64 @@
 
 `gitalk`配置请参考：[Gitalk](https://github.com/gitalk/gitalk#usage)，并修改配置文件中对应的字段。
 
-### 其他资源引用
+### 电子邮件
 
-用到的其他资源有：[jQuery](https://jquery.com/)，[Bootstrap Icon](https://icons.getbootstrap.com/)。
+`email`字段用于配置电子邮件。
+
+### 订阅
+
+`rss`字段用于配置订阅。
+- `enable`表示启用主题的订阅。
+- `path`设置xml文件路径。
+
+## 资源引用
+
+用到的其他资源有：
+[jQuery](https://jquery.com/)，
+[Bootstrap Icon](https://icons.getbootstrap.com/)，
+[Font awesome](https://fontawesome.com/)。
 参考网站提供的CDN资源链接，并修改配置文件。~~有的CDN因不可抗力无法加载~~
 
 ## 参考配置
 
-见配置文件。
+还可以参考[我的主题介绍](https://huzerovo.github.io/2023/07/16/introduction-to-my-theme/)。
 
-## TODO
+### Front-matter参考
 
-### 已完成
+```yml
+title: 我的主题介绍
+date: 2023-07-17
+updated: 2023-07-19
+toc: true
+katex: false
+gitalk: true
+todo: true
+todo_msg: 主题仍在开发中
+#expert: 主题仍在持续开发中 =v= # 这个会覆盖文章内摘要
+pin: true
+gallery: gallery
+photos:
+- id=89645004_p0.png
+categories:
+  - [开发记录]
+tags:
+  - 主题
+  - Hexo
+# 这个作为外部文章引用
+#link: https://huzerovo.github.io/2023/07/17/introduction-to-my-theme/
+```
+
+### 配置文件
+
+参考`_config_example.yml`。
+
+## 主题开发已完成
 
 - [x] 深色主题  
-- [x] 更多主题（可自己编写相应的 CSS文件）
+- [x] 响应式设计
 - [x] 搜索
 - [x] 评论
-
-### 在想怎么整
-
-- [ ] Icon外链
-- [ ] 订阅
-
-### 在考虑要不要
-
-- [ ] 音乐播放器
+- [x] 外链
+- [x] 订阅
 
 [^front-matter]: Front-matter是文件最上方以"---"分隔的区域
