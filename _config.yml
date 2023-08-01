@@ -55,12 +55,12 @@ gitalk_source:
 # Gitalk配置
 gitalk:
   enable: true
-  clientID: 8430fc1311285afb9029
-  clientSecret: 6d9f1ff1d6db0df95fd537a3f3b2c686d35d641a
-  repo: 'huzerovo.github.io'
-  owner: HuzerOVO
+  clientID: 'Github Application Client ID'
+  clientSecret: 'Github Application Client Secret'
+  repo: 'Github repo'
+  owner: 'Github repo owner'
   admin: 
-    - HuzerOVO
+    - 'Github repo owner and collaborators'
   distractionFreeMode: false
 
 # jQurey CDN
@@ -89,8 +89,8 @@ links:
   github:
     title: 'Github'
     class: 'bi bi-github'
-    url: 'https://github.com/HuzerOVO'
-  bilibili:
-    title: 'BiliBili'
-    class: 'fa-brands fa-bilibili'
-    url: 'https://www.bilibili.com'
+    url: 'https://github.com'
+# bilibili:
+#   title: 'BiliBili'
+#   class: 'fa-brands fa-bilibili'
+#   url: 'https://www.bilibili.com'
