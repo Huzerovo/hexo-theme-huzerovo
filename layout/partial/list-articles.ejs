@@ -38,21 +38,16 @@
                 if (is_http_or_https.test(pic)) {
                     photos.push(pic);
                 } else {
-                    //# 检查如何使用封面
+                    //# 检查是否使用绝对路径上的图片
                     if (pic[0] !== '/') {
                         if (p.gallery && p.gallery !== '') { 
-                            if (p.gallery === '/') { 
-                                //# 对根目录的封面特殊处理
-                                photos.push(p.gallery + pic); 
-                            } else { 
-                                //# 使用封面文件夹
-                                photos.push(url_for(p.gallery) + url_for(pic)); 
-                            } 
+                            photos.push(url_for(p.gallery) + '/' + pic); 
                         } else { 
-                            //# 使用文章相册
+                            //# 使用文章资源文件夹下的图片
                             photos.push(url_for(p.path) + pic); 
                         } 
                     } else {
+                        //# 使用绝对路径上的文件
                         photos.push(url_for(pic));
                     }
                 } 

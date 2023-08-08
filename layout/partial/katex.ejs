@@ -1,6 +1,6 @@
 <%# MathJax公式显示 %>
-<%- css(url_for(theme.katex.css)); %>
-<%- js(url_for(theme.katex.js)); %>
+<%- css(theme.katex.css); %>
+<%- js(theme.katex.js); %>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {

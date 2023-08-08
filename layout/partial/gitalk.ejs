@@ -9,9 +9,9 @@
         <% number = page.issue_id; %>
     <% } %>
     <div id="gitalk-container"></div>
-    <%- css(url_for(theme.gitalk_source.css)) %>
-    <%- js(url_for(theme.gitalk_source.js)) %>
-    <%- js(url_for(theme.gitalk_source.md5js)) %>
+    <%- css(theme.gitalk_source.css) %>
+    <%- js(theme.gitalk_source.js) %>
+    <%- js(theme.gitalk_source.md5js) %>
     <script>
         let c = <%- conf_json %>;
         c.title = "Article: " + "<%= page.title %>";

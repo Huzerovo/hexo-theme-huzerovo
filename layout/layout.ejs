@@ -34,27 +34,27 @@
     <% } %>
 
     <%# Bootstrap icons %>
-    <%- css(url_for(theme.bootstrap)) %>
+    <%- css(theme.bootstrap) %>
 
     <%# jQuery %>
-    <%- js(url_for(theme.jquery)) %>
+    <%- js(theme.jquery) %>
 
     <%# Font awesome %>
-    <%- js(url_for(theme.fontawesome)) %>
+    <%- js(theme.fontawesome) %>
 
     <%# fancybox%>
     <% if (theme.fancybox.enable) { %>
-        <%- css(url_for(theme.fancybox.css)) %>
-        <%- js(url_for(theme.fancybox.js)) %>
+        <%- css(theme.fancybox.css) %>
+        <%- js(theme.fancybox.js) %>
     <% } %>
 
     <%# highlight.js仅在网站未启用Hexo内置的高亮时使用 %>
     <% if (theme.hljs.enable && !config.highlight.enable) { %>
         <%- css({
-        href: url_for(theme.style.code.light), 
+        href: theme.style.code.light, 
         id: 'code-style'}) 
         %>
-        <%- js(url_for(theme.hljs.js)) %>
+        <%- js(theme.hljs.js) %>
         <script>hljs.highlightAll();</script>
     <% } %>
 
@@ -62,8 +62,8 @@
     <%- css('css/huzerovo.css') %>
 
     <%# 网站主题 %>
-    <%- css(url_for(theme.style.site.light)) %>
-    <%- css(url_for(theme.style.site.dark)) %>
+    <%- css(theme.style.site.light) %>
+    <%- css(theme.style.site.dark) %>
 
     <%# 一些辅助功能 %>
     <%- js(['js/huzerovo.js', 'js/search.js']) %>
