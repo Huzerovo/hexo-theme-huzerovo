@@ -5,6 +5,24 @@
 <%# 类型：Array %>
 <%# 意义：需要显示的文章的数组 %>
 
+<%# 加载默认封面 %>
+<%
+let default_covers = [];
+if (theme.covers && theme.covers.enable) {
+    let covers = theme.covers;
+    let base_dir = url_for(covers.path);
+    covers.photos.forEach((e) => {
+        default_covers.push(base_dir + '/' + e);
+    });
+    if (default_covers.length > 0) {
+%>
+    <script>
+        let default_covers = "<%= default_covers %>".split(',');
+    </script>
+<%
+    }
+} 
+%>
 <% if (typeof posts !== 'undefined') { %>
 <article class="articles-list">
 <% for (let i = 0; i < posts.length; i++) { %>
@@ -57,7 +75,15 @@
         <div class="item-gallery">
             <script>
             document.write("<img loading='lazy' src='" + 
-                    "<%- photos %>".split(',').at(Math.floor(Math.random() * <%= len %>))
+                    "<%= photos %>".split(',').at(Math.floor(Math.random() * <%= len %>))
+                    +"'>");
+            </script>
+        </div>
+        <% } else if (default_covers.length > 0 && p.cover) { %>
+        <div class="item-gallery">
+            <script>
+            document.write("<img loading='lazy' src='" + 
+                    default_covers.at(Math.floor(Math.random() * default_covers.length))
                     +"'>");
             </script>
         </div>
