@@ -8,21 +8,15 @@
 <%# 加载默认封面 %>
 <%
 let default_covers = [];
-if (theme.covers && theme.covers.enable) {
-    let covers = theme.covers;
-    let base_dir = url_for(covers.path);
-    covers.photos.forEach((e) => {
-        default_covers.push(base_dir + '/' + e);
+if (theme.covers) {
+    theme.covers.forEach((e) => {
+        default_covers.push(url_for(e));
     });
-    if (default_covers.length > 0) {
 %>
     <script>
         let default_covers = "<%= default_covers %>".split(',');
     </script>
-<%
-    }
-} 
-%>
+<% } %>
 <% if (typeof posts !== 'undefined') { %>
 <article class="articles-list">
 <% for (let i = 0; i < posts.length; i++) { %>
@@ -45,37 +39,40 @@ if (theme.covers && theme.covers.enable) {
     }
     %>
     <article class="articles-list-item">
-        <%# 页面为相册 %>
+        <%# 封面 %>
         <%
         if (p.photos && p.photos.length) {
             //# 把所有可能的图片路径提取出来
-            let photos = [];
+            let covers = [];
             for (pic of p.photos) {
                 //# 检查是否是外部链接
-                let is_http_or_https = new RegExp(/^(http|https):\/\/[^\s]*/gm);
-                if (is_http_or_https.test(pic)) {
-                    photos.push(pic);
+                let is_http_or_https = new RegExp(/^(http|https):\/\/[^\s]*/gm).test(pic);
+                if (is_http_or_https) {
+                    covers.push(pic);
                 } else {
                     //# 检查是否使用绝对路径上的图片
                     if (pic[0] !== '/') {
                         if (p.gallery && p.gallery !== '') { 
-                            photos.push(url_for(p.gallery) + '/' + pic); 
+                            covers.push(url_for(p.gallery) + '/' + pic); 
                         } else { 
                             //# 使用文章资源文件夹下的图片
-                            photos.push(url_for(p.path) + pic); 
+                            covers.push(url_for(p.path) + pic); 
                         } 
                     } else {
                         //# 使用绝对路径上的文件
-                        photos.push(url_for(pic));
+                        covers.push(url_for(pic));
                     }
                 } 
             } //# for END
-            let len = photos.length;
+            //# 追加默认封面
+            if (p.cover) {
+                covers = covers.concat(default_covers);
+            }
         %>
         <div class="item-gallery">
             <script>
             document.write("<img loading='lazy' src='" + 
-                    "<%= photos %>".split(',').at(Math.floor(Math.random() * <%= len %>))
+                    "<%= covers %>".split(',').at(Math.floor(Math.random() * <%= covers.length %>))
                     +"'>");
             </script>
         </div>
