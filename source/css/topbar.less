@@ -19,7 +19,7 @@
         flex-wrap: wrap;
     
         .topbar-menu {
-            max-width: 80%;
+            max-width: 70%;
             overflow-x: scroll;
             scrollbar-width: none;
             ul{
@@ -47,7 +47,7 @@
         }
 
         .topbar-icon-buttons {
-            max-width: 20%;
+            max-width: 30%;
             overflow-x: scroll;
             display: flex;
             align-content: center;
@@ -64,6 +64,14 @@
 
         .topbar-icon-buttons::-webkit-scrollbar {
             display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .topbar {
+        .topbar-container {
+            width: 95%;
         }
     }
 }
