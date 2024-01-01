@@ -3,6 +3,23 @@
 <%# 描述：这个页面展示了所有的分类 %>
 <%# 这个文件不接收参数 %>
 
+<%
+    let uncategorized_posts = [];
+    site.posts.each(function(post) {
+        if (post.categories.length === 0) {
+            uncategorized_posts.push(post);
+        }
+    });
+%>
+
 <div class="page-category">
+    <% if (config.default_category === "uncategorized") { %>
+        <ul class="category-list">
+            <li class="category-list-item">
+                <a class="category-list-link" href="/uncategorized"><%- _p("uncategorized") %></a>
+                <span class="category-list-count"><%= uncategorized_posts.length%></span>
+            </li>
+        </ul>
+    <% } %>
     <%- list_categories(site.categories, { show_count: true }) %>
 </div>
