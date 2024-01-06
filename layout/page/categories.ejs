@@ -4,16 +4,13 @@
 <%# 这个文件不接收参数 %>
 
 <%
-    let uncategorized_posts = [];
-    site.posts.each(function(post) {
-        if (post.categories.length === 0) {
-            uncategorized_posts.push(post);
-        }
-    });
+    let uncategorized_posts = get_uncategorized_posts();
 %>
 
 <div class="page-category">
-    <% if (config.default_category === "uncategorized") { %>
+    <% if (typeof(config.default_category) !== "undefined"
+        && config.default_category === "uncategorized"
+        && has_page(config.default_category)) { %>
         <ul class="category-list">
             <li class="category-list-item">
                 <a class="category-list-link" href="/uncategorized"><%- _p("uncategorized") %></a>

@@ -5,138 +5,29 @@
 <%# 类型：Array %>
 <%# 意义：需要显示的文章的数组 %>
 
-<%# 加载默认封面 %>
-<%
-let default_covers = [];
-if (theme.covers) {
-    theme.covers.forEach((e) => {
-        default_covers.push(url_for(e));
-    });
-%>
-    <script>
-        let default_covers = "<%= default_covers %>".split(',');
-    </script>
-<% } %>
-<% if (typeof posts !== 'undefined') { %>
+<% if (typeof(posts) !== 'undefined') { %>
 <article class="articles-list">
-<% for (let i = 0; i < posts.length; i++) { %>
-    <% 
-    //# 是否为外部文章
+<% for (let i = 0; i < posts.length; i++) {
     let p = posts[i]
+    let covers = get_post_covers(p);
+    //# 是否为外部文章
     let post_link = '';
     if (p.link && p.link !== '') {
         post_link = url_for(p.link);
     } else {
         post_link = url_for(p.path);
     }
-
-    //# 显示的日期信息，在首页显示更新日期，其他显示发布日期
-    let footer_meta_date = '';
-    if (is_home()) {
-        footer_meta_date = _p('update_date')+ ': ' + date(p.updated);
-    } else {
-        footer_meta_date = _p('publish_date')+ ': ' + date(p.date);
-    }
-    %>
+%>
     <article class="articles-list-item">
-        <%# 封面 %>
-        <%
-        if (p.photos && p.photos.length) {
-            //# 把所有可能的图片路径提取出来
-            let covers = [];
-            for (pic of p.photos) {
-                //# 检查是否是外部链接
-                let is_http_or_https = new RegExp(/^(http|https):\/\/[^\s]*/gm).test(pic);
-                if (is_http_or_https) {
-                    covers.push(pic);
-                } else {
-                    //# 检查是否使用绝对路径上的图片
-                    if (pic[0] !== '/') {
-                        if (p.gallery && p.gallery !== '') { 
-                            covers.push(url_for(p.gallery) + '/' + pic); 
-                        } else { 
-                            //# 使用文章资源文件夹下的图片
-                            covers.push(url_for(p.path) + pic); 
-                        } 
-                    } else {
-                        //# 使用绝对路径上的文件
-                        covers.push(url_for(pic));
-                    }
-                } 
-            } //# for END
-            //# 追加默认封面
-            if (p.cover) {
-                covers = covers.concat(default_covers);
-            }
-        %>
-        <div class="item-gallery">
-            <script>
-            document.write("<img loading='lazy' src='" + 
-                    "<%= covers %>".split(',').at(Math.floor(Math.random() * <%= covers.length %>))
-                    +"'>");
-            </script>
-        </div>
-        <% } else if (default_covers.length > 0 && p.cover) { %>
-        <div class="item-gallery">
-            <script>
-            document.write("<img loading='lazy' src='" + 
-                    default_covers.at(Math.floor(Math.random() * default_covers.length))
-                    +"'>");
-            </script>
-        </div>
-        <% } //# if END %>
+    <% if (covers.length > 0 && (p.photos || p.cover)) { %>
+        <%- partial('post_entry/cover', { covers: covers }) %>
+    <% } %>
 
         <a href="<%= post_link %>">
-        <%# 文章有标题才显示标题 %>
-        <% if (p.title && p.title !== '') { %>
-            <p class="item-title">
-                <%= p.title %>
-            </p>
-        <% } %>
-        <%
-        let content = "";
-        //# 摘要或者截取一部分内容，优先使用摘要，否则使用文章内容
-        if (strip_html(p.excerpt) === '') { 
-            content = truncate(strip_html(p.content), {length: 160, omission: "..." }); 
-        } else { 
-            content = strip_html(p.excerpt); 
-        }
-        %>
-            <p class="item-content">
-                <%= content %>
-            </p>
+            <%- partial('post_entry/title', { post: p }) %>
+            <%- partial('post_entry/excerpt', { post: p }) %>
         </a>
-        <%# 一些简短的装饰 %>
-        <footer class="item-footer">
-        <%
-        if (p.todo) {
-            let msg = ''; 
-            if (p.todo_msg && p.todo_msg !== '') { 
-                msg = p.todo_msg 
-            } else {
-                msg = _p('todo_msg') 
-            }
-        %>
-        <div class="item-footer-todo">
-            <div class="item-footer-todo-msg">
-                <i class="bi bi-info-circle"></i>
-                <%= msg %>
-            </div>
-            <div>
-                <i class="bi bi-calendar-x"></i>
-                <%= footer_meta_date %>
-            </div>
-        </div>
-        <% } else { %>
-            <div class="item-footer-finished">
-                <i class="bi bi-calendar-check"></i>
-                <%= footer_meta_date %>
-            </div>
-        <% } %>
-        <% if (p.pin) {%>
-            <i class="item-footer-pin bi bi-pin-angle-fill"></i>
-        <% } %>
-        </footer>
+        <%- partial('post_entry/footer', { post: p }) %>
     </article>
 <% } //# for END%>
 </article>

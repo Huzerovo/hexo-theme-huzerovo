@@ -1,22 +1,12 @@
 <%# Gitalk评论 %>
 <% if (theme.gitalk.enable && page.gitalk && page.title && !(page.title === '')) { %>
-    <% let conf_yml = theme.gitalk; %>
-    <% delete conf_yml.enale; %>
-    <% let conf_json = JSON.stringify(conf_yml); %>
-    <% let number = -1; %>
-    <%# 如果文章指定了issue id，则强制使用指定的issue %>
-    <% if (typeof page.issue_id !== 'undefined' && page.issue_id > 0) { %>
-        <% number = page.issue_id; %>
-    <% } %>
     <div id="gitalk-container"></div>
-    <%- css(theme.gitalk_source.css) %>
-    <%- js(theme.gitalk_source.js) %>
-    <%- js(theme.gitalk_source.md5js) %>
+    <%- css(theme.gitalk.source.css) %>
+    <%- js(theme.gitalk.source.js) %>
+    <%- js(theme.gitalk.source.md5js) %>
     <script>
-        let c = <%- conf_json %>;
-        c.title = "Article: " + "<%= page.title %>";
+        let c = <%- get_gitalk_conf(page.title, page.issue_id) %>;
         c.id = md5(c.title);
-        c.number = <%= number %>;
         let gitalk = new Gitalk(c);
         gitalk.render("gitalk-container");
     </script>

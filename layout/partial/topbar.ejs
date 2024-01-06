@@ -5,16 +5,6 @@
 <%# 类型：string %>
 <%# 意义：正在活跃的页面名称 %>
 
-<%# 获取订阅 %>
-<%
-let feed_path = '';
-if (theme.rss && theme.rss.enable) {
-    feed_path = url_for(theme.rss.path);
-} else if (config.feed && config.feed.enable) {
-    feed_path = url_for(config.feed.path);
-}
-%>
-
 <header class="topbar">
     <div class="topbar-container">
         <%# 左侧的页面导航 %>
@@ -23,7 +13,7 @@ if (theme.rss && theme.rss.enable) {
             <% for (let i in theme.menu) { %>
                 <li>
                 <%# 在一些页面里不会传入active，表明无需高亮，需要判断一下 %>
-                <% if (typeof active !== 'undefined' && i === active) { %> 
+                <% if (typeof(active) !== 'undefined' && i === active) { %> 
                     <%- link_to(theme.menu[i].link, theme.menu[i].title, {id: "active-page"}) %>
                 <% } else { %>
                     <%- link_to(theme.menu[i].link, theme.menu[i].title) %>
@@ -35,27 +25,44 @@ if (theme.rss && theme.rss.enable) {
 
         <%# 右侧的一些图标按钮 %>
         <div class="topbar-icon-buttons">
-            <% for (let app in theme.links) {%>
-                <% let link = theme.links[app] %>
+            <!-- social link -->
+            <% for (let app in theme.links) { %>
+                <% let link = theme.links[app]; %>
                 <% if (link.class) { %>
-                <a class="icon-button" title="<%= link.title %>" href="<%= link.url %>">
-                    <i class="<%= link.class %>"></i>
-                </a>
+                <%- icon_link({
+                        title: link.title,
+                        href: link.url,
+                        icon_class: link.class
+                    }) %>
                 <% } %>
             <% } %>
-            <% if (feed_path !== '') { %>
-            <a class="icon-button" title="<%- _p('feed') %>" href="<%= feed_path %>" download="">
-                <i class="bi bi-rss-fill"></i>
-            </a>
-            <% } %>
-            <a id="btn-switch-theme" class="icon-button" title="<%- _p("switch_theme") %>">
-                <i class="bi bi-sun"></i>
-            </a>
+
             <% if (theme.search.enable) { %>
-            <a id="btn-search" class="icon-button" title="<%- _p("search") %>" href="<%= theme.search.link %>">
-                <i class="bi bi-search"></i>
-            </a>
+                <!-- search link -->
+                <%- icon_link({
+                        id: "btn-search",
+                        title: _p("search"),
+                        href: url_for(theme.search.link),
+                        icon_class: "bi bi-search"
+                    }); %>
             <% } %>
+
+            <!-- change theme btn -->
+            <%- icon_link({
+                    id: "btn-switch-theme",
+                    title: _p("switch_theme"),
+                    icon_class: "bi bi-sun"
+                }); %>
+
+            <% if (config.feed.enable) { %>
+                <!-- feed link -->
+                <%- icon_link({
+                        title: _p('feed'),
+                        href: url_for(config.feed.path),
+                        icon_class: "bi bi-rss-fill"
+                    }); %>
+            <% } %>
+
         </div>
     </div>
 </header>

@@ -3,32 +3,13 @@
 <%# 描述：展示个人介绍 %>
 <%# 这个文件不接收参数 %>
 
-<%
-    let avatar_size_style = 'width: 128px; height: 128px;'
-    if (page.avatar_size) {
-        if (typeof page.avatar_size === 'string') {
-            switch (page.avatar_size) {
-            case 'small':
-                avatar_size_style = 'width: 64px; height: 64px;'
-                break;
-            case 'normal':
-                avatar_size_style = 'width: 128px; height: 128px;'
-                break;
-            case 'large':
-                avatar_size_style = 'width: 256px; height: 256px;'
-                break;
-            default:
-                avatar_size_style = 'width: 128px; height: 128px;'
-                break;
-            }
-        } else if (typeof page.avatar_size === 'number') {
-            avatar_size_style = avatar_size_style.replace(/128/g, Math.floor(page.avatar_size).toString());
-        }
-    }
-%>
 <div class="page-about-me">
-    <% if (page.avatar) { %>
-        <img class="page-about-avatar" style="<%= avatar_size_style %>" alt="avatar" src="<%- theme.menu.about.link + url_for(page.avatar) %>"/>
+    <% if (page.avatar && page.avatar_size) { %>
+        <img class="page-about-avatar"
+            style="<%= get_avatar_size(page.avatar_size) %>" 
+            alt="avatar" 
+            src="<%- theme.menu.about.link + url_for(page.avatar) %>"
+            />
     <% } %>
     <div class="article-container page-about-description">
         <%- page.excerpt %>

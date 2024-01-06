@@ -5,19 +5,7 @@
 
 <%
 let index = page;
-//# 把具有pin标记的放到最前面，实现pin功能
-let pin = [];
-let others = [];
-let posts = site.posts.sort('updated', 'desc');
-for (let i = 0; i < posts.length; i++) {
-    let item = posts.data[i];
-    if (item.pin) {
-        pin.push(posts.data[i]);
-    } else {
-        others.push(posts.data[i]);
-    }
-};
-posts = pin.concat(others);
+let posts = get_posts_sort_with_pin();
 
 //# 提取出处于此页面的文章
 let per_page = config.per_page;

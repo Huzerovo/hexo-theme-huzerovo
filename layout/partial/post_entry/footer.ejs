@@ -1,0 +1,34 @@
+<%
+let footer_meta_date = '';
+if (is_home()) {
+    footer_meta_date = _p('update_date')+ ': ' + date(post.updated);
+} else {
+    footer_meta_date = _p('publish_date')+ ': ' + date(post.date);
+}
+%>
+
+<footer class="item-footer">
+<%
+if (post.todo) {
+    let    msg = post.todo_msg 
+%>
+    <div class="item-footer-todo">
+        <div class="item-footer-todo-msg">
+            <i class="bi bi-info-circle"></i>
+            <%= msg %>
+        </div>
+        <div>
+            <i class="bi bi-calendar-x"></i>
+            <%= footer_meta_date %>
+        </div>
+    </div>
+<% } else { %>
+    <div class="item-footer-finished">
+        <i class="bi bi-calendar-check"></i>
+        <%= footer_meta_date %>
+    </div>
+<% } %>
+<% if (post.pin) {%>
+    <i class="item-footer-pin bi bi-pin-angle-fill"></i>
+<% } %>
+</footer>

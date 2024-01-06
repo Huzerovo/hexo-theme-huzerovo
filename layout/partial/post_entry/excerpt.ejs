@@ -1,0 +1,12 @@
+<%
+let content = "";
+if (strip_html(post.excerpt) === '') { 
+    content = truncate(strip_html(post.content), {length: 160, omission: "..." }); 
+} else { 
+    content = strip_html(post.excerpt); 
+}
+%>
+
+<p class="item-content">
+    <%= content %>
+</p>

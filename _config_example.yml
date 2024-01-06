@@ -49,31 +49,24 @@ katex:
 
 # 网站主题
 style:
-  # 根据highlight.js网站推荐
-  code:
-    light: 'css/github.min.css'
-    dark: 'css/github-dark.min.css'
-  site:
-    light: 'css/light/light.css'
-    dark: 'css/dark/dark.css'
-
-# Gitalk 插件设置
-# CDN
-gitalk_source:
-  css: 'https://cdn.bootcdn.net/ajax/libs/gitalk/1.8.0/gitalk.css'
-  js: 'https://cdn.bootcdn.net/ajax/libs/gitalk/1.8.0/gitalk.js'
-  md5js: 'https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js'
+  light: 'css/light/light.css'
+  dark: 'css/dark/dark.css'
 
 # Gitalk配置
 gitalk:
   enable: true
-  clientID: 'Github Application Client ID'
-  clientSecret: 'Github Application Client Secret'
-  repo: 'Github repo'
-  owner: 'Github repo owner'
-  admin: 
-    - 'Github repo owner and collaborators'
-  distractionFreeMode: false
+  source:
+    css: 'https://cdn.bootcdn.net/ajax/libs/gitalk/1.8.0/gitalk.css'
+    js: 'https://cdn.bootcdn.net/ajax/libs/gitalk/1.8.0/gitalk.js'
+    md5js: 'https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js'
+  config:
+    clientID: 'Github Application Client ID'
+    clientSecret: 'Github Application Client Secret'
+    repo: 'Github repo'
+    owner: 'Github repo owner'
+    admin: 
+      - 'Github repo owner and collaborators'
+    distractionFreeMode: false
 
 # jQurey CDN
 jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js'
@@ -89,6 +82,9 @@ hljs:
   enable: true
   # highlight.js CDN
   js: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js'
+  css:
+    light: 'css/github.min.css'
+    dark: 'css/github-dark.min.css'
 
 # bootstrap CDN
 bootstrap: 'https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.10.4/font/bootstrap-icons.min.css'
@@ -106,8 +102,3 @@ links:
 #   title: 'BiliBili'
 #   class: 'fa-brands fa-bilibili'
 #   url: 'https://www.bilibili.com'
-
-# 订阅
-rss:
-  enable: true
-  path: atom.xml

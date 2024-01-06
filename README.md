@@ -75,31 +75,24 @@
 
 ### 亮色/深色模式配置
 
-`style`字段设置网站主题，以及代码高亮主题。
+`style`设置网站的深/亮色的样式，值为CSS文件的相对路径，
+如文件位于`source/css/light.css`，则应设置为：
 
-- `site`设置整个网站的样式，值为CSS文件的相对路径，
-  如文件位于`source/css/light.css`，则应设置为
-
-  ```yml
-  style:
-    site:
-      light: "css/light.css"
-      dark: "css/dark.css"
-  ```
-
-- `code` 设置文章内的代码块的样式  
-  主题使用[highlight.js](https://highlightjs.org)进行渲染，
-  建议在[highlightjs style](https://github.com/highlightjs/highlight.js/tree/main/src/styles)
-  中选取CSS文件。值可以为相对路径，也可以为外部链接，如
-
-  ```yml
-  style:
-    code:
-      light: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github.min.css"
-      dark: "css/github-dark.min.css"
-  ```
+```yml
+style:
+  light: "css/light.css"
+  dark: "css/dark.css"
+```
 
 ### 搜索功能
+
+主题配置参考：
+
+```yaml
+search:
+  enable: true
+  link: 'search'
+```
 
 `search`字段用于配置搜索功能。
 - `enable`：是否启用搜索功能，启用搜索功能需要安装`hexo-generator-searchdb`。
@@ -144,19 +137,7 @@
 
 `highlightjs`：是否启用代码高亮，使用[highlight.js](https://highlightjs.org)
 
-1. 首先禁用 Hexo 的内置渲染
-
-   编辑 Hexo 的配置文件，修改为如下配置：
-
-   ```yml
-   ...
-   highlight:
-      enable: false
-   ...
-   prismjs:
-      enable: false
-   ...
-   ```
+1. 首先禁用 Hexo 的内置渲染，参考: [Hexo官方文档](https://hexo.io/docs/syntax-highlight.html#Disabled)
 
 2. 在主题配置文件中启用代码高亮
 
@@ -164,10 +145,14 @@
    hljs:
      enable: true
      # CDN链接
-     js: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js'
+     js: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'
+     css:
+       # 可使用CDN链接
+       light: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+       # 也可以使用本地文件
+       dark: "css/github-dark.min.css"
    ```
-
-   代码高亮样式见上方**亮色/深色模式配置**
+   其中，`light`表示在亮色模式下使用的样式，`dark`则是深色模式使用的样式。
 
 ### Gitalk配置
 
@@ -185,12 +170,6 @@
 ### 电子邮件
 
 `email`字段用于配置电子邮件。
-
-### 订阅
-
-`rss`字段用于配置订阅。
-- `enable`表示启用主题的订阅。
-- `path`设置xml文件路径。
 
 ## 资源引用
 
