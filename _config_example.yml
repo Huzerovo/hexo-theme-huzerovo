@@ -21,12 +21,9 @@ menu:
 
 # 配置默认封面，需要在文章内启用封面      
 covers:
-  enable: true
-  path: 'gallery'
-  photos:
-    - 'id=89645004_p0.jpg'
-    - 'id=95612209_p0.jpg'
-    - 'id=95612209_p1.jpg'
+  - '/covers/cov_0.jpg'
+  - '/covers/cov_1.jpg'
+  - '/covers/cov_2.jpg'
 
 # 邮箱
 email: 'example@example.com'
@@ -42,10 +39,10 @@ toc: true
 # 数学公式渲染
 katex:
   enable: true
-  css: https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
+  css: https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
   js:
-    - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js 
-    - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js
+    - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js 
+    - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
 
 # 网站主题
 style:
@@ -69,28 +66,28 @@ gitalk:
     distractionFreeMode: false
 
 # jQurey CDN
-jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js'
+jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js'
 
 # Fancybox
 fancybox:
   enable: true
-  css: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.16/fancybox/fancybox.min.css'
-  js: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.16/fancybox/fancybox.umd.min.js'
+  css: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css'
+  js: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js'
 
 # highlight.js 配置
 hljs:
   enable: true
   # highlight.js CDN
-  js: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js'
+  js: 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js'
   css:
     light: 'css/github.min.css'
     dark: 'css/github-dark.min.css'
 
 # bootstrap CDN
-bootstrap: 'https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.10.4/font/bootstrap-icons.min.css'
+bootstrap: 'https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.11.0/font/bootstrap-icons.min.css'
 
 # Font awesome 用于支持bootstrap中缺少外链的图标
-fontawesome: 'https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/js/all.min.js'
+fontawesome: 'https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/js/all.min.js'
 
 # 外链
 links:

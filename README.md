@@ -91,7 +91,7 @@ style:
 ```yaml
 search:
   enable: true
-  link: 'search'
+  link: '/search'
 ```
 
 `search`字段用于配置搜索功能。
@@ -122,6 +122,8 @@ search:
 4. 若关键字间存在包含关系，如`o +on`，则优先进行长关键字的匹配。
 
 5. 若文章同时包含多个关键字，则使用首次匹配到的关键字。
+
+另请参考[我的主题介绍](https://huzerovo.github.io/2023/07/17/introduction-to-my-theme/#%E6%90%9C%E7%B4%A2)
 
 ### 文章目录
 
@@ -156,7 +158,7 @@ search:
 
 ### Gitalk配置
 
-`gitalk_source`用于配置Gitalk使用到的资源。
+`gitalk.source`用于配置Gitalk使用到的资源。
 - `css`：Gitalk样式。
 - `js`：Gitalk脚本。
 - `md5js`：主题使用文章标题的md5值作为文章的Gitalk id。
@@ -165,7 +167,7 @@ search:
 强制使用指定的issue作为评论区。`issue_id`为Github issue编号，
 如需要使用issue`Example issue #9`作为评论区，则应设定`issue_id: 9`。
 
-`gitalk`配置请参考：[Gitalk](https://github.com/gitalk/gitalk#usage)，并修改配置文件中对应的字段。
+`gitalk.config`配置请参考：[Gitalk](https://github.com/gitalk/gitalk#usage)，并修改配置文件中对应的字段。
 
 ### 电子邮件
 
@@ -181,36 +183,8 @@ search:
 
 ## 参考配置
 
-还可以参考[我的主题介绍](https://huzerovo.github.io/2023/07/16/introduction-to-my-theme/)。
-
-### Front-matter参考
-
-```yml
-title: 我的主题介绍
-date: 2023-07-17
-updated: 2023-07-19
-toc: true
-katex: false
-gitalk: true
-todo: true
-todo_msg: 主题仍在开发中
-#expert: 主题仍在持续开发中 =v= # 这个会覆盖文章内摘要
-pin: true
-gallery: gallery
-photos:
-- id=89645004_p0.png
-categories:
-  - [开发记录]
-tags:
-  - 主题
-  - Hexo
-# 这个作为外部文章引用
-#link: https://huzerovo.github.io/2023/07/17/introduction-to-my-theme/
-```
-
-### 配置文件
-
-参考`_config_example.yml`。
+- [我的主题介绍](https://huzerovo.github.io/2023/07/16/introduction-to-my-theme/)。
+- 参考`_config_example.yml`。
 
 ## 主题开发已完成
 
