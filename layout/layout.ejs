@@ -72,15 +72,18 @@
         <%= _p('goto_top') %>
     </button>
     <footer>
-        <p> Copyright <%= date(Date.now(), 'YYYY') %> 
+        <p> © <%= date(Date.now(), 'YYYY') %> 
         <% if (theme.email) { %>
-        <a href="mailto:<%= theme.email %>">
-        <i class='bi bi-envelope-fill'></i>
-        @<%= config.author %>
-        </a>
+            <a href="mailto:<%= theme.email %>">
+                <i class='bi bi-envelope-fill'></i>
+                @<%= config.author %>
+            </a>
         <% } else { %>
-        @<%= config.author %>
+            @<%= config.author %>
         <% } %>
+        </p>
+        <p>
+            <%- get_cc() %>
         </p>
         <p>
             Powered by <a href="https://hexo.io">Hexo</a>. 

@@ -99,3 +99,8 @@ links:
 #   title: 'BiliBili'
 #   class: 'fa-brands fa-bilibili'
 #   url: 'https://www.bilibili.com'
+
+creativecommons:
+  listen: 'CC BY-NC-ND 4.0'
+  link: https://creativecommons.org/licenses/by-nc-nd/4.0/
+  desctiption: 如无特殊说明，网站内容采用#授权
