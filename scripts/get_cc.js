@@ -4,7 +4,7 @@ hexo.extend.helper.register('get_cc', function() {
     let cc = this.theme.creativecommons;
     if (cc) {
         let link = '<a href="' + cc.link + '">' 
-            + cc.listen 
+            + cc.license 
             + '</a>';
         return cc.description.replaceAll('#', link);
     }
