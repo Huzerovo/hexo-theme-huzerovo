@@ -132,8 +132,8 @@ search:
 
 ### 公式渲染
 
-`mathjax`：全局选项，控制是否渲染Tex/Latex代码。
-需要在文章Front-matter区域添加`mathjax: true`以在文章内启用。
+`katex`：全局选项，控制是否渲染Tex/Latex代码。
+需要在文章Front-matter区域添加`katex: true`以在文章内启用。
 
 ### 代码高亮
 
