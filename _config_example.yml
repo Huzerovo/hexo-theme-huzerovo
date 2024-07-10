@@ -86,9 +86,6 @@ hljs:
 # bootstrap CDN
 bootstrap: 'https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.11.0/font/bootstrap-icons.min.css'
 
-# Font awesome 用于支持bootstrap中缺少外链的图标
-fontawesome: 'https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/js/all.min.js'
-
 # 外链
 links:
   github:
