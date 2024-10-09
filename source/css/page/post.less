@@ -7,6 +7,22 @@
     overflow: auto;
     padding-right: 8px;
 
+    a {
+        color: var(--huzerovo-additional-text);
+    }
+
+    a:hover {
+        color: var(--huzerovo-notable-text);
+    }
+
+    hr {
+        color: var(--huzerovo-line);
+    }
+
+    strong {
+        color: var(--huzerovo-notable-text);
+    }
+
     .toc {
         padding: 0;
         font-size: small;
@@ -25,24 +41,19 @@
         text-decoration: none;
     }
 
-    .toc-level-2 > a.toc-link ::before {
-        content: "# ";
-    }
-}
+    .toc-level-2 {
+        >a.toc-link {
+            ::before {
+                content: "# ";
+            }
 
-#article-toc::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
-}
-#article-toc:hover::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-#article-toc::-webkit-scrollbar-track {
-    border-radius: 8px;
-}
-#article-toc::-webkit-scrollbar-thumb{
-    border-radius: 8px;
+            color: var(--huzerovo-normal-text);
+        }
+
+        >a:hover {
+            color: var(--huzerovo-notable-text);
+        }
+    }
 }
 
 @media (max-width: 960px) {
@@ -90,6 +101,8 @@
     }
 
     blockquote {
+        background-color: var(--huzerovo-block-background);
+        color: var(--huzerovo-block-text);
         border-left-width: 3px;
         border-left-style: solid;
         margin: 8px 0px;
@@ -115,9 +128,13 @@
 
         thead {
             transition: background-color .3s;
+            background-color: var(--huzerovo-thead-bg);
+            color: var(--huzerovo-thead-text);
         }
 
         tbody {
+            background-color: var(--huzerovo-tbody-bg);
+            color: var(--huzerovo-tbody-text);
             transition: background-color .3s;
 
             td {
@@ -147,6 +164,11 @@
         transition: color .3s, background-color .3s;
     }
 
+    code:not([class*="language"]) {
+        background-color: var(--huzerovo-code-background);
+        color: var(--huzerovo-code-text);
+    }
+
     pre {
         code {
             display: block;
@@ -154,19 +176,8 @@
             padding: 16px 32px;
         }
 
-        code::-webkit-scrollbar {
-            width: 1px;
-            height: 1px;
-        }
-        code:hover::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        code::-webkit-scrollbar-track {
-            border-radius: 8px;
-        }
-        code::-webkit-scrollbar-thumb{
-            border-radius: 8px;
+        code:not([class~="hljs"]) {
+            background-color: var(--huzerovo-code-background);
         }
     }
 
@@ -176,15 +187,19 @@
         padding-left: 3px;
         padding-right: 3px;
     }
+
     .katex-display {
         width: 100%;
         padding: 8px 0;
+
         >.katex {
             overflow: auto visible;
+
             .katex-html {
                 min-width: fit-content;
                 width: 75%;
                 margin: 8px auto;
+
                 .tag {
                     position: absolute;
                     left: 100%;
@@ -198,14 +213,17 @@
             width: 1px;
             height: 1px;
         }
+
         .katex:hover::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
+
         .katex::-webkit-scrollbar-track {
             border-radius: 8px;
         }
-        .katex::-webkit-scrollbar-thumb{
+
+        .katex::-webkit-scrollbar-thumb {
             border-radius: 8px;
         }
     }
@@ -216,6 +234,7 @@
         width: 45%;
         margin: 16px;
         padding: 0 16px;
+
         &.left {
             float: left;
         }
@@ -249,11 +268,12 @@
 
 /* 文章标签 */
 .article-meta-info {
+    color: var(--huzerovo-additional-text);
     span {
         display: block;
     }
 
-    a { 
+    a {
         position: relative;
         left: 16px;
         transition: 0ms;
@@ -265,6 +285,8 @@
 /* 日期信息 */
 .article-date-info {
     margin: 8px auto;
+    color: var(--huzerovo-additional-text);
+
     span {
         font-size: small;
         font-style: italic;
@@ -279,6 +301,7 @@
     padding: 16px;
     margin: 16px 0px;
     transition: background-color .3s;
+    background-color: var(--huzerovo-block-background);
 
     #gitalk-container {
         text-align: left;
@@ -288,6 +311,7 @@
         }
 
         blockquote {
+            background: var(--huzerovo-block-background);
             width: 100%;
         }
 

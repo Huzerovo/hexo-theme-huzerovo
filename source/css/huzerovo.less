@@ -1,21 +1,80 @@
+:root {
+    --huzerovo-background: #f7f7f7;
+    --huzerovo-background-highlight: white;
+
+    --huzerovo-btn-text: black;
+    --huzerovo-btn-text-active: white;
+    --huzerovo-btn-bg-active: black;
+    --huzerovo-btn-text-hover: white;
+    --huzerovo-btn-bg-hover: gray;
+
+    --huzerovo-notable-text: black;
+    --huzerovo-normal-text: #323232;
+    --huzerovo-additional-text: gray;
+    --huzerovo-footnote-text: #e0e0e0;
+
+    --huzerovo-done-color: limegreen;
+    --huzerovo-warn-color: orange;
+    --huzerovo-mark-color: wheat;
+
+    --huzerovo-line: #e0e0e0;
+
+    --huzerovo-link: #9999ff;
+    --huzerovo-link-visted: orange;
+    --huzerovo-link-hover: tomato;
+
+    --huzerovo-code-background: white;
+    --huzerovo-code-text: peru;
+
+    --huzerovo-block-background: #ececec;
+    --huzerovo-block-text: gray;
+
+    --huzerovo-thead-bg: lightgray;
+    --huzerovo-thead-text: black;
+    --huzerovo-tbody-bg: white;
+    --huzerovo-tbody-text: black;
+
+
+    --huzerovo-tagcloud-0: rgb(180, 180, 180);
+    --huzerovo-tagcloud-1: rgb(160, 160, 160);
+    --huzerovo-tagcloud-2: rgb(140, 140, 140);
+    --huzerovo-tagcloud-3: rgb(120, 120, 120);
+    --huzerovo-tagcloud-4: rgb(100, 100, 100);
+    --huzerovo-tagcloud-5: rgb(80, 80, 80);
+    --huzerovo-tagcloud-6: rgb(60, 60, 60);
+    --huzerovo-tagcloud-7: rgb(40, 40, 40);
+    --huzerovo-tagcloud-8: rgb(20, 20, 20);
+    --huzerovo-tagcloud-9: rgb(0, 0, 0);
+
+    --huzerovo-tagcloud-hover: black;
+}
+
 /*
  * 网站整体样式框架，不包括颜色设置
  */
 html {
     font-family: sans;
-    font-size: large;
+    /* font-size: large; */
     scroll-behavior: smooth;
     scroll-padding-top: 50px;
 }
 
-html::-webkit-scrollbar {
+
+*::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
+*:hover::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
-html::-webkit-scrollbar-track {
+
+*::-webkit-scrollbar-track {
     border-radius: 8px;
 }
-html::-webkit-scrollbar-thumb{
+
+*::-webkit-scrollbar-thumb {
     border-radius: 8px;
 }
 
@@ -36,7 +95,7 @@ body {
         border: none;
         cursor: pointer;
     }
-    
+
     footer.site-footer {
         text-align: center;
         font-size: smaller;

@@ -4,21 +4,31 @@
     position: sticky;
     top: 0;
     z-index: 9;
-    
+
+    background-color: var(--huzerovo-background);
+    border-bottom: solid 1px var(--huzerovo-line);
+    opacity: 0.9;
     transition: background-color .3s;
 
+    #active-page {
+        background-color: var(--huzerovo-btn-bg-active);
+        color: var(--huzerovo-btn-text-active);
+    }
+
     .topbar-container {
+
         width: 80%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-    
+
         .topbar-menu {
             max-width: 70%;
             overflow-x: scroll;
             scrollbar-width: none;
-            ul{
+
+            ul {
                 display: flex;
                 align-items: center;
                 list-style-type: none;
@@ -29,11 +39,17 @@
                     min-width: fit-content;
                 }
             }
-            
+
             a {
+                color: var(--huzerovo-btn-text);
                 display: block;
                 padding: 8px 16px;
                 text-decoration: none;
+            }
+
+            a:hover:not(.active) {
+                background-color: var(--huzerovo-btn-bg-hover);
+                color: var(--huzerovo-btn-text-hover);
             }
 
         }
@@ -50,10 +66,11 @@
             scrollbar-width: none;
             transition: color .3s;
             margin: auto 0;
-        
+
             .icon-button {
                 padding: 8px 16px;
                 border: none;
+                color: var(--huzerovo-btn-text);
                 cursor: pointer;
                 background: none;
                 font-size: 16px;
@@ -86,6 +103,7 @@
                 display: flex;
                 justify-content: center;
             }
+
             .topbar-icon-buttons {
                 display: grid;
                 position: fixed;

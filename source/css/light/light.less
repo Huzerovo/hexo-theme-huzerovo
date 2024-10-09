@@ -1,20 +1,32 @@
-html.light::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: whitesmoke;
 }
 
-html.light::-webkit-scrollbar-thumb {
-    background: gray;
-}
-
-html.light::-webkit-scrollbar-thumb:hover {
-    background: dimgray;
-}
-
-html.light::-webkit-scrollbar-corner {
+*::-webkit-scrollbar-thumb {
     background: lightgray;
 }
 
-.light body {
+*::-webkit-scrollbar-thumb:hover {
+    background: gray;
+}
+
+*::-webkit-scrollbar-corner {
+    background: dimgray;
+}
+
+a {
+    color: var(--huzerovo-link);
+}
+
+a:visited {
+    color: var(--huzerovo-link-visted);
+}
+
+a:hover {
+    color: var(--huzerovo-link-hover);
+}
+
+body {
     background-color: whitesmoke;
     color: rgb(50, 50, 50);
 
@@ -24,24 +36,17 @@ html.light::-webkit-scrollbar-corner {
         opacity: 50%;
     }
 
-    @import 'light-topbar.less';
-    @import 'light-main.less';
+main {
+    @import 'light-archive.less';
+    @import 'light-category.less';
+}
 
     footer.site-footer {
-        color: gray;
-
-        a {
-            color: #9999ff;
-        }
-
-        a:visited {
-            color: tomato;
-        }
-
-        a:hover {
-            color: #66ccff;
-        }
+        color: var(--huzerovo-additional-text);
     }
 
-    @import 'light-pager.less';
+}
+
+mark {
+    background-color: var(--huzerovo-mark-color);
 }

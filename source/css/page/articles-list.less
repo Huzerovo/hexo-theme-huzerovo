@@ -6,12 +6,19 @@
         border-radius: 16px;
         overflow: hidden;
         transition: background-color .3s;
+        background-color: var(--huzerovo-background-highlight);
 
         a {
+            color: var(--huzerovo-normal-text);
             margin: 32px;
             display: block;
             text-decoration: none;
             overflow: hidden;
+
+            :hover {
+
+            color: var(--huzerovo-notable-text);
+            }
         }
         
         .item-gallery {
@@ -36,8 +43,10 @@
             justify-content: space-between;
             margin: 32px;
             position: relative;
+            color: var(--huzerovo-additional-text);
             
             .item-footer-todo {
+                color: var(--huzerovo-warn-color);
                 margin: 0px;
                 text-align: left;
                 .item-footer-todo-msg {
@@ -50,6 +59,9 @@
                 position: absolute;
                 right: 0px;
                 bottom: 0px;
+            }
+            .item-footer-finished {
+                color: var(--huzerovo-done-color);
             }
         }
     }
