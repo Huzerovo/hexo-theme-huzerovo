@@ -1,8 +1,6 @@
-
-        <%# 文章有标题才显示标题 %>
-        <% if (post.title && post.title !== '') { %>
-            <p class="item-title">
-                <%= post.title %>
-            </p>
-        <% } %>
-
+<%# 文章有标题才显示标题 %>
+<% if (post.title && post.title !== '') { %>
+    <p class="post-entry-title">
+        <%= post.title %>
+    </p>
+<% } %>

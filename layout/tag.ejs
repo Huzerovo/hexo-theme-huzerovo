@@ -9,6 +9,6 @@
         <%- _p("tags") %>: <%= page.tag %>
     </h1>
     <%- partial("partial/pager") %>
-    <%- partial("partial/list-articles", {posts: page.posts.toArray()}) %>
+    <%- partial("partial/post-entry-list", {posts: page.posts.toArray()}) %>
     <%- partial("partial/pager") %>
 </main>

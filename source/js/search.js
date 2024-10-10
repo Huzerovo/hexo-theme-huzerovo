@@ -93,7 +93,7 @@ function search_with_regex(k, article) {
                 html_str = `
         <article class="articles-list-item">
             <a href="${article.url}">
-                <p class="item-title">
+                <p class="post-entry-title">
                     ${title}
                 </p>
                 <p class="item-content">
@@ -159,7 +159,7 @@ function search_with_keywords(keywords, article) {
             return `
         <article class="articles-list-item">
             <a href="${article.url}">
-                <p class="item-title">
+                <p class="post-entry-title">
                     ${title}
                 </p>
                 <p class="item-content">

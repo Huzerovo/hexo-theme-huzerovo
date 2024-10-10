@@ -9,60 +9,63 @@
         background-color: var(--huzerovo-background-highlight);
 
         a {
-            color: var(--huzerovo-normal-text);
+            color: var(--huzerovo-additionable-text);
             margin: 32px;
             display: block;
             text-decoration: none;
             overflow: hidden;
+        }
 
-            :hover {
-
+        a:hover {
             color: var(--huzerovo-notable-text);
-            }
         }
-        
-        .item-gallery {
+    }
+
+    .item-gallery {
+        margin: 0px;
+
+        img {
+            cursor: pointer;
+            width: 100%;
+        }
+    }
+
+    .post-entry-title {
+        font-size: 24px;
+        margin-top: 0;
+    }
+
+    .item-content {
+        margin: 0;
+        color: var(--huzerovo-trivial-text);
+    }
+
+    .item-footer {
+        display: flex;
+        justify-content: space-between;
+        margin: 32px;
+        position: relative;
+        color: var(--huzerovo-trivial-text);
+
+        .item-footer-todo {
+            color: var(--huzerovo-warn-color);
             margin: 0px;
-            img {
-                cursor: pointer;
-                width: 100%;
+            text-align: left;
+
+            .item-footer-todo-msg {
+                display: inline;
+                margin-right: 8px;
             }
         }
 
-        .item-title {
-            font-size: 24px;
-            margin-top: 0;
-        }
-        
-        .item-content {
-            margin: 0;
+        .item-footer-pin {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
         }
 
-        .item-footer {
-            display: flex;
-            justify-content: space-between;
-            margin: 32px;
-            position: relative;
-            color: var(--huzerovo-trivial-text);
-            
-            .item-footer-todo {
-                color: var(--huzerovo-warn-color);
-                margin: 0px;
-                text-align: left;
-                .item-footer-todo-msg {
-                    display: inline;
-                    margin-right: 8px;
-                }
-            }
-
-            .item-footer-pin {
-                position: absolute;
-                right: 0px;
-                bottom: 0px;
-            }
-            .item-footer-finished {
-                color: var(--huzerovo-done-color);
-            }
+        .item-footer-finished {
+            color: var(--huzerovo-done-color);
         }
     }
 }

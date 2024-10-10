@@ -46,8 +46,8 @@ katex:
 
 # 网站主题
 style:
-  light: 'css/light/light.css'
-  dark: 'css/dark/dark.css'
+  light: 'css/light.css'
+  dark: 'css/dark.css'
 
 # Gitalk配置
 gitalk:

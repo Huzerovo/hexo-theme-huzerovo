@@ -64,30 +64,8 @@
 
 <body>
     <%- body %>
-    <%# 返回顶部按钮 %>
-    <button id="goto-top" type="button" title="<%= _p("goto_top") %>">
-        <%= _p('goto_top') %>
-    </button>
-    <footer class="site-footer">
-        <p> © <%= date(Date.now(), 'YYYY') %> 
-        <% if (theme.email) { %>
-            <a href="mailto:<%= theme.email %>">
-                <i class='bi bi-envelope-fill'></i>
-                @<%= config.author %>
-            </a>
-        <% } else { %>
-            @<%= config.author %>
-        <% } %>
-        </p>
-        <p>
-            <%- get_cc() %>
-        </p>
-        <p>
-            Powered by <a href="https://hexo.io">Hexo</a>. 
-            Theme by <a href="https://github.com/Huzerovo/hexo-theme-huzerovo">狐zerOAO</a>.
-        </p>
-        <br>
-    </footer>
+    <%- partial('partial/goto-top') %>
+    <%- partial('partial/site-footer') %>
 </body>
 
 <script>

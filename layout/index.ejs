@@ -22,6 +22,6 @@ let index_posts = posts.filter((e, i) => {
         <%= theme.index %>
     </h1>
     <%- partial("partial/pager") %>
-    <%- partial("partial/list-articles", {posts: index_posts}) %>
+    <%- partial("partial/post-entry-list", {posts: index_posts}) %>
     <%- partial("partial/pager") %>
 </main>
