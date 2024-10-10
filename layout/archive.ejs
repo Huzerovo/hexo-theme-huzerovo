@@ -29,19 +29,39 @@
                 post_title = _p('untitled');
             }
         %>
+        <% if (is_year() && p.date.year() !== page.year) { continue; } %>
         <%# 第一次出现新的年份，进行显示%>
         <% if (p.date.year() !== year) { %>
             <% year = p.date.year(); %>
-            <div class="page-archive-year"><%= year %></div>
+            <% if (is_year()) { %>
+                <div class="page-archive-year"><%= year %></div>
+            <%} else {%>
+                <a href="<%= year %>" class="page-archive-year"><%= year %></a>
+            <% } %>
+
         <% } %>
+        <% if (is_month() && p.date.month()+1 !== page.month ) { continue; } %>
         <%# 显示文章信息 %>
         <div class="page-archive-item" >
             <%# 文章发布日期 %>
             <div class="page-archive-item-date">
+            <% if (is_year()) { %>
+                <% if (is_month()) { %>
                 <%= p.date.format("MM-DD") %>
+                    <% } else { %>
+
+                <a href="<%= p.date.format("MM") %>">
+                <%= p.date.format("MM-DD") %>
+                </a>
+                    <%}%>
+            <% } else {%>
+                <a href="<%= p.date.format("YYYY/MM") %>">
+                <%= p.date.format("MM-DD") %>
+                </a>
+            <%}%>
             </div>
             <%# 文章链接 %>
-            <a href="<%= post_link %>">
+            <a class="page-archive-item-link" href="<%= post_link %>">
                 <%= post_title %>
             </a>
         </div>
