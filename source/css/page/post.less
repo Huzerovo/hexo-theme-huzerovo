@@ -103,8 +103,7 @@
     blockquote {
         background-color: var(--huzerovo-block-background);
         color: var(--huzerovo-block-text);
-        border-left-width: 3px;
-        border-left-style: solid;
+        border-left: solid 3px var(--huzerovo-line);
         margin: 8px 0px;
         padding: 0px 2em;
         width: calc(100% - 64px - 3px);
@@ -178,6 +177,7 @@
 
         code:not([class~="hljs"]) {
             background-color: var(--huzerovo-code-background);
+            color: var(--huzerovo-code-text);
         }
     }
 

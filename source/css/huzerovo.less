@@ -9,21 +9,21 @@
 }
 
 *::-webkit-scrollbar-track {
-    background: whitesmoke;
+    background: var(--huzerovo-scrollbar-track);
     border-radius: 8px;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: lightgray;
+    background: var(--huzerovo-scrollbar-thumb);
     border-radius: 8px;
 
     :hover {
-        background: gray;
+        background: var(--huzerovo-scrollbar-thumb-hover);
     }
 }
 
 *::-webkit-scrollbar-corner {
-    background: dimgray;
+    background: var(--huzerovo-scrollbar-corner);
 }
 
 html {
@@ -35,7 +35,7 @@ html {
 body {
     margin: 0;
     transition: 300ms;
-    background-color: whitesmoke;
+    background-color: var(--huzerovo-background);
     color: var(--huzerovo-normal-text);
 }
 
