@@ -88,7 +88,7 @@ $(document).ready(function() {
             e.addClass(hide);
         }
     });
-    $('#search').on('input', function() {
+    $('#search-input').on('input', function() {
         searchArticle("<%= url_for(config.search.path) %>");
     });
     $('#goto-top').click(function() {

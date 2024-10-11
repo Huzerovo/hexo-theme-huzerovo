@@ -1,11 +1,11 @@
 let articles = null;
 
 function clear_error() {
-    $('#search').removeAttr('style');
+    $('#search-input').removeAttr('style');
 }
 
 function regex_error() {
-    $('#search').attr('style', 'color: red;');
+    $('#search-input').attr('style', 'color: red;');
 }
 
 /*
@@ -175,7 +175,7 @@ function search_with_keywords(keywords, article) {
 // 这个实现在具有大量文章时可能表现不佳
 function searchArticle(path) {
     clear_error();
-    let pattern = $('#search').val().trim();
+    let pattern = $('#search-input').val().trim();
     // 输入为空
     if (pattern.length < 1) {
         $('#search-result .articles-list').empty();
