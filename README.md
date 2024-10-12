@@ -18,6 +18,7 @@
 `index`：此字段用于配置首页标题。
 
 `menu`：此字段用于配置顶栏中的导航选项。其中：
+
 - `title`用于配置导航显示的名称。
 - `link`用于配置导航链接。
 
@@ -91,22 +92,23 @@ style:
 ```yaml
 search:
   enable: true
-  link: '/search'
+  link: "/search"
 ```
 
 `search`字段用于配置搜索功能。
+
 - `enable`：是否启用搜索功能，启用搜索功能需要安装`hexo-generator-searchdb`。
 - `link`：搜素页面路径，需要手动创建。
 
-   ```shell
-   hexo new page search
-   ```
+  ```shell
+  hexo new page search
+  ```
 
-   并编辑`source/search/index.md`，保证Front-matter区域存在字段：
+  并编辑`source/search/index.md`，保证Front-matter区域存在字段：
 
-   ```yml
-   title: search
-   ```
+  ```yml
+  title: search
+  ```
 
 > 搜索功能持续开发中...
 
@@ -147,18 +149,20 @@ search:
    hljs:
      enable: true
      # CDN链接
-     js: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'
+     js: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
      css:
        # 可使用CDN链接
        light: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
        # 也可以使用本地文件
        dark: "css/github-dark.min.css"
    ```
+
    其中，`light`表示在亮色模式下使用的样式，`dark`则是深色模式使用的样式。
 
 ### Gitalk配置
 
 `gitalk.source`用于配置Gitalk使用到的资源。
+
 - `css`：Gitalk样式。
 - `js`：Gitalk脚本。
 - `md5js`：主题使用文章标题的md5值作为文章的Gitalk id。
@@ -188,7 +192,7 @@ search:
 
 ## 主题开发已完成
 
-- [x] 深色主题  
+- [x] 深色主题
 - [x] 响应式设计
 - [x] 搜索
 - [x] 评论

@@ -1,71 +1,71 @@
 *::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
+  width: 1px;
+  height: 1px;
 }
 
 *:hover::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--huzerovo-scrollbar-track);
-    border-radius: 8px;
+  background: var(--huzerovo-scrollbar-track);
+  border-radius: 8px;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: var(--huzerovo-scrollbar-thumb);
-    border-radius: 8px;
+  background: var(--huzerovo-scrollbar-thumb);
+  border-radius: 8px;
 
-    :hover {
-        background: var(--huzerovo-scrollbar-thumb-hover);
-    }
+  :hover {
+    background: var(--huzerovo-scrollbar-thumb-hover);
+  }
 }
 
 *::-webkit-scrollbar-corner {
-    background: var(--huzerovo-scrollbar-corner);
+  background: var(--huzerovo-scrollbar-corner);
 }
 
 html {
-    font-family: sans;
-    scroll-behavior: smooth;
-    scroll-padding-top: 50px;
+  font-family: sans;
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px;
 }
 
 body {
-    margin: 0;
-    transition: 300ms;
-    background-color: var(--huzerovo-background);
-    color: var(--huzerovo-normal-text);
+  margin: 0;
+  transition: 300ms;
+  background-color: var(--huzerovo-background);
+  color: var(--huzerovo-normal-text);
 }
 
 a {
-    color: var(--huzerovo-link);
+  color: var(--huzerovo-link);
 }
 
 a:visited {
-    color: var(--huzerovo-link-visted);
+  color: var(--huzerovo-link-visted);
 }
 
 a:hover {
-    color: var(--huzerovo-link-hover);
+  color: var(--huzerovo-link-hover);
 }
 
 hr {
-    border: solid 1px var(--huzerovo-line);
-    border-top: none;
+  border: solid 1px var(--huzerovo-line);
+  border-top: none;
 }
 
 strong {
-    color: var(--huzerovo-notable-text);
+  color: var(--huzerovo-notable-text);
 }
 
 mark {
-    background-color: var(--huzerovo-mark-color);
+  background-color: var(--huzerovo-mark-color);
 }
 
-@import 'goto-btn.less';
-@import 'topbar.less';
-@import 'main.less';
-@import 'pager.less';
-@import 'site-footer.less';
+@import "goto-btn.less";
+@import "topbar.less";
+@import "main.less";
+@import "pager.less";
+@import "site-footer.less";

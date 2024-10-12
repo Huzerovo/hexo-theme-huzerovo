@@ -19,14 +19,14 @@ menu:
     title: 关于我
     link: /about
 
-# 配置默认封面，需要在文章内启用封面      
+# 配置默认封面，需要在文章内启用封面
 covers:
-  - '/covers/cov_0.jpg'
-  - '/covers/cov_1.jpg'
-  - '/covers/cov_2.jpg'
+  - "/covers/cov_0.jpg"
+  - "/covers/cov_1.jpg"
+  - "/covers/cov_2.jpg"
 
 # 邮箱
-email: 'example@example.com'
+email: "example@example.com"
 
 # 网站搜索功能
 search:
@@ -41,63 +41,63 @@ katex:
   enable: true
   css: https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
   js:
-    - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js 
+    - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
     - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
 
 # 网站主题
 style:
-  light: 'css/light.css'
-  dark: 'css/dark.css'
+  light: "css/light.css"
+  dark: "css/dark.css"
 
 # Gitalk配置
 gitalk:
   enable: true
   source:
-    css: 'https://cdn.bootcdn.net/ajax/libs/gitalk/1.8.0/gitalk.css'
-    js: 'https://cdn.bootcdn.net/ajax/libs/gitalk/1.8.0/gitalk.js'
-    md5js: 'https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js'
+    css: "https://cdn.bootcdn.net/ajax/libs/gitalk/1.8.0/gitalk.css"
+    js: "https://cdn.bootcdn.net/ajax/libs/gitalk/1.8.0/gitalk.js"
+    md5js: "https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"
   config:
-    clientID: 'Github Application Client ID'
-    clientSecret: 'Github Application Client Secret'
-    repo: 'Github repo'
-    owner: 'Github repo owner'
-    admin: 
-      - 'Github repo owner and collaborators'
+    clientID: "Github Application Client ID"
+    clientSecret: "Github Application Client Secret"
+    repo: "Github repo"
+    owner: "Github repo owner"
+    admin:
+      - "Github repo owner and collaborators"
     distractionFreeMode: false
 
 # jQurey CDN
-jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js'
+jquery: "https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"
 
 # Fancybox
 fancybox:
   enable: true
-  css: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css'
-  js: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js'
+  css: "https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css"
+  js: "https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js"
 
 # highlight.js 配置
 hljs:
   enable: true
   # highlight.js CDN
-  js: 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js'
+  js: "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"
   css:
-    light: 'css/github.min.css'
-    dark: 'css/github-dark.min.css'
+    light: "css/github.min.css"
+    dark: "css/github-dark.min.css"
 
 # bootstrap CDN
-bootstrap: 'https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.11.0/font/bootstrap-icons.min.css'
+bootstrap: "https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.11.0/font/bootstrap-icons.min.css"
 
 # 外链
 links:
   github:
-    title: 'Github'
-    class: 'bi bi-github'
-    url: 'https://github.com'
+    title: "Github"
+    class: "bi bi-github"
+    url: "https://github.com"
 # bilibili:
 #   title: 'BiliBili'
 #   class: 'fa-brands fa-bilibili'
 #   url: 'https://www.bilibili.com'
 
 creativecommons:
-  license: 'CC BY-NC-ND 4.0'
+  license: "CC BY-NC-ND 4.0"
   link: https://creativecommons.org/licenses/by-nc-nd/4.0/
   desctiption: 如无特殊说明，网站内容采用#授权

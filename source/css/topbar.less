@@ -1,114 +1,112 @@
 #topbar {
-    width: 100%;
-    margin: 0;
-    position: sticky;
-    top: 0;
-    z-index: 9;
+  width: 100%;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  z-index: 9;
 
-    background-color: var(--huzerovo-background);
-    border-bottom: solid 1px var(--huzerovo-line);
-    opacity: 0.9;
-    transition: background-color .3s;
+  background-color: var(--huzerovo-background);
+  border-bottom: solid 1px var(--huzerovo-line);
+  opacity: 0.9;
+  transition: background-color 0.3s;
 
-    #active-page {
-        background-color: var(--huzerovo-btn-bg-active);
-        color: var(--huzerovo-btn-text-active);
-    }
+  #active-page {
+    background-color: var(--huzerovo-btn-bg-active);
+    color: var(--huzerovo-btn-text-active);
+  }
 
-    .topbar-container {
+  .topbar-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
-        width: 80%;
-        margin: 0 auto;
+    .topbar-menu {
+      max-width: 70%;
+      overflow-x: scroll;
+      scrollbar-width: none;
+
+      ul {
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
 
-        .topbar-menu {
-            max-width: 70%;
-            overflow-x: scroll;
-            scrollbar-width: none;
-
-            ul {
-                display: flex;
-                align-items: center;
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-
-                li {
-                    min-width: fit-content;
-                }
-            }
-
-            a {
-                color: var(--huzerovo-btn-text);
-                display: block;
-                padding: 8px 16px;
-                text-decoration: none;
-            }
-
-            a:hover {
-                background-color: var(--huzerovo-btn-bg-hover);
-                color: var(--huzerovo-btn-text-hover);
-            }
-
+        li {
+          min-width: fit-content;
         }
+      }
 
-        .topbar-menu::-webkit-scrollbar {
-            display: none;
-        }
+      a {
+        color: var(--huzerovo-btn-text);
+        display: block;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
 
-        .topbar-icon-buttons {
-            max-width: 30%;
-            overflow-x: scroll;
-            display: flex;
-            align-content: center;
-            transition: color .3s;
-            margin: auto 0;
-
-            .icon-button {
-                padding: 8px 16px;
-                border: none;
-                color: var(--huzerovo-btn-text);
-                cursor: pointer;
-                background: none;
-                font-size: 16px;
-            }
-        }
-
-        .topbar-icon-buttons::-webkit-scrollbar {
-            display: none;
-        }
+      a:hover {
+        background-color: var(--huzerovo-btn-bg-hover);
+        color: var(--huzerovo-btn-text-hover);
+      }
     }
+
+    .topbar-menu::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topbar-icon-buttons {
+      max-width: 30%;
+      overflow-x: scroll;
+      display: flex;
+      align-content: center;
+      transition: color 0.3s;
+      margin: auto 0;
+
+      .icon-button {
+        padding: 8px 16px;
+        border: none;
+        color: var(--huzerovo-btn-text);
+        cursor: pointer;
+        background: none;
+        font-size: 16px;
+      }
+    }
+
+    .topbar-icon-buttons::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 @media screen and (max-width: 960px) {
-    #topbar {
-        .topbar-container {
-            width: 95%;
-        }
+  #topbar {
+    .topbar-container {
+      width: 95%;
     }
+  }
 }
 
 @media screen and (max-width: 640px) {
-    #topbar {
-        .topbar-container {
-            width: 100%;
-            justify-content: center;
+  #topbar {
+    .topbar-container {
+      width: 100%;
+      justify-content: center;
 
-            .topbar-menu {
-                max-width: unset;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
+      .topbar-menu {
+        max-width: unset;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
 
-            .topbar-icon-buttons {
-                display: grid;
-                position: fixed;
-                bottom: 5%;
-                left: 5%;
-            }
-        }
+      .topbar-icon-buttons {
+        display: grid;
+        position: fixed;
+        bottom: 5%;
+        left: 5%;
+      }
     }
+  }
 }
