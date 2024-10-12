@@ -6,63 +6,62 @@
 <%# 意义：正在活跃的页面名称 %>
 
 <header id="topbar">
-    <div class="topbar-container">
-        <%# 左侧的页面导航 %>
-        <nav class="topbar-menu">
-            <ul>
-            <% for (let i in theme.menu) { %>
-                <li>
-                <%# 在一些页面里不会传入active，表明无需高亮，需要判断一下 %>
-                <% if (typeof(active) !== 'undefined' && i === active) { %> 
-                    <%- link_to(theme.menu[i].link, theme.menu[i].title, {id: "active-page"}) %>
-                <% } else { %>
-                    <%- link_to(theme.menu[i].link, theme.menu[i].title) %>
-                <% } %>
-                </li>
-            <% } %>
-            </ul>
-        </nav>
+  <div class="topbar-container">
+    <%# 左侧的页面导航 %>
+    <nav class="topbar-menu">
+      <ul>
+        <% for (let i in theme.menu) { %>
+        <li>
+          <%# 在一些页面里不会传入active，表明无需高亮，需要判断一下 %>
+          <% if (typeof(active) !== 'undefined' && i === active) { %>
+          <%- link_to(theme.menu[i].link, theme.menu[i].title, {id: "active-page"}) %>
+          <% } else { %>
+          <%- link_to(theme.menu[i].link, theme.menu[i].title) %>
+          <% } %>
+        </li>
+        <% } %>
+      </ul>
+    </nav>
 
-        <%# 右侧的一些图标按钮 %>
-        <div class="topbar-icon-buttons">
-            <!-- social link -->
-            <% for (let app in theme.links) { %>
-                <% let link = theme.links[app]; %>
-                <% if (link.class) { %>
-                <%- icon_link({
-                        title: link.title,
-                        href: link.url,
-                        icon_class: link.class
-                    }) %>
-                <% } %>
-            <% } %>
+    <%# 右侧的一些图标按钮 %>
+    <div class="topbar-icon-buttons">
+      <!-- social link -->
+      <% for (let app in theme.links) { %>
+      <% let link = theme.links[app]; %>
+      <% if (link.class) { %>
+      <%- icon_link({
+              title: link.title,
+              href: link.url,
+              icon_class: link.class
+            }) %>
+      <% } %>
+      <% } %>
 
-            <% if (theme.search.enable) { %>
-                <!-- search link -->
-                <%- icon_link({
-                        id: "btn-search",
-                        title: _p("search"),
-                        href: url_for(theme.search.link),
-                        icon_class: "bi bi-search"
-                    }); %>
-            <% } %>
+      <% if (theme.search.enable) { %>
+      <!-- search link -->
+      <%- icon_link({
+            id: "btn-search",
+            title: _p("search"),
+            href: url_for(theme.search.link),
+            icon_class: "bi bi-search"
+          }); %>
+      <% } %>
 
-            <!-- change theme btn -->
-            <%- icon_link({
-                    id: "btn-switch-theme",
-                    title: _p("switch_theme"),
-                    icon_class: "bi bi-sun"
-                }); %>
+      <!-- change theme btn -->
+      <%- icon_link({
+            id: "btn-switch-theme",
+            title: _p("switch_theme"),
+            icon_class: "bi bi-sun"
+          }); %>
 
-            <% if (config.feed.enable) { %>
-                <!-- feed link -->
-                <%- icon_link({
-                        title: _p('feed'),
-                        href: url_for(config.feed.path),
-                        icon_class: "bi bi-rss-fill"
-                    }); %>
-            <% } %>
-
-        </div>
+      <% if (config.feed.enable) { %>
+      <!-- feed link -->
+      <%- icon_link({
+            title: _p('feed'),
+            href: url_for(config.feed.path),
+            icon_class: "bi bi-rss-fill"
+          }); %>
+      <% } %>
     </div>
+  </div>
 </header>
