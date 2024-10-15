@@ -1,20 +1,20 @@
 <footer id="site-footer">
-    <p> © <%= date(Date.now(), 'YYYY') %> 
+  <p>
+    ©
+    <%= date(Date.now(), 'YYYY') %>
     <% if (theme.email) { %>
-        <a href="mailto:<%= theme.email %>">
-            <i class='bi bi-envelope-fill'></i>
-            @<%= config.author %>
-        </a>
+    <a href="mailto:<%= theme.email %>">
+      <i class="bi bi-envelope-fill"></i>
+      @<%= config.author %>
+    </a>
     <% } else { %>
-        @<%= config.author %>
+    @<%= config.author %>
     <% } %>
-    </p>
-    <p>
-        <%- get_cc() %>
-    </p>
-    <p>
-        Powered by <a href="https://hexo.io">Hexo</a>. 
-        Theme by <a href="https://github.com/Huzerovo/hexo-theme-huzerovo">狐zerOAO</a>.
-    </p>
-    <br>
+  </p>
+  <p><%- get_cc() %></p>
+  <p>
+    Powered by <a href="https://hexo.io">Hexo</a>. Theme by
+    <a href="https://github.com/Huzerovo/hexo-theme-huzerovo">狐zerOAO</a>.
+  </p>
+  <br />
 </footer>

@@ -37,9 +37,9 @@
       <% } %>
       <% } %>
 
-      <% if (theme.search.enable) { %>
       <!-- search link -->
-      <%- icon_link({
+      <% if (theme.search && theme.search.enable && theme.search.link) { %>
+        <%- icon_link({
             id: "btn-search",
             title: _p("search"),
             href: url_for(theme.search.link),
@@ -54,9 +54,9 @@
             icon_class: "bi bi-sun"
           }); %>
 
-      <% if (config.feed.enable) { %>
       <!-- feed link -->
-      <%- icon_link({
+      <% if (theme.feed && theme.feed.enable && config.feed.path) { %>
+        <%- icon_link({
             title: _p('feed'),
             href: url_for(config.feed.path),
             icon_class: "bi bi-rss-fill"

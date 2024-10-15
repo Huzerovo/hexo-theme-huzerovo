@@ -5,19 +5,17 @@
 
 <%- partial("partial/topbar", {active: page.title}) %>
 <main class="container">
-    <h1 class = "page-title">
-        <%- get_page_title(page.title) %>
-    </h1>
-    <% switch (page.title) {
+  <h1 class="page-title"><%- get_page_title(page.title) %></h1>
+  <% switch (page.title) {
         case 'about':
         case 'categories':
         case 'search':
         case 'tagcloud':
         case 'uncategorized':
     %>
-        <%- partial("page/" + page.title); %>
-        <% break; %>
-    <%  default: %>
-        <%- partial("page/default"); %>
-    <% } %>
+  <%- partial("page/" + page.title); %>
+  <% break; %>
+  <%  default: %>
+  <%- partial("page/default"); %>
+  <% } %>
 </main>

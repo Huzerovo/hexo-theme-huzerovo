@@ -3,25 +3,12 @@
 <%# 描述：默认进入首页 %>
 <%# 这个文件不接收参数 %>
 
-<%
-let index = page;
-let posts = get_posts_sort_with_pin();
-
-//# 提取出处于此页面的文章
-let per_page = config.per_page;
-let current = index.current;
-let totle = index.totle;
-let index_posts = posts.filter((e, i) => {
-        return ((i >= (current - 1) * per_page) && (i < current * per_page));
-    });
-%>
-
-<%- partial("partial/topbar", {active: "home"}) %>
+<%- partial("partial/topbar", {active:"home"}) %>
 <main class="container">
-    <h1 class="page-title">
-        <%= theme.index %>
-    </h1>
-    <%- partial("partial/pager") %>
-    <%- partial("partial/post-entry-list", {posts: index_posts}) %>
-    <%- partial("partial/pager") %>
+  <h1 class="page-title"><%= theme.index %></h1>
+  <%- partial("partial/pager") %>
+  <%- partial("partial/post-entry-list", {
+      posts: get_index_posts(page, get_posts_sort_with_pin())
+  }) %>
+  <%- partial("partial/pager") %>
 </main>

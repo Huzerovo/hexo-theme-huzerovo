@@ -3,68 +3,40 @@
 <%# 描述：这个文件以时间线的方式展示所有文章 %>
 <%# 这个文件不接收参数 %>
 
+<% 
+let posts = site.posts.sort("date","desc");
+let year = 0; 
+%>
+
 <%- partial("partial/topbar", {active: 'archive'}) %>
 <main class="container">
-    <h1 class="page-title">
-        <%= theme.menu['archive'].title %>
-    </h1>
-    <div class="page-archive">
-    <%# 获取所有文章，并按时间排序 %>
-    <% let posts = site.posts.sort("date", "desc"); %>
-    <% let year = 0; %>
-    <%# 遍历所有文章 %>
+  <h1 class="page-title"><%= theme.menu['archive'].title %></h1>
+  <div class="page-archive">
+    <%# 获取所有文章，并按时间排序 %> 
     <% for (let i = 0; i < site.posts.length; i++) { %>
-        <%
-            let p = posts.data[i];
-            let post_link = '';
-            let post_title = '';
-            if (p.link && p.link !== '') {
-                post_link = p.link;
-            } else {
-                post_link = url_for(p.path);
-            }
-            if (p.title && p.title !== '') {
-                post_title = p.title;
-            } else {
-                post_title = _p('untitled');
-            }
-        %>
-        <% if (is_year() && p.date.year() !== page.year) { continue; } %>
-        <%# 第一次出现新的年份，进行显示%>
-        <% if (p.date.year() !== year) { %>
-            <% year = p.date.year(); %>
-            <% if (is_year()) { %>
-                <div class="page-archive-year"><%= year %></div>
-            <%} else {%>
-                <a href="<%= year %>" class="page-archive-year"><%= year %></a>
-            <% } %>
-
+      <% let p = posts.data[i]; %>
+      <% if (is_year() && p.date.year() !== page.year) { continue; } %>
+      <%# Year tag show only once. %>
+      <% if (p.date.year() !== year) { %>
+        <% year = p.date.year(); %>
+        <% if (is_year()) { %>
+          <div class="page-archive-year"><%= year %></div>
+        <% } else { %>
+          <a href="<%= year %>" class="page-archive-year"><%= year %></a>
         <% } %>
-        <% if (is_month() && p.date.month()+1 !== page.month ) { continue; } %>
-        <%# 显示文章信息 %>
-        <div class="page-archive-item" >
-            <%# 文章发布日期 %>
-            <div class="page-archive-item-date">
-            <% if (is_year()) { %>
-                <% if (is_month()) { %>
-                <%= p.date.format("MM-DD") %>
-                    <% } else { %>
-
-                <a href="<%= p.date.format("MM") %>">
-                <%= p.date.format("MM-DD") %>
-                </a>
-                    <%}%>
-            <% } else {%>
-                <a href="<%= p.date.format("YYYY/MM") %>">
-                <%= p.date.format("MM-DD") %>
-                </a>
-            <%}%>
-            </div>
-            <%# 文章链接 %>
-            <a class="page-archive-item-link" href="<%= post_link %>">
-                <%= post_title %>
-            </a>
+      <% } %>
+      <% if (is_month() && p.date.month() + 1 !== page.month ) { continue; } %>
+      <%# 显示文章信息 %>
+      <div class="page-archive-item">
+        <%# 文章发布日期 %>
+        <div class="page-archive-item-date">
+          <%- archive_month_tag(is_year(), is_month(), p) %>
         </div>
-    <% } %>
-    </div>
+        <%# 文章链接 %>
+        <a class="page-archive-item-link" href="<%= get_post_link(p) %>">
+          <%= get_post_title(p) %>
+        </a>
+      </div> <!-- page-archive-item -->
+    <% } %> <%# for END %>
+  </div> <!-- page-archive -->
 </main>

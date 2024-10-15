@@ -1,20 +1,30 @@
 <div class="item-gallery">
-    <% let cover_pic = covers.pop(); %>
-    <a data-fancybox="gallery-<%= gallery_id %>" style="margin: 0;" href="<%= cover_pic.toString() %>">
-        <img loading="lazy" 
-            src="<%= cover_pic.toString() %>" 
-            alt="<%= cover_pic.toString() %>" 
-        />
-    </a>
+  <% let cover_pic = covers.pop(); %>
+  <a
+    data-fancybox="gallery-<%= gallery_id %>"
+    style="margin: 0"
+    href="<%= cover_pic.toString() %>"
+  >
+    <img
+      loading="lazy"
+      src="<%= cover_pic.toString() %>"
+      alt="<%= cover_pic.toString() %>"
+    />
+  </a>
 
-    <div style="display: none">
+  <div style="display: none">
     <% for (pic of covers) { %>
-        <a data-fancybox="gallery-<%= gallery_id %>" style="margin: 0;" href="<%= pic.toString() %>">
-            <img loading="lazy" 
-                src="<%= pic.toString() %>" 
-                alt="<%= pic.toString() %>" 
-            />
-        </a>
+    <a
+      data-fancybox="gallery-<%= gallery_id %>"
+      style="margin: 0"
+      href="<%= pic.toString() %>"
+    >
+      <img
+        loading="lazy"
+        src="<%= pic.toString() %>"
+        alt="<%= pic.toString() %>"
+      />
+    </a>
     <% } %>
-    </div>
+  </div>
 </div>
