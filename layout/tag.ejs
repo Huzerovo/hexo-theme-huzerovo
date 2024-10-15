@@ -5,10 +5,8 @@
 
 <%- partial("partial/topbar") %>
 <main class="container">
-    <h1 class="page-title">
-        <%- _p("tags") %>: <%= page.tag %>
-    </h1>
-    <%- partial("partial/pager") %>
-    <%- partial("partial/post-entry-list", {posts: page.posts.toArray()}) %>
-    <%- partial("partial/pager") %>
+  <h1 class="page-title"><%- _p("tags") %>: <%= page.tag %></h1>
+  <%- partial("partial/pager") %>
+  <%- partial("partial/post-entry-list", { posts: page.posts.toArray() }) %>
+  <%- partial("partial/pager") %>
 </main>

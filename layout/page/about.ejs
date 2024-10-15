@@ -4,24 +4,23 @@
 <%# 这个文件不接收参数 %>
 
 <div class="page-about-me">
-    <% if (page.avatar && page.avatar_size) { %>
-        <img class="page-about-avatar"
-            style="<%= get_avatar_size(page.avatar_size) %>" 
-            alt="avatar" 
-            src="<%- theme.menu.about.link + url_for(page.avatar) %>"
-            />
-    <% } %>
-    <div class="article-container page-about-description">
-        <%- page.excerpt %>
-    </div>
+<% if (page.avatar && page.avatar_size) { %>
+  <img
+    class="page-about-avatar"
+    style="<%= get_avatar_size(page.avatar_size) %>"
+    alt="avatar"
+    src="<%- theme.menu.about.link + url_for(page.avatar) %>"
+  />
+<% } %>
+  <div class="article-container page-about-description">
+    <%- page.excerpt %>
+  </div>
 </div>
 
 <div class="article-container page-about-content">
-    <hr/>
-    <%- page.more %>
-    <% if (page.gitalk) { %>
-    <div class="article-comment">
-        <%- partial('partial/gitalk') %>
-    </div>
-    <% } %>
+  <hr />
+  <%- page.more %>
+  <% if (page.gitalk) { %>
+    <div class="article-comment"><%- partial('partial/gitalk') %></div>
+  <% } %>
 </div>

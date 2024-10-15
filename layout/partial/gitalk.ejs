@@ -1,15 +1,15 @@
 <%# Gitalk评论 %>
 <% if (theme.gitalk.enable && page.gitalk && page.title && !(page.title === '')) { %>
-    <div id="gitalk-container"></div>
-    <%- css(theme.gitalk.source.css) %>
-    <%- js(theme.gitalk.source.js) %>
-    <%- js(theme.gitalk.source.md5js) %>
-    <script>
-        let c = <%- get_gitalk_conf(page.title, page.issue_id) %>;
-        c.id = md5(c.title);
-        let gitalk = new Gitalk(c);
-        gitalk.render("gitalk-container");
-    </script>
+<div id="gitalk-container"></div>
+<%- css(theme.gitalk.source.css) %>
+<%- js(theme.gitalk.source.js) %>
+<%- js(theme.gitalk.source.md5js) %>
+<script>
+  let c = <%- get_gitalk_conf(page.title, page.issue_id) %>;
+  c.id = md5(c.title);
+  let gitalk = new Gitalk(c);
+  gitalk.render("gitalk-container");
+</script>
 <% } else { %>
-    <p><%= _p("comment_disabled") %></p>
+<p><%= _p("comment_disabled") %></p>
 <% } %>

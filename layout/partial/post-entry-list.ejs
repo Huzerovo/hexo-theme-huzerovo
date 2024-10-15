@@ -5,34 +5,30 @@
 <%# 类型：Array %>
 <%# 意义：需要显示的文章的数组 %>
 
-<% if (typeof(posts) !== 'undefined') { %>
-<article class="articles-list">
-<% for (let i = 0; i < posts.length; i++) {
-    let p = posts[i]
-    let covers = get_post_covers(p);
-    //# 是否为外部文章
-    let post_link = '';
-    if (p.link && p.link !== '') {
-        post_link = url_for(p.link);
-    } else {
-        post_link = url_for(p.path);
-    }
-%>
+<div class="articles-list">
+  <% for (let i = 0; i < posts.length; i++) { %>
+    <% let p = posts[i]; %>
+    <% let covers = get_post_covers(p); %>
+    <% let post_link = ''; %>
+    <% if (p.link && p.link !== '') { %>
+      <% post_link = url_for(p.link); %>
+    <% } else { %>
+      <% post_link = url_for(p.path);%>
+    <% } %>
     <article class="articles-list-item">
-    <% if (covers.length > 0) {
-        if (p.gallery) { %>
-            <%- partial('post_entry/gallery', { covers: covers, gallery_id: i }) %>
-        <% } else { %>
-            <%- partial('post_entry/cover', { covers: covers }) %>
-        <% } %>
+    <% if (covers.length > 0) { %>
+      <% if (p.gallery) { %>
+      <%- partial('post_entry/gallery', { covers: covers, gallery_id: i }) %>
+      <% } else { %>
+      <%- partial('post_entry/cover', { covers: covers }) %>
+      <% } %>
     <% } %>
 
-        <a href="<%= post_link %>">
-            <%- partial('post_entry/title', { post: p }) %>
-            <%- partial('post_entry/excerpt', { post: p }) %>
-        </a>
-        <%- partial('post_entry/footer', { post: p }) %>
+    <a href="<%= post_link %>">
+      <%- partial('post_entry/title', { post: p }) %> 
+      <%- partial('post_entry/excerpt', { post: p }) %>
+    </a>
+    <%- partial('post_entry/footer', { post: p }) %>
     </article>
-<% } //# for END%>
-</article>
-<% } %>
+  <% } //# for END %>
+</div>
