@@ -30,7 +30,7 @@ email: "example@example.com"
 
 # 网站搜索功能
 search:
-  enable: true
+  enable: false
   link: /search
 
 # 是否开启目录，这是个全局选项
@@ -100,4 +100,4 @@ links:
 creativecommons:
   license: "CC BY-NC-ND 4.0"
   link: https://creativecommons.org/licenses/by-nc-nd/4.0/
-  desctiption: 如无特殊说明，网站内容采用#授权
+  description: 如无特殊说明，网站内容采用#授权

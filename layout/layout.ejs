@@ -97,21 +97,26 @@
     $(document).ready(function () {
       // 监听事件
       $("#btn-switch-theme").click(switchThemeClickHandler);
-      $("#btn-side-menu").click(function () {
-        let e = $("#side-nav");
-        let hide = "side-menu-hidden";
-        let show = "side-menu-show";
-        if (e.hasClass(hide)) {
-          e.removeClass(hide);
-          e.addClass(show);
-        } else {
-          e.removeClass(show);
-          e.addClass(hide);
-        }
-      });
-      $("#search-input").on("input", function () {
-        searchArticle("<%= url_for(config.search.path) %>");
-      });
+
+      // $("#btn-side-menu").click(function () {
+      //   let e = $("#side-nav");
+      //   let hide = "side-menu-hidden";
+      //   let show = "side-menu-show";
+      //   if (e.hasClass(hide)) {
+      //     e.removeClass(hide);
+      //     e.addClass(show);
+      //   } else {
+      //     e.removeClass(show);
+      //     e.addClass(hide);
+      //   }
+      // });
+
+      <% if (theme.search.enable) { %>
+        $("#search-input").on("input", function () {
+          searchArticle("<%= url_for(config.search.path) %>");
+        });
+      <% } %>
+
       $("#goto-top").click(function () {
         $("#root").scrollTop(0);
       });
@@ -128,4 +133,5 @@
       Fancybox.bind("[data-fancybox]");
     });
   </script>
+
 </html>
